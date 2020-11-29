@@ -1,0 +1,56 @@
+[
+    {
+        "description": "IoT sensor id",
+        "mode": "NULLABLE",
+        "name": "sensorID",
+        "type": "STRING"
+    },
+    {
+        "description": "unsure which zone used",
+        "mode": "NULLABLE",
+        "name": "timecollected",
+        "type": "TIMESTAMP"
+    },
+    {
+        "description": "location of assigned US Post Office",
+        "mode": "NULLABLE",
+        "name": "zipcode",
+        "type": "INTEGER"
+    },
+    {
+        "description": "location NS",
+        "mode": "NULLABLE",
+        "name": "latitude",
+        "type": "FLOAT"
+    },
+    {
+        "description": "location EW",
+        "mode": "NULLABLE",
+        "name": "longitude",
+        "type": "FLOAT"
+    },
+    {
+        "description": "degrees C",
+        "mode": "NULLABLE",
+        "name": "temperature",
+        "type": "FLOAT"
+    },
+    {
+        "description": "",
+        "mode": "NULLABLE",
+        "name": "humidity",
+        "type": "FLOAT"
+    },
+    {
+        "description": "temperature at which airborne water vapor condenses to form liquid water",
+        "mode": "NULLABLE",
+        "name": "dewpoint",
+        "type": "FLOAT"
+    },
+    {
+        "description": "barometric pressure",
+        "mode": "NULLABLE",
+        "name": "pressure",
+        "type": "FLOAT"
+    }
+]
