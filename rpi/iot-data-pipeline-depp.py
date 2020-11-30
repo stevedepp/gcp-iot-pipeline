@@ -24,20 +24,12 @@ sensorZipCode = 18938
 sensorLat = 40.364342
 sensorLong = -74.951492
 
-
-
 # Create library object using our Bus I2C port
 i2c = busio.I2C(board.SCL, board.SDA)
 sensor = adafruit_bmp280.Adafruit_BMP280_I2C(i2c)
 
 # change this to match the location's pressure (hPa) at sea level
 sensor.sea_level_pressure = 1013.25
-
-#while True:
-#    print("\nTemperature: %0.1f C" % sensor.temperature)
-#    print("Pressure: %0.1f hPa" % sensor.pressure)
-#    print("Altitude = %0.2f meters" % sensor.altitude)
-#    time.sleep(2)
 
 def read_sensor(weathersensor):
     tempF = weathersensor.temperature
@@ -78,7 +70,7 @@ def main():
             last_checked = time.time()
             temp, hum, dew, pres = read_sensor(sensor)
             print(temp,hum, dew, pres)
-            currentTime = datetime.datetime.utcnow().strftime('%m-%d-%Y %H:%M:%S')
+            currentTime = datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
             s = ", "
             weatherJSON = createJSON(sensorID, currentTime, sensorZipCode, sensorLat, sensorLong, temp, hum, dew, pres)
             print(weatherJSON)
