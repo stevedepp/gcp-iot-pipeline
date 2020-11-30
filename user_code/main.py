@@ -1,11 +1,11 @@
 
 from google.cloud import bigquery
-from oauth2client.client import GoogleCredentials
+#from oauth2client.client import GoogleCredentials
 #from apiclient.discovery import build
 import base64
     
-credentials = GoogleCredentials.get_application_default()
-service = build('bigquery', 'v2')
+#credentials = GoogleCredentials.get_application_default()
+#service = build('bigquery', 'v2')
 
 projectId = "msds434fp"
 datasetId = "weatherData"
