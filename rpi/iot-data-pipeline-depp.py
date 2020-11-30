@@ -15,7 +15,7 @@ me = singleton.SingleInstance() # will sys.exit(-1) if other instance is running
 SEND_INTERVAL = 60 #seconds
 credentials = GoogleCredentials.get_application_default()
 # change project to your Project ID
-project="msds434fp"
+project="msds434deppfp"
 # change topic to your PubSub topic name
 topic = "weatherdata"
 # set the following four constants to be indicative of where you are placing your weather sensor
@@ -55,7 +55,7 @@ def createJSON(id, timestamp, zip, lat, long, temperature, humidity, dewpoint, p
       'pressure' : pressure
     }
 
-    json_str = json.dumps(data)
+    json_str = json.dumps([data])
     return json_str
 
 def main():
