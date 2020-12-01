@@ -72,25 +72,25 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 - [x] **big query set up:**
 
-```gcloud services enable bigquery.googleapis.com```
+    ```gcloud services enable bigquery.googleapis.com```
 
-```bq --location US mk --dataset --description 'to contain weather data received from pubsub' weatherData```
+    ```bq --location US mk --dataset --description 'to contain weather data received from pubsub' weatherData```
 
-```bq mk --table --project_id $PROJECT --description 'contains received IoT weather data' weatherData.weatherDataTable ./weatherDataTable-schema.json```
+    ```bq mk --table --project_id $PROJECT --description 'contains received IoT weather data' weatherData.weatherDataTable ./weatherDataTable-schema.json```
 
 - [x] **cloud function set up:**
 
-```gcloud services enable cloudbuild.googleapis.com```
+    ```gcloud services enable cloudbuild.googleapis.com```
 
-```gcloud services enable cloudfunctions.googleapis.com```
+    ```gcloud services enable cloudfunctions.googleapis.com```
 
-```gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherdata --source ./stream2bq/```
+    ```gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherdata --source ./stream2bq/```
 
 ### raspberry pi OS and settings setup occurs on laptop:
 
 - [x] **erase SD card via diskutil:**
 
-    ```diskutil list``` reveals which disk is the SD card.  (here it is disk 2.)  
+    ```diskutil list``` reveals which disk is the SD card.  replace```disk 2``` if different.)  
     ```diskutil eraseDisk FAT32 NAME MBRFormat /dev/disk2```
 
 - [x] **load OS via raspberry pi imager**
