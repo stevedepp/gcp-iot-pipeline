@@ -149,11 +149,13 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 - [x] **big query set up:**
 
-    ```gcloud services enable bigquery.googleapis.com```
+    - [x] enable the pubsub api and create the ```weatherData``` dataset and the ```weatherDataTable``` table inside of the dataset. 
 
-    ```bq --location US mk --dataset --description 'to contain weather data received from pubsub' weatherData```
+        ```gcloud services enable bigquery.googleapis.com```
 
-    ```bq mk --table --project_id $PROJECT --description 'contains received IoT weather data' weatherData.weatherDataTable ./weatherDataTable-schema.json```
+        ```bq --location US mk --dataset --description 'to contain weather data received from pubsub' weatherData```
+
+        ```bq mk --table --project_id $PROJECT --description 'contains received IoT weather data' weatherData.weatherDataTable ./weatherDataTable-schema.json```
 
 - [x] **cloud function set up:**
 
