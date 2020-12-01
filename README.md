@@ -134,10 +134,10 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     ```sudo apt-get upgrade```  
 - [x] **configure the OS to see our sensor and know our timezone**  
     ```sudo raspi config GUI```  
-            - [x] Interface Options  
-            - [x] P5 I2C Enable/discable automatic loading of I2C kernel module  
-            - [x] Localisation Options  
-            - [x] Timezone  
+    - [x] Interface Options  
+    - [x] P5 I2C Enable/discable automatic loading of I2C kernel module  
+    - [x] Localisation Options  
+    - [x] Timezone  
 - [x] reboot the raspberrypi  
     ```sudo reboot```  
 
