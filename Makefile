@@ -52,9 +52,9 @@ dataflow:
 
 teardown:
 	bq --location US rm -f --table weatherData.weatherDataTable
-	gcloud projects remove-iam-policy-binding msds434fp --member="serviceAccount:iot-weather-publisher@msds434fp.iam.gserviceaccount.com" --role=roles/pubsub.publisher
-	gcloud iam service-accounts delete iot-weather-publisher@msds434fp.iam.gserviceaccount.com
+	gcloud projects remove-iam-policy-binding msds434deppfp --member="serviceAccount:iot-weather-publisher@msds434deppfp.iam.gserviceaccount.com" --role=roles/pubsub.publisher
+	gcloud iam service-accounts delete iot-weather-publisher@msds434deppfp.iam.gserviceaccount.com
 	gcloud pubsub topics delete weatherdata
 	bq --location US rm -f --dataset weatherData
-	gcloud functions delete function-weatherPubSubToBQ
+	gcloud functions delete iot_weather
 	gsutil rm -r gs://iot-analytics-depp

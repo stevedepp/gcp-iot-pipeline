@@ -33,6 +33,11 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 - [x] **laptop terminal environment set up:**
 
+    - [x] clone this project's repo.  
+    ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```  
+
+    ```cd gcp-iot-pipeline``` 
+
     ```rm -rf .venv```
 
     ```python3 -m venv .venv```
@@ -41,7 +46,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
     ```export PROJECT=msds434deppfp```
 
-    ```export ACCOUNT=msds434deppfp```
+    ```export ACCOUNT=01674D-E5A779-4E5103```
 
     ```python3 -m pip install --upgrade pip```
 
@@ -62,6 +67,8 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     ```gcloud projects add-iam-policy-binding $PROJECT --member="serviceAccount:iot-weather-publisher@$PROJECT.iam.gserviceaccount.com" --role=roles/pubsub.publisher```
 
     ```gcloud iam service-accounts keys create ~/key.json --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com```
+
+        MAYBE MAKE A RANDOM NUMBER BUCKET NAME
 
     ```gsutil mb gs://iot-analytics-depp```
 
@@ -147,6 +154,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 - [x] raspberry pi setup:  
     ```ssh pi@raspberrypi.local```  
+    
 - [x] install gcloud SDK
     - [x] set the following environment variable so gcloud SDK version matches the OS of raspberrypi.
         ```export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"```
@@ -156,7 +164,17 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
         ```  curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -```
     - [x] redundant update of raspberrypi OS and gcloud SDK install; press ```Enter``` when asked.
     ```sudo apt-get update && sudo apt-get install google-cloud-sdk```
-    
+
+UNSURE WHICH OF THE NEXT 2 CHECKBOXES COMES FIRST.  DO WE WANT TO ENV OFF THE PUBSUB AND OATH AND ADAFRUIT AND GCLOUD INIT?
+SHOUULD GCLOUD INIT GO AS LAST STEP IN THE PREVIOUS CHECKBOX?
+
+- [x] clone this project's repo and cd into it.  
+        ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```  
+        ```cd gcp-iot-pipeline/rpi```  
+        ```rm -rf .venv```  
+        ```python3 -m venv .venv```  
+        ```source .venv/bin/activate```  
+
 - [x] install some dependencies with python's package manaager.
     - [x] tendo is used in ```check_weather.py``` to check if a script is running more than once:
         ```pip install tendo```  
@@ -168,13 +186,21 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
    - [x] this is the new libary pubished by adafruit, the sensor manufacturer.  
     ```pip3 install adafruit-circuitpython-bmp280```  
 - [x] set up gcloud as usual; instructions here, but make sure to select this project and region:
-    ```gcloud init --console-only```
-- [x] clone this project's repo and cd into it.  
-        ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```  
-        ```cd gcp-iot-pipeline.git```
+    ```gcloud init --console-only```  
+    
+    
+        
 - [x] copy over the key.json credentials and set an environment variable for their location.  
     ```mkdir -p ~/credentials```  
     ```gsutil cp gs://iot-analytics-depp/key.json ~/credentials/```  
     ```export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/key.json```
 
 
+- [x] tear it down
+```bq --location US rm -f --table weatherData.weatherDataTable```  
+```gcloud projects remove-iam-policy-binding msds434deppfp --member="serviceAccount:iot-weather-publisher@msds434deppfp.iam.gserviceaccount.com" --role=roles/pubsub.publisher```  
+```gcloud iam service-accounts delete iot-weather-publisher@msds434deppfp.iam.gserviceaccount.com```  
+```gcloud pubsub topics delete weatherdata```  
+```bq --location US rm -f --dataset weatherData```  
+```gcloud functions delete iot_weather```  
+```gsutil rm -r gs://iot-analytics-depp```  
