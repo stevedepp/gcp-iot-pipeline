@@ -19,6 +19,14 @@ iot-weather-publisher key.json —> iot-analytics-depp
 
 weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publisher w key.json —> weatherdata —> main.py —> weatherData.weatherDataTable —> weatherDataTable-schema
 
+## hardware  
+
+### purchase raspberrypi et al
+
+### solder sensor 
+
+### connect raspberrypi to sensor
+
 ## code
 
 ### laptop & gcloud set up:
@@ -78,7 +86,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 ```gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherdata --source ./stream2bq/```
 
-### raspberry pi hardware setup occurs on laptop:
+### raspberry pi OS and settings setup occurs on laptop:
 
 - [x] **erase SD card via diskutil:**
 
@@ -106,4 +114,33 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
                     image here
     - [x] there's one of these already in the repo; copy it to the raspberry pi.  
         ```cp rpi/wpa_supplicant.conf /Volumes/boot```  
+        
+- [x] **put SD card into the raspberrypi and plug the raspberrypi into the wall**  
+
+- [x] **check that it is on the network**  
+    ```ping raspberrypi.local```  
     
+- [x] **ssh into the raspberrypi - here's where the fun starts!**  
+    ```ssh pi@raspberrypi.local```  
+    
+- [x] **first time, you get ominous but impotent warnings; clear them as follows:**  
+    ```ssh-keygen -R raspberrypi.local```  
+    
+- [x] **try again** ***et viola***  
+    ```ssh pi@raspberrypi.local```  
+
+- [x] **update and upgrade the OS if possible.**  
+    ```sudo apt-get update```  
+    ```sudo apt-get upgrade```  
+- [x] **configure the OS to see our sensor and know our timezone**  
+    ```sudo raspi config GUI```  
+        - [x] Interface Options  
+        - [x] P5 I2C Enable/discable automatic loading of I2C kernel module  
+        - [x] Localisation Options  
+        - [x] Timezone  
+- [x] reboot the raspberrypi  
+    ```sudo reboot```  
+
+*[note this is another point (prior to the next ```ssh pi@raspberrypi.local``` where one could copy the ```key.json``` to the raspberrypi via   ```scp ~/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.]*
+
+### start the weather sensor from laptop ssh into raspberry pi:
