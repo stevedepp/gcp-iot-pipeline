@@ -159,11 +159,15 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 - [x] **cloud function set up:**
 
-    ```gcloud services enable cloudbuild.googleapis.com```
+    - [x] enable the cloudbuild and cloudfunction api's. 
 
-    ```gcloud services enable cloudfunctions.googleapis.com```
+        ```gcloud services enable cloudbuild.googleapis.com```
 
-    ```gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherdata --source ./stream2bq/```
+        ```gcloud services enable cloudfunctions.googleapis.com```
+
+    - [x] deploy the ```iot_weather``` cloud function with a ```weatherdata``` pubsub trigger; source code is held in the ```./stream2bq``` directory.
+
+        ```gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherdata --source ./stream2bq/```
 
 ### raspberry pi OS and settings setup occurs on laptop:
 
