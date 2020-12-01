@@ -141,6 +141,40 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 - [x] reboot the raspberrypi  
     ```sudo reboot```  
 
-*[note this is another point (prior to the next ```ssh pi@raspberrypi.local``` where one could copy the ```key.json``` to the raspberrypi via   ```scp ~/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.]*
+*[note this is another point, prior to the next ```ssh pi@raspberrypi.local```, where one could copy the ```key.json``` to the raspberrypi via   ```scp ~/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.]*
 
 ### start the weather sensor from laptop ssh into raspberry pi:
+
+- [x] raspberry pi setup:  
+    ```ssh pi@raspberrypi.local```  
+- [x] install gcloud SDK
+    - [x] set the following environment variable so gcloud SDK version matches the OS of raspberrypi.
+        ```export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"```
+    - [x] set gcloud SDK installation location.
+        ```echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" |  sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list```
+    - [x] this public key from Google's package repository ensures that Raspberry Pi will verify the security and trust the content during installation.
+        ```  curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -```
+    - [x] redundant update of raspberrypi OS and gcloud SDK install; press ```Enter``` when asked.
+    ```sudo apt-get update && sudo apt-get install google-cloud-sdk```
+    
+- [x] install some dependencies with python's package manaager.
+    - [x] tendo is used in ```check_weather.py``` to check if a script is running more than once:
+        ```pip install tendo```  
+    - [x] these are pubsub and oauth2 packages for python.  
+        ```pip install --upgrade google-cloud-pubsub```  
+        ```pip3 install --upgrade oauth2client```  
+    - [x] datetime is employed in ```checkweather.py```  
+    ```pip3 install datetime```  
+   - [x] this is the new libary pubished by adafruit, the sensor manufacturer.  
+    ```pip3 install adafruit-circuitpython-bmp280```  
+- [x] set up gcloud as usual; instructions here, but make sure to select this project and region:
+    ```gcloud init --console-only```
+- [x] clone this project's repo and cd into it.  
+        ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```  
+        ```cd gcp-iot-pipeline.git```
+- [x] copy over the key.json credentials and set an environment variable for their location.  
+    ```mkdir -p ~/credentials```  
+    ```gsutil cp gs://iot-analytics-depp/key.json ~/credentials/```  
+    ```export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/key.json```
+
+
