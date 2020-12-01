@@ -90,7 +90,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 - [x] **erase SD card via diskutil:**
 
-    ```diskutil list``` reveals which disk is the SD card.  replace```disk 2``` if different.)  
+    ```diskutil list``` reveals which disk is the SD card; replace```disk 2``` in the next line if different.)  
     ```diskutil eraseDisk FAT32 NAME MBRFormat /dev/disk2```
 
 - [x] **load OS via raspberry pi imager**
@@ -123,7 +123,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 - [x] **ssh into the raspberrypi - here's where the fun starts!**  
     ```ssh pi@raspberrypi.local```  
     
-- [x] **first time, you get ominous but impotent warnings; clear them as follows:**  
+- [x] **first time, you get** ***boy crying wolf*** **warnings; clear them as follows:**  
     ```ssh-keygen -R raspberrypi.local```  
     
 - [x] **try again** ***et viola***  
