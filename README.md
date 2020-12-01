@@ -21,7 +21,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 ## code
 
-- [x] laptop terminal environment:
+- [x] **laptop terminal environment:**
 
     ```rm -rf .venv```
 
@@ -35,7 +35,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
     ```python3 -m pip install --upgrade pip```
 
-- [x] gcp set up:
+- [x] **gcp set up:**
 
     ```gcloud config set project $PROJECT```
 
