@@ -107,9 +107,9 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
             ```ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev```  
             ```update_config=1```  
             ```network={```  
-                             ```ssid="gogo bar"```  
-                             ```psk="l0vel0ve"```  
-                             ```}```  
+                             ```    ssid="gogo bar"```  
+                             ```    psk="l0vel0ve"```  
+                             ```    }```  
                     
     - [x] there's one of these already in the repo; copy it to the raspberry pi.  
         ```cp rpi/wpa_supplicant.conf /Volumes/boot```  
