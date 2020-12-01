@@ -21,7 +21,9 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 ## code
 
-- [x] **laptop terminal environment:**
+### laptop & gcloud set up:
+
+- [x] **laptop terminal environment set up:**
 
     ```rm -rf .venv```
 
@@ -41,13 +43,11 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
     ```gcloud beta billing projects link $PROJECT --billing-account $ACCOUNT```
 
-- [x] pubsub set up:
+- [x] **pubsub set up:**
 
     ```gcloud services enable pubsub.googleapis.com```
 
     ```gcloud pubsub topics create weatherdata```
-
-- [x] iam:
 
     ```gcloud iam service-accounts create iot-weather-publisher --project $PROJECT```
 
@@ -58,4 +58,22 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     ```gsutil mb gs://iot-analytics-depp```
 
     ```gsutil cp ~/key.json gs://iot-analytics-depp```
+
+- [x] **big query set up:**
+
+```gcloud services enable bigquery.googleapis.com```
+
+```bq --location US mk --dataset --description 'to contain weather data received from pubsub' weatherData```
+
+```bq mk --table --project_id $PROJECT --description 'contains received IoT weather data' weatherData.weatherDataTable ./weatherDataTable-schema.json```
+
+- [x] **cloud function set up:**
+
+```gcloud services enable cloudbuild.googleapis.com```
+
+```gcloud services enable cloudfunctions.googleapis.com```
+
+```gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherdata --source ./stream2bq/```
+
+### raspberry pi setup:
 
