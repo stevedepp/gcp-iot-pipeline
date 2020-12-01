@@ -106,7 +106,8 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
             ```country=US```  
             ```ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev```  
             ```update_config=1```  
-            ```network={```  
+            ```network=
+                        {  
                         ```
                         ssid="gogo bar"  
                         psk="l0vel0ve"
