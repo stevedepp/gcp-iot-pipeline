@@ -26,7 +26,9 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 - [ ] is this too slow ```gcloud functions logs read --limit 50```?  
 - [ ] pretty print ```bq ls --format=pretty mydataset_depp```  
 - [ ] remove key.json when tearing down
-
+- [ ] random number suffix for bucket?
+- [ ] test in diffrent project
+- [ ] CLT asks for account then project name and if project doesnt exist asks if wants to create project
 
 ### questions  
 - [ ] should venv include major installs like gcloud or pubsub's python sdk and libraries like adafruit  
@@ -193,7 +195,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 *[note this is another point, prior to the next ```ssh pi@raspberrypi.local```, where one could copy the ```key.json``` to the raspberrypi via   ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.]*
 
-### start the weather sensor from laptop ssh into raspberry pi:
+### install the weather sensor from laptop ssh into raspberry pi:
 
 - [x] raspberry pi setup:  
     ```ssh pi@raspberrypi.local```  
@@ -231,13 +233,17 @@ SHOUULD GCLOUD INIT GO AS LAST STEP IN THE PREVIOUS CHECKBOX?
 - [x] set up gcloud as usual; instructions here, but make sure to select this project and region:
     ```gcloud init --console-only```  
     
-    
+### run the weather sensor module to collect data
         
-- [x] copy over the key.json credentials and set an environment variable for their location.  
+if the repository is already here then cd into it if not clone it and cd into it and activate
+```ssh pi@raspberrypi.local``` 
+```cd ~/gcp-iot-pipeline```
+- [x] copy over the key.json credentials and set an environment variable for their location. 
+    ```source .venv/bin/activate```
     ```mkdir -p ~/credentials```  
     ```gsutil cp gs://iot-analytics-depp/key.json ~/credentials/```  
     ```export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/key.json```
-
+    ```cd ~/gcp-iot-pipeline/rpi```
 
 - [x] tear it down
 ```bq --location US rm -f --table weatherData.weatherDataTable```  
