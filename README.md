@@ -3,10 +3,33 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 ## todo:
 
-### enhancements:
-- [ ] use environment variables
-   - [ ] anything with my name in it
-- [ ] makefile for raspberrypi
+### enhancements: any enhancement checked here should go into delivery statement as feature
+- [ ] use environment variables  
+   - [ ] anything with my name in it  
+- [ ] makefile for raspberrypi  
+- [ ] different adafruit sensors in CLT  
+- [ ] monitoring   
+- [ ] logging  
+- [ ] linting  
+- [ ] CICD tool  
+- [ ] display data in flask page
+- [ ] CLT enables datadownload from bigquery segmented by date or temp range
+- [ ] CLT asks for project and account infor and adafruit sensor
+- [ ] think venv before anything else in rpi  -  test that
+- [ ] more print info in logging - pythonjsonlogger
+- [ ] can include toy python scripts for sensor illustraion
+- [ ] links to all the sources in the readme file
+- [ ] different schema for bme and bmp
+- [ ] is aliasing source .venv/bin/activate done at root or can be scripted and removed at teardown?
+- [ ] encrypt the wifi pwd by running a preparred script that
+
+### questions
+- [ ] should venv include major installs like gcloud or pubsub's python sdk and libraries like adafruit
+- [ ] should pip installs and api turn ons be done with setups of gcloud components since some are pip install --upgrade package which is diffcult to execute in requirements
+- [ ] how best to implement env var for users; can we ask users for their project name and accont number in a CLT?
+- [ ] difference between pip and pip3
+- [ ] does the raspberrypi need a python or is that installed with the OS
+
 
 ## architecture
 
