@@ -33,6 +33,9 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 - [ ] teardown doesnt yet use PROJECT
 - [ ] teardown doesnt yet remove bucket from cloud function
 
+### rejected features
+- [ ] random number suffix to storage bucket name is rejected as a feature because the name needs to be employed on the laptop and on the raspberry pi.
+
 ### questions  
 - [ ] should venv include major installs like gcloud or pubsub's python sdk and libraries like adafruit  
 - [ ] should pip installs and api turn ons be done with setups of gcloud components since some are pip install --upgrade package which is diffcult to execute in requirements
@@ -122,8 +125,6 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     ```gcloud projects add-iam-policy-binding $PROJECT --member="serviceAccount:iot-weather-publisher@$PROJECT.iam.gserviceaccount.com" --role=roles/pubsub.publisher```
 
     ```gcloud iam service-accounts keys create ~/$PROJECT/key.json --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com```
-
-        MAYBE MAKE A RANDOM NUMBER BUCKET NAME
 
     ```gsutil mb gs://iot-analytics-depp```
 
@@ -270,5 +271,4 @@ if the repository is already here then cd into it if not clone it and cd into it
 ```gcloud functions delete iot_weather```  
 ```gsutil rm -r gs://iot-analytics-depp```  
 ```rm -r ~/$PROJECT```
-```ssh pi@raspberrypi.local rmdir pi@raspberrypi:home/pi/credentials```
-but that last command doesnt work
+```ssh pi@raspberrypi.local rm -rf /home/pi/credentials```
