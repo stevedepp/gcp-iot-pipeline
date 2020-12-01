@@ -103,14 +103,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
             ```cd rpi```  
             ```cp rpi/ssh /Volumes/boot```  
     - [x] make ```wpa_supplicant.conf``` file with your routers login/password which can be encrypted.  
-            ```country=US```  
-            ```ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev```  
-            ```update_config=1```  
-            ```network={```  
-                             ```        ssid="gogo bar"```  
-                             ```        psk="l0vel0ve"```  
-                             ```        }```  
-                    
+                    image here
     - [x] there's one of these already in the repo; copy it to the raspberry pi.  
         ```cp rpi/wpa_supplicant.conf /Volumes/boot```  
     
