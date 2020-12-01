@@ -29,6 +29,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 - [ ] random number suffix for bucket?
 - [ ] test in diffrent project
 - [ ] CLT asks for account then project name and if project doesnt exist asks if wants to create project
+- [ ] query from CLT with max rows ```bq --location=US query --use_legacy_sql=false 'SELECT * FROM weatherData.weatherDataTable'```  
 
 ### questions  
 - [ ] should venv include major installs like gcloud or pubsub's python sdk and libraries like adafruit  
@@ -239,10 +240,10 @@ if the repository is already here then cd into it if not clone it and cd into it
     ```ssh pi@raspberrypi.local```  
     ```cd ~/gcp-iot-pipeline```
 - [x] copy over the key.json credentials and set an environment variable for their location. 
-    ```source .venv/bin/activate```
+    ```source .venv/bin/activate```  
     ```mkdir -p ~/credentials```  
     ```gsutil cp gs://iot-analytics-depp/key.json ~/credentials/```  
-    ```export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/key.json```
+    ```export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/key.json```  
     ```cd ~/gcp-iot-pipeline/rpi```
 
 - [x] tear it down
@@ -253,3 +254,7 @@ if the repository is already here then cd into it if not clone it and cd into it
 ```bq --location US rm -f --dataset weatherData```  
 ```gcloud functions delete iot_weather```  
 ```gsutil rm -r gs://iot-analytics-depp```  
+```rm -r ~/$PROJECT```
+```ssh pi@raspberrypi.local rmdir pi@raspberrypi:home/pi/credentials```
+but that last command doesnt work
+
