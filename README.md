@@ -75,5 +75,21 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 ```gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherdata --source ./stream2bq/```
 
-### raspberry pi setup:
+### raspberry pi hardware setup:
 
+- [x] **erase SD card via diskutil:**
+
+    ```diskutil list``` reveals which disk is the SD card.  (here it is disk 2.)
+
+    ```diskutil eraseDisk FAT32 NAME MBRFormat /dev/disk2```
+
+- [x] **load OS via raspberry pi imager**
+    - [x] Operating System = latest which here is Raspberry Pi OS (32 bit).
+    - [x] SD Card = your card which here is "SANDISK SDDR-409 Media - 127.9 GB" here
+    - [x] YES
+    - [x] Laptop password
+    - [x] CONTINUE
+    
+- [x] **load Wifi preferences onto SD card boot disk**
+
+    
