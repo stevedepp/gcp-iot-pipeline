@@ -78,12 +78,11 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 ```gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherdata --source ./stream2bq/```
 
-### raspberry pi hardware setup:
+### raspberry pi hardware setup occurs on laptop:
 
 - [x] **erase SD card via diskutil:**
 
-    ```diskutil list``` reveals which disk is the SD card.  (here it is disk 2.)
-
+    ```diskutil list``` reveals which disk is the SD card.  (here it is disk 2.)  
     ```diskutil eraseDisk FAT32 NAME MBRFormat /dev/disk2```
 
 - [x] **load OS via raspberry pi imager**
@@ -94,6 +93,23 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     - [x] CONTINUE
     
 - [x] **load Wifi preferences onto SD card boot disk**
-    - [x] 
-
+    - [x] clone this project's repo.  
+        ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```  
+    - [x] path to SD card: boot is the only available directory agnostic firendly to linux/OSX & windows platforms.  
+            ```ls /Volumes/boot```  
+    - [x] make blank ssh file that on first **headless* raspberrypi boot will enable ssh.  
+            ```touch ssh```  
+    - [x] there's one of these already in the repo; copy it to the raspberry pi.  
+            ```cd rpi```  
+            ```cp rpi/ssh /Volumes/boot```  
+    - [x] make ```wpa_supplicant.conf``` file with your routers login/password which can be encrypted.  
+            ```country=US  
+            ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev  
+            update_config=1  
+            network={  
+                ssid="gogo bar"  
+                psk="l0vel0ve"  
+                }```  
+    - [x] there's one of these already in the repo; copy it to the raspberry pi.  
+        ```cp rpi/wpa_supplicant.conf /Volumes/boot```  
     
