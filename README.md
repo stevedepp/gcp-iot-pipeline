@@ -236,8 +236,8 @@ SHOUULD GCLOUD INIT GO AS LAST STEP IN THE PREVIOUS CHECKBOX?
 ### run the weather sensor module to collect data
         
 if the repository is already here then cd into it if not clone it and cd into it and activate
-```ssh pi@raspberrypi.local```  
-```cd ~/gcp-iot-pipeline```
+    ```ssh pi@raspberrypi.local```  
+    ```cd ~/gcp-iot-pipeline```
 - [x] copy over the key.json credentials and set an environment variable for their location. 
     ```source .venv/bin/activate```
     ```mkdir -p ~/credentials```  
