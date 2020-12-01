@@ -30,6 +30,8 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 - [ ] test in diffrent project
 - [ ] CLT asks for account then project name and if project doesnt exist asks if wants to create project
 - [ ] query from CLT with max rows ```bq --location=US query --use_legacy_sql=false 'SELECT * FROM weatherData.weatherDataTable'```  
+- [ ] teardown doesnt yet use PROJECT
+- [ ] teardown doesnt yet remove bucket from cloud function
 
 ### questions  
 - [ ] should venv include major installs like gcloud or pubsub's python sdk and libraries like adafruit  
@@ -77,16 +79,20 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 ### laptop & gcloud set up:
 
-- [ ] set new project as variable
+- [x] set new project as variable
+
     ```export PROJECT=test123depp```
 
 - [x] **laptop terminal environment set up:**
 
-    - [x] clone this project's repo.  
-    ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```  
+    - [x] clone this project's repository and change to the repository's directory.  
+    
+        ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```  
 
-    ```cd gcp-iot-pipeline``` 
+        ```cd gcp-iot-pipeline``` 
 
+    -[x] remove previous environment, if any.
+    
     ```rm -rf .venv```
 
     ```python3 -m venv .venv```
@@ -170,6 +176,8 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
                     image here
     - [x] there's one of these already in the repo; copy it to the raspberry pi.  
         ```cp rpi/wpa_supplicant.conf /Volumes/boot```  
+    - [x] enter the passphrase for your wifi network(s) and copy
+        ```nano /Volumes/boot/wpa_supplicant.conf```
         
 - [x] **put SD card into the raspberrypi and plug the raspberrypi into the wall**  
 
@@ -242,6 +250,7 @@ SHOUULD GCLOUD INIT GO AS LAST STEP IN THE PREVIOUS CHECKBOX?
 if the repository is already here then cd into it if not clone it and cd into it and activate  
     ```ssh pi@raspberrypi.local```  
     ```cd ~/gcp-iot-pipeline```
+    ```export PROJECT=test123depp```
 - [x] copy over the key.json credentials and set an environment variable for their location. 
     ```source .venv/bin/activate```  
     ```mkdir -p ~/credentials```  
@@ -249,7 +258,8 @@ if the repository is already here then cd into it if not clone it and cd into it
     ```export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/key.json```  
     ```cd ~/gcp-iot-pipeline/rpi```
 
-- [ ] set the correct project id inside of ```iot-data-pipeline-depp.py```.
+- [ ] call the sensor with $PROJECT argument  
+```iot-data-pipeline-depp.py $PROJECT```.
 
 - [x] tear it down
 ```bq --location US rm -f --table weatherData.weatherDataTable```  
@@ -262,8 +272,3 @@ if the repository is already here then cd into it if not clone it and cd into it
 ```rm -r ~/$PROJECT```
 ```ssh pi@raspberrypi.local rmdir pi@raspberrypi:home/pi/credentials```
 but that last command doesnt work
-```export PROJECT=test123depp```
-sed -i 's/old-text/new-text/g' 
-project="msds434deppfp"
-sed -i 's/project="msds434deppfp"/project="test"/g' iot-data-pipeline-depp.py
-NEED A WAY TO CALL PY FUNC WITH ARGUMENT
