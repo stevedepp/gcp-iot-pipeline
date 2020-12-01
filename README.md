@@ -25,6 +25,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 - [ ] take inventory of which api are open on start and close when finished  
 - [ ] is this too slow ```gcloud functions logs read --limit 50```?  
 - [ ] pretty print ```bq ls --format=pretty mydataset_depp```  
+- [ ] remove key.json when tearing down
 
 
 ### questions  
@@ -108,16 +109,16 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
     ```gcloud projects add-iam-policy-binding $PROJECT --member="serviceAccount:iot-weather-publisher@$PROJECT.iam.gserviceaccount.com" --role=roles/pubsub.publisher```
 
-    ```gcloud iam service-accounts keys create ~/key.json --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com```
+    ```gcloud iam service-accounts keys create ~/$PROJECT/key.json --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com```
 
         MAYBE MAKE A RANDOM NUMBER BUCKET NAME
 
     ```gsutil mb gs://iot-analytics-depp```
 
-    ```gsutil cp ~/key.json gs://iot-analytics-depp```
+    ```gsutil cp ~/$PROJECT/key.json gs://iot-analytics-depp```
     
     *[note: the bucket is not essential but allows for the raspberry pi set up to come AFTER the laptop setup; were the latop set up AFTER then the pubsub key could be transfered to the pi via scp:
-    ```scp ~/key.json pi@raspberrypi.local:/home/pi```]*
+    ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi```]*
 
 - [x] **big query set up:**
 
@@ -190,7 +191,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 - [x] reboot the raspberrypi  
     ```sudo reboot```  
 
-*[note this is another point, prior to the next ```ssh pi@raspberrypi.local```, where one could copy the ```key.json``` to the raspberrypi via   ```scp ~/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.]*
+*[note this is another point, prior to the next ```ssh pi@raspberrypi.local```, where one could copy the ```key.json``` to the raspberrypi via   ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.]*
 
 ### start the weather sensor from laptop ssh into raspberry pi:
 
