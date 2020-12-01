@@ -18,19 +18,38 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 - [ ] think venv before anything else in rpi  -  test that
 - [ ] more print info in logging - pythonjsonlogger
 - [ ] can include toy python scripts for sensor illustraion
-- [ ] links to all the sources in the readme file
-- [ ] different schema for bme and bmp
+- [ ] links to all the sources in the readme file   
+- [ ] different schema for bme and bmp  
 - [ ] is aliasing source .venv/bin/activate done at root or can be scripted and removed at teardown?
-- [ ] encrypt the wifi pwd by running a preparred script that
+- [ ] encrypt the wifi pwd by running a preparred script that  
+- [ ] take inventory of which api are open on start and close when finished  
+- [ ] is this too slow ```gcloud functions logs read --limit 50```?  
+- [ ] pretty print ```bq ls --format=pretty mydataset_depp```  
 
-### questions
-- [ ] should venv include major installs like gcloud or pubsub's python sdk and libraries like adafruit
+
+### questions  
+- [ ] should venv include major installs like gcloud or pubsub's python sdk and libraries like adafruit  
 - [ ] should pip installs and api turn ons be done with setups of gcloud components since some are pip install --upgrade package which is diffcult to execute in requirements
-- [ ] how best to implement env var for users; can we ask users for their project name and accont number in a CLT?
-- [ ] difference between pip and pip3
-- [ ] does the raspberrypi need a python or is that installed with the OS
+- [ ] how best to implement env var for users; can we ask users for their project name and accont number in a CLT?  
+- [ ] difference between pip and pip3  
+- [ ] does the raspberrypi need a python or is that installed with the OS  
+- [ ] what does set do in setting env var and what does { } do?  
+- [ ] should all installs be --upgrades?  
+- [ ] does cloudfunction api depend on cloudbuild depend on compute?  
 
-
+### how to evolve to this point  / some of these are lessons and not how tos
+- [x] read review take notes on  terminal experiences
+- [x] keep notes of every URL used
+- [x] leave breadcrumbs for past mistakes and successes in notes because YOU will forget how you did stuff in rapid rabid experimentation
+- [x] read the documentation when can > stackoverflow sometimes. 
+- [x] some docs suck. some logs suck. then stackoverflow is a goldmine, but even then stackoverflow is full of wreckless workarounds that can corrupt intent of code
+- [x] simple tutorials and then build e.g.:  
+    - [x] .....  
+    - [x] .....  
+- [x] experiment in ipython
+- [x ] certain experiments ruin the pot
+    - [x] disabling api e.g.
+ 
 ## architecture
 
 #### project:
