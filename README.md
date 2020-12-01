@@ -120,21 +120,31 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 - [x] **pubsub set up:**
 
-    ```gcloud services enable pubsub.googleapis.com```
-
-    ```gcloud pubsub topics create weatherdata```
-
-    ```gcloud iam service-accounts create iot-weather-publisher --project $PROJECT```
-
-    ```gcloud projects add-iam-policy-binding $PROJECT --member="serviceAccount:iot-weather-publisher@$PROJECT.iam.gserviceaccount.com" --role=roles/pubsub.publisher```
-
-    ```gcloud iam service-accounts keys create ~/$PROJECT/key.json --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com```
-
-    ```gsutil mb gs://iot-analytics-depp```
-
-    ```gsutil cp ~/$PROJECT/key.json gs://iot-analytics-depp```
+    - [x] enable the pubsub api and create the ```weatherdata``` topic.
     
-    *[note: the bucket is not essential but allows for the raspberry pi set up to come AFTER the laptop setup; were the latop set up AFTER then the pubsub key could be transfered to the pi via scp:
+        ```gcloud services enable pubsub.googleapis.com```
+
+        ```gcloud pubsub topics create weatherdata```
+
+    - [x] create a service account named ```iot-weather-publisher```.
+
+        ```gcloud iam service-accounts create iot-weather-publisher --project $PROJECT```
+
+    - [x] bind the service account to a ```pubsub.publisher``` role.
+    
+        ```gcloud projects add-iam-policy-binding $PROJECT --member="serviceAccount:iot-weather-publisher@$PROJECT.iam.gserviceaccount.com" --role=roles/pubsub.publisher```
+
+    - [x] create a key.json file in a directory named for the project in the users home directory.
+
+        ```gcloud iam service-accounts keys create ~/$PROJECT/key.json --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com```
+
+    - [x] make a google storage bucket named ```iot-analytics-depp``` and copy the key.json file to this bucket.
+
+        ```gsutil mb gs://iot-analytics-depp```
+
+        ```gsutil cp ~/$PROJECT/key.json gs://iot-analytics-depp```
+    
+        *[note: the bucket is not essential but allows for the raspberry pi set up to come AFTER the laptop setup; were the latop set up AFTER then the pubsub key could be transfered to the pi via scp:
     ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi```]*
 
 - [x] **big query set up:**
