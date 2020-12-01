@@ -77,6 +77,9 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 ### laptop & gcloud set up:
 
+- [ ] set new project as variable
+    ```export PROJECT=test123depp```
+
 - [x] **laptop terminal environment set up:**
 
     - [x] clone this project's repo.  
@@ -246,6 +249,8 @@ if the repository is already here then cd into it if not clone it and cd into it
     ```export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/key.json```  
     ```cd ~/gcp-iot-pipeline/rpi```
 
+- [ ] set the correct project id inside of ```iot-data-pipeline-depp.py```.
+
 - [x] tear it down
 ```bq --location US rm -f --table weatherData.weatherDataTable```  
 ```gcloud projects remove-iam-policy-binding msds434deppfp --member="serviceAccount:iot-weather-publisher@msds434deppfp.iam.gserviceaccount.com" --role=roles/pubsub.publisher```  
@@ -257,4 +262,8 @@ if the repository is already here then cd into it if not clone it and cd into it
 ```rm -r ~/$PROJECT```
 ```ssh pi@raspberrypi.local rmdir pi@raspberrypi:home/pi/credentials```
 but that last command doesnt work
-
+```export PROJECT=test123depp```
+sed -i 's/old-text/new-text/g' 
+project="msds434deppfp"
+sed -i 's/project="msds434deppfp"/project="test"/g' iot-data-pipeline-depp.py
+NEED A WAY TO CALL PY FUNC WITH ARGUMENT

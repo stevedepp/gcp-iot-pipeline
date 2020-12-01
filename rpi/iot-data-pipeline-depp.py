@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+
+import sys
 import time
 import board
 import busio
@@ -15,7 +18,7 @@ me = singleton.SingleInstance() # will sys.exit(-1) if other instance is running
 SEND_INTERVAL = 60 #seconds
 credentials = GoogleCredentials.get_application_default()
 # change project to your Project ID
-project="msds434deppfp"
+#project="msds434deppfp"
 # change topic to your PubSub topic name
 topic = "weatherdata"
 # set the following four constants to be indicative of where you are placing your weather sensor
@@ -58,7 +61,8 @@ def createJSON(id, timestamp, zip, lat, long, temperature, humidity, dewpoint, p
     json_str = json.dumps([data])
     return json_str
 
-def main():
+def main(project):
+    project=project
     publisher = pubsub_v1.PublisherClient()
     topicName = 'projects/' + project + '/topics/' + topic
     print(topicName)
@@ -84,4 +88,7 @@ def main():
         time.sleep(0.5)
 
 if __name__ == '__main__':
-    main()
+    if len(sys.argv) > 1:
+        main(sys.argv[1])
+    else:
+        raise SystemExit("usage:  python hello.py <name>")
