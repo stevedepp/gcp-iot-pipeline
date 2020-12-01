@@ -79,10 +79,6 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 ### laptop & gcloud set up:
 
-- [x] set new project as variable
-
-    ```export PROJECT=test123depp```
-
 - [x] **laptop terminal environment set up:**
 
     - [x] clone this project's repository and change to the repository's directory.  
@@ -91,19 +87,23 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
         ```cd gcp-iot-pipeline``` 
 
-    -[x] remove previous environment, if any.
+    - [x] remove previous environment, if any, reset the environment and source it.
     
-    ```rm -rf .venv```
+        ```rm -rf .venv```
 
-    ```python3 -m venv .venv```
+        ```python3 -m venv .venv```
 
-    ```source .venv/bin/activate```
+        ```source .venv/bin/activate```
+        
+    - [x] export environment variables for project and account. note: these do not carry over from one terminal window to another.
 
-    ```export PROJECT=msds434deppfp```
+        ```export PROJECT=msds434deppfp```
 
-    ```export ACCOUNT=01674D-E5A779-4E5103```
+        ```export ACCOUNT=01674D-E5A779-4E5103```
 
-    ```python3 -m pip install --upgrade pip```
+    - [x] upgrade python's package installer, pip.
+
+        ```python3 -m pip install --upgrade pip```
 
 - [x] **gcp set up:**
 
