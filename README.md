@@ -110,9 +110,13 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 - [x] **gcp set up:**
 
-    ```gcloud config set project $PROJECT```
+    - [x] sets the default project to this current one.
 
-    ```gcloud beta billing projects link $PROJECT --billing-account $ACCOUNT```
+        ```gcloud config set project $PROJECT```
+
+    - [x] link the current project to a billing account.
+
+        ```gcloud beta billing projects link $PROJECT --billing-account $ACCOUNT```
 
 - [x] **pubsub set up:**
 
