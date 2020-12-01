@@ -59,7 +59,8 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
     ```gsutil cp ~/key.json gs://iot-analytics-depp```
     
-    *[note: the bucket is not essential but allows for the raspberry pi set up to come AFTER the laptop setup; were the latop set up AFTER then the pubsub key could be transfered to the pi via scp.]*
+    *[note: the bucket is not essential but allows for the raspberry pi set up to come AFTER the laptop setup; were the latop set up AFTER then the pubsub key could be transfered to the pi via scp:
+    ```scp ~/key.json pi@raspberrypi.local:/home/pi```]*
 
 - [x] **big query set up:**
 
