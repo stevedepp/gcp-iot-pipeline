@@ -350,25 +350,25 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 ### install gcloud SDK onto raspberrypi from a laptop terminal ssh into raspberry pi:
 
-- [x] setup a secure shell log in to raspberrypi: 
+- [x] **setup a secure shell log in to raspberrypi.** 
 
     ```ssh pi@raspberrypi.local```  
     
-- [x] install gcloud SDK
+- [x] **install gcloud SDK.**
 
     - [x] set the following environment variable so gcloud SDK version matches the OS of raspberrypi.
     
         ```export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"```
         
-    - [x] set gcloud SDK installation location.
+    - [x] **set gcloud SDK installation location.**
     
         ```echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" |  sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list```
         
-    - [x] this public key from Google's package repository ensures that Raspberry Pi will verify the security and trust the content during installation.
+    - [x] **this public key from Google's package repository ensures that Raspberry Pi will verify the security and trust the content during installation.**
     
         ```curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -```
         
-    - [x] redundant update of raspberrypi OS and gcloud SDK install; press ```Enter``` when asked.
+    - [x] **redundant update of raspberrypi OS and gcloud SDK install; press ```Enter``` when asked.**
     
         ```sudo apt-get update && sudo apt-get install google-cloud-sdk```
         
@@ -408,9 +408,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
     ```ssh pi@raspberrypi.local```  
 
-- [x] clone this project's repository  and cd into the ```gcp-iot-pipeline/rpi``` directory.
-
-    ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```  
+- [x] change into the ```gcp-iot-pipeline/rpi``` directory.
     
     ```cd gcp-iot-pipeline/rpi```      
 
@@ -420,7 +418,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
     ```source .venv/bin/activate```  
 
-- [x] install dependencies with python's package manaager, pip.
+- [x] install dependencies with python's package manaager, pip.  [make install]
 
     - [x] tendo is used in ```check_weather.py``` to check if a script is running more than once:
     
@@ -442,16 +440,14 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
 ### run the weather sensor module to collect data
         
-- [x] if not already done so, then setup a secure shell log in to raspberrypi, change to the ```gcp-iot-pipeline``` directory, and source its virtual environment: 
+- [x] if not already done so, then setup a secure shell log in to raspberrypi, change to the ```gcp-iot-pipeline``` directory, source its virtual environment, and export an environment variable for this project. 
 
     ```ssh pi@raspberrypi.local```  
     
     ```cd gcp-iot-pipeline/rpi```  
     
     ```source .venv/bin/activate```  
-
-- [x] export an environment variable for this project.  
-
+    
     ```export PROJECT=test123depp```
     
 - [x] from the ```iot-analytics-depp``` google storage bucket, copy the ```key.json``` file to the raspberrypi's ```credentials``` directory and set an environment variable ```GOOGLE_APPLICATION_CREDENTIALS``` for the file's path. 
