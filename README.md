@@ -4,37 +4,38 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 ## todo:
 
 ### enhancements: any enhancement checked here should go into delivery statement as feature
-- [ ] use environment variables  
-   - [ ] anything with my name in it  
+- [x] use environment variables  
+- [x] think venv before anything else in rpi  -  test that
+- [ ] is aliasing source .venv/bin/activate done at root or can be scripted and removed at teardown?
+- [ ] take inventory of which api are open on start and close when finished - see mon log notes
 - [ ] makefile for raspberrypi  
 - [ ] different adafruit sensors in CLT  
-- [ ] monitoring   
-- [ ] logging  
-- [ ] linting  
-- [ ] CICD tool  
+- [ ] different schema for bme and bmp  
 - [ ] display data in flask page
 - [ ] CLT enables datadownload from bigquery segmented by date or temp range
 - [ ] CLT asks for project and account infor and adafruit sensor
-- [ ] think venv before anything else in rpi  -  test that
-- [ ] more print info in logging - pythonjsonlogger
-- [ ] can include toy python scripts for sensor illustraion
-- [ ] links to all the sources in the readme file   
-- [ ] different schema for bme and bmp  
-- [ ] is aliasing source .venv/bin/activate done at root or can be scripted and removed at teardown?
-- [ ] encrypt the wifi pwd by running a preparred script that  
-- [ ] take inventory of which api are open on start and close when finished  
-- [ ] is this too slow ```gcloud functions logs read --limit 50```?  
-- [ ] pretty print ```bq ls --format=pretty mydataset_depp```  
-- [ ] remove key.json when tearing down
-- [ ] random number suffix for bucket?
-- [ ] test in diffrent project
 - [ ] CLT asks for account then project name and if project doesnt exist asks if wants to create project
-- [ ] query from CLT with max rows ```bq --location=US query --use_legacy_sql=false 'SELECT * FROM weatherData.weatherDataTable'```  
-- [ ] teardown doesnt yet use PROJECT
+- [ ] more print info in logging - pythonjsonlogger
+- [ ] query from CLT with max rows ```bq --location=US query --use_legacy_sql=false 'SELECT columns FROM weatherData.weatherDataTable'```  
+- [ ] pretty print ```bq ls --format=pretty mydataset_depp```  
+- [x] teardown use PROJECT
 - [ ] teardown doesnt yet remove bucket from cloud function
+- [ ] CICD tool  
+- [ ] links to all the sources in the readme file   
+- [ ] is this too slow ```gcloud functions logs read --limit 50```?  
+- [x] remove key.json when tearing down
+- [x] test in diffrent project
+https://cloud.google.com/functions/docs/testing/test-background
+- [ ] monitoring-run it and open monitoring
+- [ ] logging  
+- [ ] linting  
+- [ ] can include toy python scripts for sensor illustraion
 
 ### rejected features
 - [ ] random number suffix to storage bucket name is rejected as a feature because the name needs to be employed on the laptop and on the raspberry pi.
+- [x] encrypt the wifi pwd by running a preparred script that <-- No. Use XXX. 
+
+
 
 ### questions  
 - [ ] should venv include major installs like gcloud or pubsub's python sdk and libraries like adafruit  
@@ -61,6 +62,9 @@ Building a Serverless Data Pipeline : IoT to BigQuery
  
 ## architecture:
 
+https://app.diagrams.net/?splash=0&libs=gcp
+https://www.cloudockit.com/the-12-most-used-google-cloud-diagrams-explained/
+
 #### project:
 sa key —> bucket
 outside —> rpi sensor —> rpi —> python —> sa w key —> pubsub <— cloudfunction —> bq dataset.table
@@ -81,6 +85,16 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 ## gcloud and raspberrypi infrastructure as code from a laptop:
 
 ### set up gcloud infrastructure from a laptop terminal:
+
+- [x] **preliminary information**:
+
+    ```gcloud config configurations describe default```
+    
+    ```gcloud alpha billing accounts list```
+    
+    ```gcloud projects list```
+    
+    ```gcloud config get-value core/project```
 
 - [x] **laptop terminal environment set up:**
 
@@ -145,9 +159,27 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
         ```gsutil cp ~/$PROJECT/key.json gs://iot-analytics-depp```
     
         *[note: the bucket is not essential but allows for the raspberry pi set up to come AFTER the laptop setup; were the latop set up AFTER then the pubsub key could be transfered to the pi via scp:
-    ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi```]*
+    ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi```
+    
+    - [x] for information:
+    
+        ```gcloud iam service-accounts list```
+        
+        ```gcloud projects get-iam-policy $PROJECT```
+        
+        ```gcloud iam service-accounts keys list --iam-account iot-weather-publisher@msds434fp.iam.gserviceaccount.com```
+        
+        ```ls ~/$PROJECT/key.json```
+        
+        ```cat ~/$PROJECT/key.json```
+        
+        ```gsutil ls gs://iot-analytics-depp```
 
 - [x] **big query set up:**
+
+    - [x] preliminary information:
+    
+        ```bq version```
 
     - [x] enable the pubsub api and create the ```weatherData``` dataset and the ```weatherDataTable``` table inside of the dataset. 
 
@@ -156,6 +188,10 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
         ```bq --location US mk --dataset --description 'to contain weather data received from pubsub' weatherData```
 
         ```bq mk --table --project_id $PROJECT --description 'contains received IoT weather data' weatherData.weatherDataTable ./weatherDataTable-schema.json```
+        
+    - [x] show the constructed schema
+    
+    ```bq show --schema --format=prettyjson weatherData.weatherDataTable```
 
 - [x] **cloud function set up:**
 
@@ -271,6 +307,12 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 *[note: this is another point, prior to the next ```ssh pi@raspberrypi.local```, where one could copy the ```key.json``` to the raspberrypi via   ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.]*
 
+### test sensor:
+
+- [x] should read 77.
+
+    ```sudo i2cdetect -y 1```
+
 ### install gcloud SDK onto raspberrypi from a laptop terminal ssh into raspberry pi:
 
 - [x] setup a secure shell log in to raspberrypi: 
@@ -294,6 +336,10 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     - [x] redundant update of raspberrypi OS and gcloud SDK install; press ```Enter``` when asked.
     
         ```sudo apt-get update && sudo apt-get install google-cloud-sdk```
+    
+    - [x] set up gcloud, selecting the current project and region. CHECK SEE IF THIS IS NEEDED.
+
+        ```gcloud init --console-only```  
 
 ### install sensor's python module and its dependencies on to the rapsberrypi from a laptop terminal ssh into raspberry pi:
 
@@ -333,10 +379,6 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
    
         ```pip3 install adafruit-circuitpython-bmp280```  
     
-- [x] set up gcloud, selecting the current project and region.
-
-    ```gcloud init --console-only```  
-    
 ### run the weather sensor module to collect data
         
 - [x] if not already done so, then setup a secure shell log in to raspberrypi, change to the ```gcp-iot-pipeline``` directory, and source its virtual environment: 
@@ -364,7 +406,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
     ```cd ~/gcp-iot-pipeline/rpi```
     
-    ```iot-data-pipeline.py $PROJECT```.
+    ```python3 iot-data-pipeline.py $PROJECT```.
 
 
 ## teardown the gcloud infrastructure as code from laptop terminal
@@ -391,4 +433,6 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
     ```rm -r ~/$PROJECT```
 
-    ```ssh pi@raspberrypi.local rm -rf /home/pi/credentials```
+    ```ssh pi@raspberrypi.local rm -rf /home/pi/credentials /home/pi/gcp-iot-pipeline```
+    
+    
