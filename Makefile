@@ -1,8 +1,9 @@
+env:
+	python3 -m venv .venv
+
 #manual
 	git clone https://github.com/stevedepp/gcp-iot-pipeline.git && cd gcp-iot-pipeline
 
-env:
-	python3 -m venv .venv
 
 #manual 
 	source .venv/bin/activate

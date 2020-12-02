@@ -179,7 +179,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
     - [x] preliminary information:
     
-        ```bq version```
+        
 
     - [x] enable the pubsub api and create the ```weatherData``` dataset and the ```weatherDataTable``` table inside of the dataset. 
 
@@ -193,6 +193,8 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
     ```bq show --schema --format=prettyjson weatherData.weatherDataTable```
 
+    ```bq version```
+    
 - [x] **cloud function set up:**
 
     - [x] enable the cloudbuild and cloudfunction api's. 
