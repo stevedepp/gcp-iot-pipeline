@@ -333,7 +333,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
         
     - [x] this public key from Google's package repository ensures that Raspberry Pi will verify the security and trust the content during installation.
     
-        ```  curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -```
+        ```curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -```
         
     - [x] redundant update of raspberrypi OS and gcloud SDK install; press ```Enter``` when asked.
     
@@ -349,11 +349,11 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
     ```ssh pi@raspberrypi.local```  
 
-- [x] clone this project's repository  and cd into the ```gcp-iot-pipeline``` directory.
+- [x] clone this project's repository  and cd into the ```gcp-iot-pipeline/rpi``` directory.
 
     ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```  
     
-    ```cd gcp-iot-pipeline```  
+    ```cd gcp-iot-pipeline/rpi```      
 
 - [x] set up and source a virtual environment.  
 
@@ -387,7 +387,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
     ```ssh pi@raspberrypi.local```  
     
-    ```cd gcp-iot-pipeline```  
+    ```cd gcp-iot-pipeline/rpi```  
     
     ```source .venv/bin/activate```  
 
