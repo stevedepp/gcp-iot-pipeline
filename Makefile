@@ -52,3 +52,6 @@ teardown:
 	gsutil rm -r gs://iot-analytics-depp
 	rm -r ~/$$PROJECT
 	ssh pi@raspberrypi.local rm -rf /home/pi/credentials /home/pi/gcp-iot-pipeline
+
+ss:
+	ssh pi@raspberrypi.local

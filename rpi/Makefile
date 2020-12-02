@@ -3,7 +3,7 @@ ss:
 env:
 	python3 -m venv .venv
 apt:
-	sudo apt-get updat
+	sudo apt-get update
 	sudo apt-get upgrade
 	sudo raspi config GUI
 gcloud:
@@ -12,12 +12,8 @@ gcloud:
 	sudo apt-get update && sudo apt-get install google-cloud-sdk
 	gcloud init --console-only
 
-dependencies:
-	pip install tendo
-	pip install --upgrade google-cloud-pubsub
-	pip3 install --upgrade oauth2client
-	pip3 install datetime
-	pip3 install adafruit-circuitpython-bmp280
+install:
+	pip install -r requirements.txt --upgrade --use-feature=2020-resolver
 sensor:
 	mkdir -p ~/credentials
 	gsutil cp gs://iot-analytics-depp/key.json ~/credentials/

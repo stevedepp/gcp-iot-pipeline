@@ -291,17 +291,35 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
     ```sudo apt-get upgrade``` 
     
-- [x] **configure the OS to see our sensor and know our timezone** 
+- [x] **configure the OS to see our sensor and know our timezone via command-line or GUI** 
 
-    ```sudo raspi config GUI```  
+    - [x] via command line
     
-    - [x] Interface Options  
+        - [x] toolset and lib for the i2c communications bus
+        
+            ```sudo apt-get install i2c-tools libi2c-dev python-smbus```
+            
+        - [x] set Interface Options to include i2c sensor
+        
+            ```sudo grep -qxF i2c-dev /etc/modules || echo i2c-dev | sudo tee -a /etc/modules```
+            
+            ```sudo sed -i "s/#dtparam=i2c_arm=on/dtparam=i2c_arm=on/g" /boot/config.txt```
+            
+        - [x] set the time zone
+        
+        ```sudo cp /usr/share/zoneinfo/US/Eastern /etc/localtime```
+
+    - [x] or via GUI
+
+        ```sudo raspi config GUI```  
     
-    - [x] P5 I2C Enable/discable automatic loading of I2C kernel module  
+        - [x] Interface Options  
     
-    - [x] Localisation Options  
+        - [x] P5 I2C Enable/discable automatic loading of I2C kernel module  
     
-    - [x] Timezone  
+        - [x] Localisation Options  
+    
+        - [x] Timezone  
     
 - [x] reboot the raspberrypi 
 
@@ -310,6 +328,10 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 *[note: this is another point, prior to the next ```ssh pi@raspberrypi.local```, where one could copy the ```key.json``` to the raspberrypi via   ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.]*
 
 ### test sensor:
+
+- [x] setup a secure shell log in to raspberrypi: 
+
+    ```ssh pi@raspberrypi.local```  
 
 - [x] should read 77.
 
