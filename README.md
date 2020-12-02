@@ -269,7 +269,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 ### install gcloud SDK onto raspberrypi from a laptop terminal ssh into raspberry pi:
 
-- [x] raspberry pi setup: 
+- [x] setup a secure shell log in to raspberrypi: 
 
     ```ssh pi@raspberrypi.local```  
     
@@ -293,11 +293,15 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 ### install sensor's python module and its dependencies on to the rapsberrypi from a laptop terminal ssh into raspberry pi:
 
+- [x] if not already done so, then setup a secure shell log in to raspberrypi: 
+
+    ```ssh pi@raspberrypi.local```  
+
 - [x] clone this project's repository  and cd into the ```gcp-iot-pipeline``` directory.
 
     ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```  
     
-    ```cd gcp-iot-pipeline/rpi```  
+    ```cd gcp-iot-pipeline```  
 
 - [x] set up and source a virtual environment.  
 
@@ -305,16 +309,26 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
     ```source .venv/bin/activate```  
 
-- [x] install some dependencies with python's package manaager.
+- [x] install dependencies with python's package manaager, pip.
+
     - [x] tendo is used in ```check_weather.py``` to check if a script is running more than once:
-        ```pip install tendo```  
+    
+        ```pip install tendo``` 
+        
     - [x] these are pubsub and oauth2 packages for python.  
-        ```pip install --upgrade google-cloud-pubsub```  
+    
+        ```pip install --upgrade google-cloud-pubsub``` 
+        
         ```pip3 install --upgrade oauth2client```  
-    - [x] datetime is employed in ```checkweather.py```  
-    ```pip3 install datetime```  
+        
+    - [x] datetime is employed in ```checkweather.py``` 
+    
+        ```pip3 install datetime``` 
+        
    - [x] this is the new libary pubished by adafruit, the sensor manufacturer.  
+   
     ```pip3 install adafruit-circuitpython-bmp280```  
+    
 - [x] set up gcloud as usual; instructions here, but make sure to select this project and region:
     ```gcloud init --console-only```  
     
