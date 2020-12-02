@@ -1,62 +1,48 @@
+#manual
+	git clone https://github.com/stevedepp/gcp-iot-pipeline.git && cd gcp-iot-pipeline
+
 env:
-	#mkdir -p gcp-iot-pipeline && cd gcp-iot-pipeline && python3 -m venv .venv
 	python3 -m venv .venv
 
-install:
-	pip install --upgrade google-cloud-bigquery
+#manual 
+	source .venv/bin/activate
+	export PROJECT=XXXXX
+	export ACCOUNT=01674D-E5A779-4E5103 or extract from gcloud	
+
 gcp:
-	gcloud config configurations describe default
-	gcloud config set project msds434fp
-	gcloud alpha billing accounts list
-	gcloud projects list
-	gcloud config get-value core/project 
-	gcloud beta billing projects link msds434fp --billing-account 01674D-E5A779-4E5103
-
-apis:
-	gcloud services enable compute.googleapis.com
-	gcloud services enable bigquery.googleapis.com
-	gcloud services enable pubsub.googleapis.com 
-	gcloud services enable cloudfunctions.googleapis.com
-	gcloud services enable cloudbuild.googleapis.com
-	gcloud services enable dataflow.googleapis.com
-
-table:
 	python3 -m pip install --upgrade pip
-	pip install google-api-python-client
-	pip install oauth2client
-	pip install --upgrade google-cloud-bigquery
-	bq version
-	bq --location US mk --dataset --description 'to contain weather data received from pubsub' weatherData
-	bq mk --table --project_id msds434fp --description "contains received IoT weather data" weatherData.weatherDataTable ./weatherDataTable-schema.json
-	bq show --schema --format=prettyjson weatherData.weatherDataTable
+	gcloud config set project $$PROJECT
+	gcloud beta billing projects link $$PROJECT --billing-account $$ACCOUNT
 
 pubsub:
+	gcloud services enable pubsub.googleapis.com
 	gcloud pubsub topics create weatherdata
-	gcloud iam service-accounts create iot-weather-publisher --project msds434fp
-	gcloud iam service-accounts list
-	gcloud projects add-iam-policy-binding msds434fp --member="serviceAccount:iot-weather-publisher@msds434fp.iam.gserviceaccount.com" --role=roles/pubsub.publisher
-	gcloud iam service-accounts keys create ~/key.json --iam-account iot-weather-publisher@msds434fp.iam.gserviceaccount.com
-	gcloud iam service-accounts keys list --iam-account iot-weather-publisher@msds434fp.iam.gserviceaccount.com
-	ls -la ~/key.json
-	cat ~/key.json
+	gcloud iam service-accounts create iot-weather-publisher --project $$PROJECT
+	gcloud projects add-iam-policy-binding $$PROJECT --member="serviceAccount:iot-weather-publisher@$$PROJECT.iam.gserviceaccount.com" --role=roles/pubsub.publisher
+	gcloud iam service-accounts keys create ~/$$PROJECT/key.json --iam-account iot-weather-publisher@$$PROJECT.iam.gserviceaccount.com
 	gsutil mb gs://iot-analytics-depp
-	gsutil cp ~/key.json gs://iot-analytics-depp
+	gsutil cp ~/$$PROJECT/key.json gs://iot-analytics-depp
+
+pubsubinfo:
+	gcloud iam service-accounts list
+	gcloud projects get-iam-policy $$PROJECT
+	gcloud iam service-accounts keys list --iam-account iot-weather-publisher@$$PROJECT.iam.gserviceaccount.com
+	ls ~/$$PROJECT/key.json
+	cat ~/$$PROJECT/key.json
 	gsutil ls gs://iot-analytics-depp
 
-function:
-	gcloud functions deploy function-weatherPubSubToBQ --entry-point hello_pubsub --runtime=python37 --trigger-topic weatherdata --source ./cloud-function/
-	gcloud functions list
+bq:
+	gcloud services enable bigquery.googleapis.com
+	bq --location US mk --dataset --description 'to contain weather data received from pubsub' weatherData
+	bq mk --table --project_id $$PROJECT --description 'contains received IoT weather data' weatherData.weatherDataTable ./weatherDataTable-schema.json
 
-dataflow:
-	gsutil mb gs://iot-analytics-depp
+bqinfo:
+	bq version
+	bq show --schema --format=prettyjson weatherData.weatherDataTable
 
-teardown:
-	bq --location US rm -f --table weatherData.weatherDataTable
-	gcloud projects remove-iam-policy-binding $$PROJECT --member="serviceAccount:iot-weather-publisher@$$PROJECT.iam.gserviceaccount.com" --role=roles/pubsub.publisher
-	gcloud iam service-accounts delete iot-weather-publisher@$$PROJECT.iam.gserviceaccount.com
-	gcloud pubsub topics delete weatherdata
-	bq --location US rm -f --dataset weatherData
-	gcloud functions delete iot_weather
-	gsutil rm -r gs://iot-analytics-depp
-	rm -r ~/$$PROJECT
-	ssh pi@raspberrypi.local rm -rf /home/pi/credentials /home/pi/gcp-iot-pipeline
+cf
+	gcloud services enable cloudbuild.googleapis.com
+	gcloud services enable cloudfunctions.googleapis.com
+	gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherdata --source ./stream2bq/
+
+make infra: gcp pubsub pubsubinfo bq bqinfo cf
