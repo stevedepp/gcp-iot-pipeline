@@ -59,7 +59,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 - [x ] certain experiments ruin the pot
     - [x] disabling api e.g.
  
-## architecture
+## architecture:
 
 #### project:
 sa key —> bucket
@@ -70,7 +70,7 @@ iot-weather-publisher key.json —> iot-analytics-depp
 
 weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publisher w key.json —> weatherdata —> main.py —> weatherData.weatherDataTable —> weatherDataTable-schema
 
-## hardware  
+## hardware:
 
 ### purchase raspberrypi et al
 
@@ -78,13 +78,13 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 ### connect raspberrypi to sensor
 
-## code
+## gcloud and raspberrypi infrastructure as code from a laptop:
 
-### laptop & gcloud set up:
+### set up gcloud infrastructure from a laptop terminal:
 
 - [x] **laptop terminal environment set up:**
 
-    - [x] clone this project's repository and change to the repository's directory.  
+    - [x] clone this project's repository and change to the ```gcp-iot-pipeline``` directory inside.  
     
         ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```  
 
@@ -169,9 +169,13 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
         ```gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherdata --source ./stream2bq/```
 
-### raspberry pi OS and settings setup occurs on laptop:
+### setup raspberry pi OS and settings setup from a laptop:
+
+- [x] best to follow these instructions from a separate terminal window than used to setup gcloud infrastructure.
 
 - [x] **erase SD card via diskutil:**
+
+    - [x] insert the SD card. 
 
     - [x] find the SD card in a list of attached disks.
     
@@ -181,22 +185,37 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
         ```diskutil eraseDisk FAT32 NAME MBRFormat /dev/disk2```
 
-- [x] **load OS via raspberry pi imager**
+- [x] **load raspbian OS onto the SD card using the raspberry pi imager**
+
     - [x] Operating System = latest which here is Raspberry Pi OS (32 bit).
+
     - [x] SD Card = your card which here is "SANDISK SDDR-409 Media - 127.9 GB" here
+    
     - [x] YES
+    
     - [x] Laptop password
+    
     - [x] CONTINUE
     
 - [x] **load Wifi preferences onto SD card boot disk**
-    - [x] clone this project's repo.  
-        ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```  
-    - [x] path to SD card: boot is the only available directory agnostic firendly to linux/OSX & windows platforms.  
-            ```ls /Volumes/boot```  
+
+    - [x] clone this project's repository and change to the ```gcp-iot-pipeline``` directory inside.  
+
+        ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```        
+        
+        ```cd gcp-iot-pipeline``` 
+
+    - [x] OSX can only see the SD card's ```boot``` directory found at ```/Volumes/boot``` because the boot is the only available SD card directory that is agnostic / firendly to linux/OSX & windows platforms.  
+    
+        ```ls /Volumes/boot```  
+        
     - [x] make blank ssh file that on first **headless* raspberrypi boot will enable ssh.  
-            ```touch ssh```  
+    
+        ```touch ssh```
+        
     - [x] there's one of these already in the repo; copy it to the raspberry pi.  
-            ```cd rpi```  
+    
+        ```cd rpi```  
             ```cp rpi/ssh /Volumes/boot```  
     - [x] make ```wpa_supplicant.conf``` file with your routers login/password which can be encrypted.  
                     image here
