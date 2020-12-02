@@ -169,7 +169,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
         ```gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherdata --source ./stream2bq/```
 
-### setup raspberry pi OS and settings setup from a laptop:
+### setup raspberry pi OS and settings from a laptop:
 
 - [x] **open a new terminal window.** 
 
@@ -267,30 +267,43 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 *[note: this is another point, prior to the next ```ssh pi@raspberrypi.local```, where one could copy the ```key.json``` to the raspberrypi via   ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.]*
 
-### install the weather sensor from laptop ssh into raspberry pi:
+### install gcloud SDK onto raspberrypi from a laptop terminal ssh into raspberry pi:
 
-- [x] raspberry pi setup:  
+- [x] raspberry pi setup: 
+
     ```ssh pi@raspberrypi.local```  
     
 - [x] install gcloud SDK
+
     - [x] set the following environment variable so gcloud SDK version matches the OS of raspberrypi.
+    
         ```export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"```
+        
     - [x] set gcloud SDK installation location.
+    
         ```echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" |  sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list```
+        
     - [x] this public key from Google's package repository ensures that Raspberry Pi will verify the security and trust the content during installation.
+    
         ```  curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -```
+        
     - [x] redundant update of raspberrypi OS and gcloud SDK install; press ```Enter``` when asked.
-    ```sudo apt-get update && sudo apt-get install google-cloud-sdk```
+    
+        ```sudo apt-get update && sudo apt-get install google-cloud-sdk```
 
-UNSURE WHICH OF THE NEXT 2 CHECKBOXES COMES FIRST.  DO WE WANT TO ENV OFF THE PUBSUB AND OATH AND ADAFRUIT AND GCLOUD INIT?
-SHOUULD GCLOUD INIT GO AS LAST STEP IN THE PREVIOUS CHECKBOX?
+### install sensor's python module and its dependencies on to the rapsberrypi from a laptop terminal ssh into raspberry pi:
 
-- [x] clone this project's repo and cd into it.  
-        ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```  
-        ```cd gcp-iot-pipeline/rpi```  
-        ```rm -rf .venv```  
-        ```python3 -m venv .venv```  
-        ```source .venv/bin/activate```  
+- [x] clone this project's repository  and cd into the ```gcp-iot-pipeline``` directory.
+
+    ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```  
+    
+    ```cd gcp-iot-pipeline/rpi```  
+
+- [x] set up and source a virtual environment.  
+
+    ```python3 -m venv .venv```  
+    
+    ```source .venv/bin/activate```  
 
 - [x] install some dependencies with python's package manaager.
     - [x] tendo is used in ```check_weather.py``` to check if a script is running more than once:
