@@ -99,7 +99,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
         ```gcloud config set project $PROJECT```
 
-    - [x] get the account number from gcloud and export an environment variable for ```ACCOUNT```. ]
+    - [x] get the account number from gcloud and export an  ```ACCOUNT```environment variable . 
 
         ```export ACCOUNT=$(gcloud alpha billing accounts list | awk 'NR==2{print $1}')```
     
