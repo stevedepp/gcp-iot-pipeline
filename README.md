@@ -115,7 +115,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
         
     - [x] export environment variables for project and account. note: these do not carry over from one terminal window to another.
 
-        ```export PROJECT=msds434deppfp```
+        ```export PROJECT=test123depp```
 
         ```export ACCOUNT=01674D-E5A779-4E5103```
 
@@ -306,7 +306,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
     - [x] via command line
     
-        - [x] toolset and lib for the i2c communications bus
+        - [x] toolset and lib for the i2c communications bus (might be optional).
         
             ```sudo apt-get install i2c-tools libi2c-dev python-smbus```
             
@@ -371,6 +371,32 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     - [x] redundant update of raspberrypi OS and gcloud SDK install; press ```Enter``` when asked.
     
         ```sudo apt-get update && sudo apt-get install google-cloud-sdk```
+        
+- [x] **gcloud setup information here in the raspberrypi terminal will be the same as on the laptop terminal**:
+
+    - [x] log into your gcloud account.
+
+        ```gcloud auth login```
+
+    - [x] export an environment variable for this ```PROJECT```.  note: this do not carry over from one terminal window to another.
+
+        ```export PROJECT=test123depp```
+        
+        ```gcloud config set project $PROJECT```
+
+    - [x] get the account number from gcloud and export an environment variable for ```ACCOUNT```. ]
+
+        ```export ACCOUNT=$(gcloud alpha billing accounts list | awk 'NR==2{print $1}')```
+        
+        ```gcloud beta billing projects link $PROJECT --billing-account $ACCOUNT```
+
+        ```gcloud config configurations describe default```
+        
+        ```gcloud alpha billing accounts list```
+            
+        ```gcloud projects list```
+            
+        ```gcloud config get-value core/project```
     
     - [x] set up gcloud, selecting the current project and region. CHECK SEE IF THIS IS NEEDED.
 
