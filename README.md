@@ -213,7 +213,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
         ```touch /Volumes/boot/ssh```
         
-    - [x] there's one of these already in the repository's ```rpi``` directory; so an alternate to the last step is to copy this ```ssh``` file from the repository ```rpi```directory to the raspberry pi's ```/Volumes/boot``` directory.  
+    - [x] there's an ```ssh``` file already in the repository's ```rpi``` directory; so an alternate to the last step is to copy this ```ssh``` file from the repository 's ```rpi```directory to the raspberry pi's ```/Volumes/boot``` directory.  
     
         ```cp rpi/ssh /Volumes/boot```  
         
@@ -221,41 +221,51 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
         image here
                     
-    - [x] there's one of these already in the repo; copy it to the raspberry pi.  
+    - [x] there's a ```wpa_supplicant.conf``` file already in the repository's ```rpi``` directory; copy it from there to the raspberry pi's ```/Volumes/boot``` directory.
 
         ```cp rpi/wpa_supplicant.conf /Volumes/boot```  
         
-    - [x] enter the passphrase for your wifi network(s) and copy.
+    - [x] open the ```wpa_supplicant.conf``` and enter the passphrase for your wifi network(s).
     
         ```nano /Volumes/boot/wpa_supplicant.conf```
         
-- [x] **put SD card into the raspberrypi and plug the raspberrypi into the wall**  
+- [x] **put SD card into the raspberrypi. then, plug the raspberrypi into the wall**  
 
-- [x] **check that it is on the network**  
+- [x] **check that the raspberrypi is visible on the network**  
+
     ```ping raspberrypi.local```  
     
 - [x] **ssh into the raspberrypi - here's where the fun starts!**  
+
     ```ssh pi@raspberrypi.local```  
     
-- [x] **first time, you get** ***boy crying wolf*** **warnings; clear them as follows:**  
+- [x] **the first connection attempt may return these ** ***boy crying wolf*** **warning; clear them as follows:**  
+
     ```ssh-keygen -R raspberrypi.local```  
     
-- [x] **try again** ***et viola***  
+- [x] **try connecting again,** ***et viola***  
+
     ```ssh pi@raspberrypi.local```  
 
 - [x] **update and upgrade the OS if possible.**  
+
     ```sudo apt-get update```  
-    ```sudo apt-get upgrade```  
-- [x] **configure the OS to see our sensor and know our timezone**  
+    ```sudo apt-get upgrade``` 
+    
+- [x] **configure the OS to see our sensor and know our timezone** 
+
     ```sudo raspi config GUI```  
+    
     - [x] Interface Options  
     - [x] P5 I2C Enable/discable automatic loading of I2C kernel module  
     - [x] Localisation Options  
     - [x] Timezone  
-- [x] reboot the raspberrypi  
+    
+- [x] reboot the raspberrypi 
+
     ```sudo reboot```  
 
-*[note this is another point, prior to the next ```ssh pi@raspberrypi.local```, where one could copy the ```key.json``` to the raspberrypi via   ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.]*
+*[note: this is another point, prior to the next ```ssh pi@raspberrypi.local```, where one could copy the ```key.json``` to the raspberrypi via   ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.]*
 
 ### install the weather sensor from laptop ssh into raspberry pi:
 
