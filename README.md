@@ -209,19 +209,24 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
         ```ls /Volumes/boot```  
         
-    - [x] make blank ssh file that on first **headless* raspberrypi boot will enable ssh.  
+    - [x] make blank ```ssh``` file that on first *headless* raspberrypi boot will enable ssh.  
     
-        ```touch ssh```
+        ```touch /Volumes/boot/ssh```
         
-    - [x] there's one of these already in the repo; copy it to the raspberry pi.  
+    - [x] there's one of these already in the repository's ```rpi``` directory; so an alternate to the last step is to copy this ```ssh``` file from the repository ```rpi```directory to the raspberry pi's ```/Volumes/boot``` directory.  
     
-        ```cd rpi```  
-            ```cp rpi/ssh /Volumes/boot```  
-    - [x] make ```wpa_supplicant.conf``` file with your routers login/password which can be encrypted.  
-                    image here
+        ```cp rpi/ssh /Volumes/boot```  
+        
+    - [x] make a ```wpa_supplicant.conf``` file with your routers login/password which can be encrypted.  
+    
+        image here
+                    
     - [x] there's one of these already in the repo; copy it to the raspberry pi.  
+
         ```cp rpi/wpa_supplicant.conf /Volumes/boot```  
-    - [x] enter the passphrase for your wifi network(s) and copy
+        
+    - [x] enter the passphrase for your wifi network(s) and copy.
+    
         ```nano /Volumes/boot/wpa_supplicant.conf```
         
 - [x] **put SD card into the raspberrypi and plug the raspberrypi into the wall**  
