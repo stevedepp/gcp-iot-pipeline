@@ -373,22 +373,22 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
     ```gcloud config set project $PROJECT```
 
--[x] removes every component except some artifact files in google storage.
+- [x] removes every component except some artifact files in google storage.
 
-```bq --location US rm -f --table weatherData.weatherDataTable```  
+    ```bq --location US rm -f --table weatherData.weatherDataTable```  
 
-```gcloud projects remove-iam-policy-binding $PROJECT --member="serviceAccount:iot-weather-publisher@$PROJECT.iam.gserviceaccount.com" --role=roles/pubsub.publisher```  
+    ```gcloud projects remove-iam-policy-binding $PROJECT --member="serviceAccount:iot-weather-publisher@$PROJECT.iam.gserviceaccount.com" --role=roles/pubsub.publisher```  
 
-```gcloud iam service-accounts delete iot-weather-publisher@$PROJECT.iam.gserviceaccount.com```  
+    ```gcloud iam service-accounts delete iot-weather-publisher@$PROJECT.iam.gserviceaccount.com```  
 
-```gcloud pubsub topics delete weatherdata```  
+    ```gcloud pubsub topics delete weatherdata```  
 
-```bq --location US rm -f --dataset weatherData```  
+    ```bq --location US rm -f --dataset weatherData```  
 
-```gcloud functions delete iot_weather```  
+    ```gcloud functions delete iot_weather```  
 
-```gsutil rm -r gs://iot-analytics-depp```  
+    ```gsutil rm -r gs://iot-analytics-depp```  
 
-```rm -r ~/$PROJECT```
+    ```rm -r ~/$PROJECT```
 
-```ssh pi@raspberrypi.local rm -rf /home/pi/credentials```
+    ```ssh pi@raspberrypi.local rm -rf /home/pi/credentials```
