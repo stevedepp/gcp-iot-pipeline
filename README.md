@@ -87,15 +87,35 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 ### set up gcloud infrastructure from a laptop terminal:
 
-- [x] **preliminary information**:
+- [x] **gcp set up:**
 
-    ```gcloud config configurations describe default```
+    - [x] log into gcloud as an authorized user.  this is necessary when we start the raspberrypi, but may not be needed on this laptop if the user regularly runs ```gcloud``` here.   If taking this step, follow instructions by copying the link provided into a browser, selecting login email from the popup, and copying the code back into the terminal window as shown. 
+
+        ```gcloud auth login```
+
+    - [x] export an environment variable for this ```PROJECT```.  note: this do not carry over from one terminal window to another.
+
+        ```export PROJECT=test123depp```
     
-    ```gcloud alpha billing accounts list```
+        ```gcloud config set project $PROJECT```
+
+    - [x] get the account number from gcloud and export an environment variable for ```ACCOUNT```. ]
+
+        ```export ACCOUNT=$(gcloud alpha billing accounts list | awk 'NR==2{print $1}')```
     
-    ```gcloud projects list```
+    - [x] link the current project to a billing account.
     
-    ```gcloud config get-value core/project```
+        ```gcloud beta billing projects link $PROJECT --billing-account $ACCOUNT```
+
+    - [x] preliminary information:
+
+        ```gcloud config configurations describe default```
+    
+        ```gcloud alpha billing accounts list```
+        
+        ```gcloud projects list```
+        
+        ```gcloud config get-value core/project```
 
 - [x] **laptop terminal environment set up:**
 
@@ -113,25 +133,9 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
         ```source .venv/bin/activate```
         
-    - [x] export environment variables for project and account. note: these do not carry over from one terminal window to another.
-
-        ```export PROJECT=test123depp```
-
-        ```export ACCOUNT=01674D-E5A779-4E5103```
-
     - [x] upgrade python's package installer, pip.
 
         ```python3 -m pip install --upgrade pip```
-
-- [x] **gcp set up:**
-
-    - [x] sets the default project to this current one.
-
-        ```gcloud config set project $PROJECT```
-
-    - [x] link the current project to a billing account.
-
-        ```gcloud beta billing projects link $PROJECT --billing-account $ACCOUNT```
 
 - [x] **pubsub set up:**
 
@@ -159,7 +163,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
         ```gsutil cp ~/$PROJECT/key.json gs://iot-analytics-depp```
     
-        *[note: the bucket is not essential but allows for the raspberry pi set up to come AFTER the laptop setup; were the latop set up AFTER then the pubsub key could be transfered to the pi via scp:
+        *[note: the bucket is not essential but allows for the raspberry pi set up to come AFTER the laptop setup; were the latop set up AFTER then the pubsub key could be transfered to the pi via secure copy:
     ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi```
     
     - [x] for information:
@@ -177,10 +181,6 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
         ```gsutil ls gs://iot-analytics-depp```
 
 - [x] **big query set up:**
-
-    - [x] preliminary information:
-    
-        
 
     - [x] enable the pubsub api and create the ```weatherData``` dataset and the ```weatherDataTable``` table inside of the dataset. 
 
@@ -372,7 +372,36 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
         ```sudo apt-get update && sudo apt-get install google-cloud-sdk```
         
-- [x] **gcloud setup information here in the raspberrypi terminal will be the same as on the laptop terminal**:
+- [x] **gcloud setup for the raspberrypi terminal is similar to the laptop terminal, but ```gcloud auth login``` in mandatory.**
+
+    - [x] log into gcloud as an authorized user.  follow instructions by copying the link provided into a browser, selecting login email from the popup, and copying the code back into the terminal window as shown. 
+
+        ```gcloud auth login```
+
+    - [x] export an environment variable for this ```PROJECT```.  note: this do not carry over from one terminal window to another.
+
+        ```export PROJECT=test123depp```
+    
+        ```gcloud config set project $PROJECT```
+
+    - [x] get the account number from gcloud and export an environment variable for ```ACCOUNT```. ]
+
+        ```export ACCOUNT=$(gcloud alpha billing accounts list | awk 'NR==2{print $1}')```
+    
+    - [x] link the current project to a billing account.
+    
+        ```gcloud beta billing projects link $PROJECT --billing-account $ACCOUNT```
+
+    - [x] preliminary information:
+
+        ```gcloud config configurations describe default```
+    
+        ```gcloud alpha billing accounts list```
+        
+        ```gcloud projects list```
+        
+        ```gcloud config get-value core/project```
+
 
     - [x] log into your gcloud account.
 
@@ -398,10 +427,6 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
             
         ```gcloud config get-value core/project```
     
-    - [x] set up gcloud, selecting the current project and region. CHECK SEE IF THIS IS NEEDED.
-
-        ```gcloud init --console-only```  
-
 ### install sensor's python module and its dependencies on to the rapsberrypi from a laptop terminal ssh into raspberry pi:
 
 - [x] if not already done so, then setup a secure shell log in to raspberrypi: 
