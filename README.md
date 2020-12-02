@@ -289,6 +289,12 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     ```yes```
     
     ```raspberry``` (the default password)
+    
+- [x] clone this project's repository  and cd into the ```gcp-iot-pipeline/rpi``` directory.
+
+    ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```  
+    
+    ```cd gcp-iot-pipeline/rpi```    
 
 - [x] **update and upgrade the OS if possible.**  
 
