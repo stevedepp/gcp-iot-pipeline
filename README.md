@@ -89,11 +89,11 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 - [x] **gcp set up:**
 
-    - [x] log into gcloud as an authorized user.  this step is necessary to set up gcloud CLI on the raspberrypi, but may not be needed to set up gcloud CLI on this laptop if the user already runs ```gcloud``` on this laptop.   If taking this step, follow instructions by copying the link provided into a browser, selecting login email from the popup, and copying the code back into the terminal window as shown. 
+    - [x] log into gcloud as an authorized user.  this step is necessary to set up gcloud CLI on the raspberrypi, but may not be needed to set up gcloud CLI on this laptop if the user already runs ```gcloud``` on this laptop.   If taking this step, follow instructions by copying the link provided into a browser, selecting login email from the popup, and copying the passcode back into the terminal window as shown. 
 
         ```gcloud auth login```
 
-    - [x] export an environment variable for this ```PROJECT```.  note: this do not carry over from one terminal window to another.
+    - [x] export an environment variable for this ```PROJECT```.  note: this environment variable does not carry over from one terminal window to another.
 
         ```export PROJECT=test123depp```
     
