@@ -239,7 +239,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
     ```ssh pi@raspberrypi.local```  
     
-- [x] **the first connection attempt may return these ** ***boy crying wolf*** **warning; clear them as follows:**  
+- [x] **the first connection attempt may return these** ***boy crying wolf*** **warning; clear them as follows:**  
 
     ```ssh-keygen -R raspberrypi.local```  
     
@@ -250,6 +250,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 - [x] **update and upgrade the OS if possible.**  
 
     ```sudo apt-get update```  
+    
     ```sudo apt-get upgrade``` 
     
 - [x] **configure the OS to see our sensor and know our timezone** 
@@ -257,8 +258,11 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     ```sudo raspi config GUI```  
     
     - [x] Interface Options  
+    
     - [x] P5 I2C Enable/discable automatic loading of I2C kernel module  
+    
     - [x] Localisation Options  
+    
     - [x] Timezone  
     
 - [x] reboot the raspberrypi 
@@ -364,6 +368,12 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 
 ## teardown the gcloud infrastructure as code from laptop terminal
+
+- [x] exports the current project id to an environment variable PROJECT.
+
+    ```gcloud config set project $PROJECT```
+
+-[x] removes every component except some artifact files in google storage.
 
 ```bq --location US rm -f --table weatherData.weatherDataTable```  
 
