@@ -360,11 +360,11 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     ```export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/key.json```  
     
 
-- [x] change to the ```rpi``` directory and call the ```iot-data-pipeline-depp.py``` sensor module with ```$PROJECT``` argument.
+- [x] change to the ```rpi``` directory and call the ```iot-data-pipeline.py``` sensor module with ```$PROJECT``` argument.
 
     ```cd ~/gcp-iot-pipeline/rpi```
     
-    ```iot-data-pipeline-depp.py $PROJECT```.
+    ```iot-data-pipeline.py $PROJECT```.
 
 
 ## teardown the gcloud infrastructure as code from laptop terminal
