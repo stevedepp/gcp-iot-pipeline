@@ -172,7 +172,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
         
         ```gcloud projects get-iam-policy $PROJECT```
         
-        ```gcloud iam service-accounts keys list --iam-account iot-weather-publisher@msds434fp.iam.gserviceaccount.com```
+        ```gcloud iam service-accounts keys list --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com```
         
         ```ls ~/$PROJECT/key.json```
         
@@ -412,7 +412,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
     ```cd gcp-iot-pipeline/rpi```      
 
-- [x] set up and source a virtual environment.  
+- [x] set up and source a virtual environment.    MAYBE SKIP THIS
 
     ```python3 -m venv .venv```  
     
@@ -426,7 +426,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
         
     - [x] these are pubsub and oauth2 packages for python.  
     
-        ```pip install --upgrade google-cloud-pubsub``` 
+        ```pip install --upgrade google-cloud-pubsub```   THIS STALLED POSSIBLY BECAUSE OF VENV
         
         ```pip3 install --upgrade oauth2client```  
         
@@ -440,13 +440,15 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
 ### run the weather sensor module to collect data
         
-- [x] if not already done so, then setup a secure shell log in to raspberrypi, change to the ```gcp-iot-pipeline``` directory, source its virtual environment, and export an environment variable for this project. 
+- [x] within a secure shell session with raspberrypi, change to the ```gcp-iot-pipeline/rpi``` directory. 
 
     ```ssh pi@raspberrypi.local```  
     
     ```cd gcp-iot-pipeline/rpi```  
     
-    ```source .venv/bin/activate```  
+- [x] [source its virtual environment], and export an environment variable for this project, remembering that envionment variables do not carry over from one terminal session (i.e. window) to another.
+    
+    ```[source .venv/bin/activate]```  
     
     ```export PROJECT=test123depp```
     
@@ -459,7 +461,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     ```export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/key.json```  
     
 
-- [x] change to the ```rpi``` directory and call the ```iot-data-pipeline.py``` sensor module with ```$PROJECT``` argument.
+- [x] from the ```gcp-iot-pipeline/rpi``` directory, call the ```iot-data-pipeline.py``` sensor module with ```$PROJECT``` argument.
 
     ```cd ~/gcp-iot-pipeline/rpi```
     
