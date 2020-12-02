@@ -37,3 +37,7 @@ cf:
 	gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherdata --source ./stream2bq/
 
 make infra: gcp pubsub pubsubinfo bq bqinfo cf
+
+sd:
+        cp rpi/ssh /Volumes/boot
+        cp rpi/wpa_supplicant.conf /Volumes/boot
