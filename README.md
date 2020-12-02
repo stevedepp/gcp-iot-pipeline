@@ -30,6 +30,7 @@ https://cloud.google.com/functions/docs/testing/test-background
 - [ ] logging  
 - [ ] linting  
 - [ ] can include toy python scripts for sensor illustraion
+- [ ] shell script to make the wpa_supplicant.conf with hashed pwd
 
 ### rejected features
 - [ ] random number suffix to storage bucket name is rejected as a feature because the name needs to be employed on the laptop and on the raspberry pi.
@@ -265,6 +266,8 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
         ```nano /Volumes/boot/wpa_supplicant.conf```
         
+- [x] **safely eject the SD card.**
+
 - [x] **put SD card into the raspberrypi. then, plug the raspberrypi into the wall**  
 
 - [x] **check that the raspberrypi is visible on the network**  
