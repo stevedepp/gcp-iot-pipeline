@@ -103,7 +103,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
         ```export ACCOUNT=$(gcloud alpha billing accounts list | awk 'NR==2{print $1}')```
     
-    - [x] link the current project to a billing account.
+    - [x] link the current project to the billing account saved in the ```ACCOUNT``` environment variable.
     
         ```gcloud beta billing projects link $PROJECT --billing-account $ACCOUNT```
 
@@ -378,55 +378,30 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
         ```gcloud auth login```
 
-    - [x] export an environment variable for this ```PROJECT```.  note: this do not carry over from one terminal window to another.
+    - [x] export an environment variable for this ```PROJECT```.  note: this environment variable does not carry over from one terminal window to another.
 
         ```export PROJECT=test123depp```
-    
+
         ```gcloud config set project $PROJECT```
 
-    - [x] get the account number from gcloud and export an environment variable for ```ACCOUNT```. ]
+    - [x] get the account number from gcloud and export an  ```ACCOUNT```environment variable . 
 
         ```export ACCOUNT=$(gcloud alpha billing accounts list | awk 'NR==2{print $1}')```
-    
-    - [x] link the current project to a billing account.
-    
+
+    - [x] link the current project to the billing account saved in the ```ACCOUNT``` environment variable.
+
         ```gcloud beta billing projects link $PROJECT --billing-account $ACCOUNT```
 
     - [x] preliminary information:
 
         ```gcloud config configurations describe default```
-    
+
         ```gcloud alpha billing accounts list```
-        
+    
         ```gcloud projects list```
-        
+    
         ```gcloud config get-value core/project```
 
-
-    - [x] log into your gcloud account.
-
-        ```gcloud auth login```
-
-    - [x] export an environment variable for this ```PROJECT```.  note: this do not carry over from one terminal window to another.
-
-        ```export PROJECT=test123depp```
-        
-        ```gcloud config set project $PROJECT```
-
-    - [x] get the account number from gcloud and export an environment variable for ```ACCOUNT```. ]
-
-        ```export ACCOUNT=$(gcloud alpha billing accounts list | awk 'NR==2{print $1}')```
-        
-        ```gcloud beta billing projects link $PROJECT --billing-account $ACCOUNT```
-
-        ```gcloud config configurations describe default```
-        
-        ```gcloud alpha billing accounts list```
-            
-        ```gcloud projects list```
-            
-        ```gcloud config get-value core/project```
-    
 ### install sensor's python module and its dependencies on to the rapsberrypi from a laptop terminal ssh into raspberry pi:
 
 - [x] if not already done so, then setup a secure shell log in to raspberrypi: 
