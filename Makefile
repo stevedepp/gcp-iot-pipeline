@@ -1,15 +1,5 @@
 env:
 	python3 -m venv .venv
-
-#manual
-	git clone https://github.com/stevedepp/gcp-iot-pipeline.git && cd gcp-iot-pipeline
-
-
-#manual 
-	source .venv/bin/activate
-	export PROJECT=XXXXX
-	export ACCOUNT=01674D-E5A779-4E5103 or extract from gcloud	
-
 gcp:
 	python3 -m pip install --upgrade pip
 	gcloud config set project $$PROJECT
@@ -41,7 +31,7 @@ bqinfo:
 	bq version
 	bq show --schema --format=prettyjson weatherData.weatherDataTable
 
-cf
+cf:
 	gcloud services enable cloudbuild.googleapis.com
 	gcloud services enable cloudfunctions.googleapis.com
 	gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherdata --source ./stream2bq/
