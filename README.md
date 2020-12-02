@@ -235,6 +235,8 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
     - [x] CONTINUE
     
+    - [x] When the SD card loading is complete, pull out the SD card and put it back in and move to the next step.
+    
 - [x] **load Wifi preferences onto SD card boot disk**
 
     - [x] clone this project's repository and change to the ```gcp-iot-pipeline``` directory inside.  
