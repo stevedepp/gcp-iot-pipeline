@@ -356,19 +356,29 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     ```export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/key.json```  
     
 
-- [ ] change to the ```rpi``` directory and call the ```iot-data-pipeline-depp.py``` sensor module with ```$PROJECT``` argument.
+- [x] change to the ```rpi``` directory and call the ```iot-data-pipeline-depp.py``` sensor module with ```$PROJECT``` argument.
 
     ```cd ~/gcp-iot-pipeline/rpi```
     
     ```iot-data-pipeline-depp.py $PROJECT```.
 
-- [x] tear it down
+
+## teardown the gcloud infrastructure as code from laptop terminal
+
 ```bq --location US rm -f --table weatherData.weatherDataTable```  
-```gcloud projects remove-iam-policy-binding msds434deppfp --member="serviceAccount:iot-weather-publisher@msds434deppfp.iam.gserviceaccount.com" --role=roles/pubsub.publisher```  
-```gcloud iam service-accounts delete iot-weather-publisher@msds434deppfp.iam.gserviceaccount.com```  
+
+```gcloud projects remove-iam-policy-binding $PROJECT --member="serviceAccount:iot-weather-publisher@$PROJECT.iam.gserviceaccount.com" --role=roles/pubsub.publisher```  
+
+```gcloud iam service-accounts delete iot-weather-publisher@$PROJECT.iam.gserviceaccount.com```  
+
 ```gcloud pubsub topics delete weatherdata```  
+
 ```bq --location US rm -f --dataset weatherData```  
+
 ```gcloud functions delete iot_weather```  
+
 ```gsutil rm -r gs://iot-analytics-depp```  
+
 ```rm -r ~/$PROJECT```
+
 ```ssh pi@raspberrypi.local rm -rf /home/pi/credentials```
