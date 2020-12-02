@@ -173,8 +173,13 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 - [x] **erase SD card via diskutil:**
 
-    ```diskutil list``` reveals which disk is the SD card; replace```disk 2``` in the next line if different.)  
-    ```diskutil eraseDisk FAT32 NAME MBRFormat /dev/disk2```
+    - [x] find the SD card in a list of attached disks.
+    
+        ```diskutil list``` 
+        
+    - [x] replace```disk 2``` in this command with the disk identifier from previous command.  
+    
+        ```diskutil eraseDisk FAT32 NAME MBRFormat /dev/disk2```
 
 - [x] **load OS via raspberry pi imager**
     - [x] Operating System = latest which here is Raspberry Pi OS (32 bit).
