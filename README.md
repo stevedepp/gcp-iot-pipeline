@@ -288,7 +288,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
     ```yes```
     
-    ```password```
+    ```raspberry``` (the default password)
 
 - [x] **update and upgrade the OS if possible.**  
 
