@@ -321,32 +321,46 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
         
         ```pip3 install --upgrade oauth2client```  
         
-    - [x] datetime is employed in ```checkweather.py``` 
+    - [x] datetime is employed in ```iot-data-pipeline.py``` 
     
         ```pip3 install datetime``` 
         
    - [x] this is the new libary pubished by adafruit, the sensor manufacturer.  
    
-    ```pip3 install adafruit-circuitpython-bmp280```  
+        ```pip3 install adafruit-circuitpython-bmp280```  
     
-- [x] set up gcloud as usual; instructions here, but make sure to select this project and region:
+- [x] set up gcloud, selecting the current project and region.
+
     ```gcloud init --console-only```  
     
 ### run the weather sensor module to collect data
         
-if the repository is already here then cd into it if not clone it and cd into it and activate  
-    ```ssh pi@raspberrypi.local```  
-    ```cd ~/gcp-iot-pipeline```
-    ```export PROJECT=test123depp```
-- [x] copy over the key.json credentials and set an environment variable for their location. 
-    ```source .venv/bin/activate```  
-    ```mkdir -p ~/credentials```  
-    ```gsutil cp gs://iot-analytics-depp/key.json ~/credentials/```  
-    ```export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/key.json```  
-    ```cd ~/gcp-iot-pipeline/rpi```
+- [x] if not already done so, then setup a secure shell log in to raspberrypi, change to the ```gcp-iot-pipeline``` directory, and source its virtual environment: 
 
-- [ ] call the sensor with $PROJECT argument  
-```iot-data-pipeline-depp.py $PROJECT```.
+    ```ssh pi@raspberrypi.local```  
+    
+    ```cd gcp-iot-pipeline```  
+    
+    ```source .venv/bin/activate```  
+
+- [x] export an environment variable for this project.  
+
+    ```export PROJECT=test123depp```
+    
+- [x] from the ```iot-analytics-depp``` google storage bucket, copy the ```key.json``` file to the raspberrypi's ```credentials``` directory and set an environment variable ```GOOGLE_APPLICATION_CREDENTIALS``` for the file's path. 
+
+    ```mkdir -p ~/credentials```  
+    
+    ```gsutil cp gs://iot-analytics-depp/key.json ~/credentials/```  
+    
+    ```export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/key.json```  
+    
+
+- [ ] change to the ```rpi``` directory and call the ```iot-data-pipeline-depp.py``` sensor module with ```$PROJECT``` argument.
+
+    ```cd ~/gcp-iot-pipeline/rpi```
+    
+    ```iot-data-pipeline-depp.py $PROJECT```.
 
 - [x] tear it down
 ```bq --location US rm -f --table weatherData.weatherDataTable```  
