@@ -1,3 +1,5 @@
+ssh:
+	ssh pi@raspberrypi.local
 env:
 	python3 -m venv .venv
 apt:
