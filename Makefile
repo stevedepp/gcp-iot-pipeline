@@ -39,5 +39,16 @@ cf:
 make infra: gcp pubsub pubsubinfo bq bqinfo cf
 
 sd:
-        cp rpi/ssh /Volumes/boot
-        cp rpi/wpa_supplicant.conf /Volumes/boot
+	cp rpi/ssh /Volumes/boot
+	cp rpi/wpa_supplicant.conf /Volumes/boot
+
+teardown:
+	bq --location US rm -f --table weatherData.weatherDataTable
+	gcloud projects remove-iam-policy-binding $$PROJECT --member="serviceAccount:iot-weather-publisher@$$PROJECT.iam.gserviceaccount.com" --role=roles/pubsub.publisher
+	gcloud iam service-accounts delete iot-weather-publisher@$$PROJECT.iam.gserviceaccount.com
+	gcloud pubsub topics delete weatherdata
+	bq --location US rm -f --dataset weatherData
+	gcloud functions delete iot_weather
+	gsutil rm -r gs://iot-analytics-depp
+	rm -r ~/$$PROJECT
+	ssh pi@raspberrypi.local rm -rf /home/pi/credentials /home/pi/gcp-iot-pipeline

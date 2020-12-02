@@ -1,4 +1,4 @@
-ssh:
+ss:
 	ssh pi@raspberrypi.local
 env:
 	python3 -m venv .venv
@@ -29,3 +29,4 @@ reboot:
 	sudo reboot
 i2c:
 	sudo i2cdetect -y 1
+
