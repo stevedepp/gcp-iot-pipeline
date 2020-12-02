@@ -268,9 +268,9 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
         
 - [x] **safely eject the SD card.**
 
-- [x] **put SD card into the raspberrypi. then, plug the raspberrypi into the wall**  
+- [x] **put SD card into the raspberrypi. then, plug the raspberrypi into the wall. give it a few minutes until the green light stops flashing (the raspberrypi is then fully booted).  MAYBE EXPLAIN HOW FILES ARE COPIED OVER.**  
 
-- [x] **check that the raspberrypi is visible on the network**  
+- [x] **check that the raspberrypi is visible on the network.  after the raspberrypi pings you back a few times, simply ```cntrl-c``` to end the ping.**  
 
     ```ping raspberrypi.local```  
     
@@ -285,6 +285,10 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 - [x] **try connecting again,** ***et viola***  
 
     ```ssh pi@raspberrypi.local```  
+    
+    ```yes```
+    
+    ```password```
 
 - [x] **update and upgrade the OS if possible.**  
 
