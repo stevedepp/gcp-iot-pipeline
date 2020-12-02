@@ -171,7 +171,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 ### setup raspberry pi OS and settings setup from a laptop:
 
-- [x] best to follow these instructions from a separate terminal window than used to setup gcloud infrastructure.
+- [x] **open a new terminal window.** 
 
 - [x] **erase SD card via diskutil:**
 
