@@ -18,7 +18,7 @@ gcloud functions delete iot_weather
 
 gsutil rm -r gs://iot-analytics-depp
 
-rm -r ~/$PROJECT
+#rm -r ~/$PROJECT
 
-ssh pi@raspberrypi.local rm -rf /home/pi/credentials /home/pi/gcp-iot-pipeline
+#ssh pi@raspberrypi.local rm -rf /home/pi/credentials /home/pi/gcp-iot-pipeline
 

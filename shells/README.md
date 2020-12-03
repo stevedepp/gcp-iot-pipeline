@@ -2,11 +2,12 @@
 
 ## laptop
 
+
 ### manual_1
 
-mkdir project
+mkdir folder_name
 
-cd project
+cd folder_name
 
 git clone https://github.com/stevedepp/gcp-iot-pipeline.git
 
@@ -15,6 +16,8 @@ cd gcp-iot-pipeline
 python3 -m venv .venv
 
 source .venv/bin/activate
+
+
 
 ### ./shells/1_gcp_setup_PROJECT.sh
 
@@ -93,14 +96,16 @@ erase SD card
     diskutil eraseDisk FAT32 NAME MBRFormat /dev/disk2
 load raspian
     
+
 ### ./shells/3_sd_card_wifi.sh
 
 #!/bin/bash
 
-cd gcp-iot-pipeline/rpi
 ls /Volumes/boot
-cp ./ssh /Volumes/boot
-cp ./wpa_supplicant.conf /Volumes/boot
+cp ./rpi/ssh /Volumes/boot
+cp ./rpi/wpa_supplicant.conf /Volumes/boot
+
+
 
 ### manual_3
 
@@ -109,13 +114,16 @@ update wifi passkey
 eject card / replace card
 ping network
     ping raspberrypi.local
-first ssh
-    ssh pi@raspberrypi.local
-    ssh-keygen -R raspberrypi.local
+
+
 
 ### ./shells/4_update_sd_os.sh
 
 #!/bin/bash
+
+ssh pi@raspberrypi.local
+
+ssh-keygen -R raspberrypi.local
 
 ssh pi@raspberrypi.local
     yes
@@ -130,6 +138,8 @@ sudo sed -i "s/#dtparam=i2c_arm=on/dtparam=i2c_arm=on/g" /boot/config.txt
 sudo cp /usr/share/zoneinfo/US/Eastern /etc/localtime
 
 sudo reboot
+
+
 
 ### ./shells/5_test_sensor_gcloud_install_setup_PROJECT.sh
 
