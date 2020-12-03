@@ -28,19 +28,23 @@ gcloud iam service-accounts create iot-weather-publisher --project $PROJECT
 
 gcloud projects add-iam-policy-binding $PROJECT --member="serviceAccount:iot-weather-publisher@$PROJECT.iam.gserviceaccount.com" --role=roles/pubsub.publisher
 
-gcloud iam service-accounts keys create ~/$PROJECT/key.json --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com
+gcloud iam service-accounts keys create ~/$PROJECT/pub-key.json --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com
+
+gcloud iam service-accounts keys create ~/$PROJECT/auth-key.json --iam-account $PROJECT@appspot.gserviceaccount.com
 
 gsutil mb gs://iot-analytics-depp
 
-gsutil cp ~/$PROJECT/key.json gs://iot-analytics-depp
+gsutil cp ~/$PROJECT/pub-key.json gs://iot-analytics-depp
 
-gsutil cp ~/test123depp-d4de252b7a56.json gs://iot-analytics-depp
+gsutil cp ~/$PROJECT/auth-key.json gs://iot-analytics-depp
 
 gcloud iam service-accounts list
 
 gcloud projects get-iam-policy $PROJECT
 
 gcloud iam service-accounts keys list --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com
+
+gcloud iam service-accounts keys list --iam-account $PROJECT@appspot.gserviceaccount.com
 
 ls ~/$PROJECT/key.json
 
