@@ -2,6 +2,24 @@
 
 PROJECT=$1
 
+gcloud auth login
+
+export PROJECT=test123depp
+
+gcloud config set project $PROJECT
+
+export ACCOUNT=$(gcloud alpha billing accounts list | awk 'NR==2{print $1}')
+
+gcloud beta billing projects link $PROJECT --billing-account $ACCOUNT
+
+gcloud config configurations describe default
+
+gcloud alpha billing accounts list
+
+gcloud projects list
+
+gcloud config get-value core/project
+
 python3 -m pip install --upgrade pip
 
 gcloud pubsub topics create weatherdata
@@ -43,4 +61,3 @@ gcloud services enable cloudbuild.googleapis.com
 gcloud services enable cloudfunctions.googleapis.com
 
 gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherdata --source ./stream2bq/
-

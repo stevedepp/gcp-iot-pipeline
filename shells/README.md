@@ -2,7 +2,17 @@
 
 ## laptop
 
-### 1_laptop_setup_PROJECT.sh
+### manual_1
+
+git clone https://github.com/stevedepp/gcp-iot-pipeline.git
+
+cd gcp-iot-pipeline
+
+python3 -m venv .venv
+
+source .venv/bin/activate
+
+### 1_gcp_setup_PROJECT.sh
 
 #!/bin/bash
 
@@ -25,24 +35,6 @@ gcloud alpha billing accounts list
 gcloud projects list
 
 gcloud config get-value core/project
-
-git clone https://github.com/stevedepp/gcp-iot-pipeline.git
-
-cd gcp-iot-pipeline
-
-rm -rf .venv
-
-python3 -m venv .venv
-
-### manual_1
-
-source .venv/bin/activate
-
-### 2_pub_bq_cf_PROJECT.sh
-
-#!/bin/bash
-
-PROJECT=$1
 
 python3 -m pip install --upgrade pip
 
