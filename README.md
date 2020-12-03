@@ -462,7 +462,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     ```python3 iot-data-pipeline.py $PROJECT```.
 
 
-## teardown the gcloud infrastructure as code from laptop terminalF
+## teardown the gcloud infrastructure as code from laptop terminal
 
 - [x] **exports the current project id to an environment variable PROJECT.**
 
