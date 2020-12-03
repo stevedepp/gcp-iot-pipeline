@@ -348,15 +348,15 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
         ```export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"```
         
-    - [x] **set gcloud SDK installation location.**
+    - [x] set gcloud SDK installation location.
     
         ```echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" |  sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list```
         
-    - [x] **this public key from Google's package repository ensures that Raspberry Pi will verify the security and trust the content during installation.**
+    - [x] this public key from Google's package repository ensures that Raspberry Pi will verify the security and trust the content during installation.
     
         ```curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -```
         
-    - [x] **redundant update of raspberrypi OS and gcloud SDK install; press ```Enter``` when asked.**
+    - [x] redundant update of raspberrypi OS and gcloud SDK install; press ```Enter``` when asked.
     
         ```sudo apt-get update && sudo apt-get install google-cloud-sdk```
         
