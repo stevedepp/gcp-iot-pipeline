@@ -208,9 +208,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
         ```gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherdata --source ./stream2bq/```
 
-### setup raspberry pi OS and settings from a laptop:
-
-- [x] **open a new terminal window.** 
+### setup SD card with raspberry pi OS and wifi connection settings from a laptop terminal:
 
 - [x] **erase SD card via diskutil:**
 
@@ -240,7 +238,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
 - [x] **load Wifi preferences onto SD card boot disk**
 
-    - [x] clone this project's repository and change to the ```gcp-iot-pipeline``` directory inside.  
+    - [x] change to the ```gcp-iot-pipeline/rpi``` directory.  
 
         ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```        
         
@@ -268,6 +266,8 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
         
 - [x] **safely eject the SD card.**
 
+### ssh connect to the raspberrypi from a laptop terminal, set up and test connection with the sensor:
+
 - [x] **put SD card into the raspberrypi. then, plug the raspberrypi into the wall. give it a few minutes to boot up during which time it is copying the ```ssh``` and ```wpa_supplicant.conf``` to new locations and expanding files in the non-boot section of the SD card.  When the green light stops flashing, the raspberrypi is then fully booted.  Continue with the next step.
 
 - [x] **check that the raspberrypi is visible on the network.  after the raspberrypi pings you back a few times, simply ```cntrl-c``` to end the ping.**  
@@ -278,24 +278,18 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
     ```ssh pi@raspberrypi.local```  
     
-- [x] **the first connection attempt may return these** ***boy crying wolf*** **warning; clear them as follows:**  
+- [x] **the first connection attempt may return these** ***boy crying wolf*** **warnings; clear them as follows:**  
 
     ```ssh-keygen -R raspberrypi.local```  
     
-- [x] **try connecting again,** ***et viola***  
+- [x] **try connecting again with the default password,** ***et viola***  
 
     ```ssh pi@raspberrypi.local```  
     
     ```yes```
     
-    ```raspberry``` (the default password)
+    ```raspberry```
     
-- [x] clone this project's repository  and cd into the ```gcp-iot-pipeline/rpi``` directory.
-
-    ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```  
-    
-    ```cd gcp-iot-pipeline/rpi```    
-
 - [x] **update and upgrade the OS if possible.**  
 
     ```sudo apt-get update```  
@@ -318,7 +312,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
             
         - [x] set the time zone
         
-        ```sudo cp /usr/share/zoneinfo/US/Eastern /etc/localtime```
+            ```sudo cp /usr/share/zoneinfo/US/Eastern /etc/localtime```
 
     - [x] or via GUI
 
@@ -338,17 +332,11 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 *[note: this is another point, prior to the next ```ssh pi@raspberrypi.local```, where one could copy the ```key.json``` to the raspberrypi via   ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.]*
 
-### test sensor:
-
-- [x] if not already connected, then setup a secure shell connection with the raspberrypi. 
-
-    ```ssh pi@raspberrypi.local```  
-
-- [x] should read 77.
+- [x] test the sensor connection. this should return 77.
 
     ```sudo i2cdetect -y 1```
 
-### install gcloud SDK onto raspberrypi from a laptop terminal ssh into raspberry pi:
+### install and set up gcloud SDK onto raspberrypi from a laptop terminal connected via ssh to the raspberrypi:
 
 - [x] **if not already connected, then setup a secure shell connection with the raspberrypi.** 
 
@@ -402,29 +390,31 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
         ```gcloud config get-value core/project```
 
-### install sensor's python module and its dependencies on to the rapsberrypi from a laptop terminal ssh into raspberry pi:
+### install sensor's python module and its dependencies on to the rapsberrypi from a laptop terminal connected via ssh to the raspberry pi:
 
-- [x] if not already done so, then setup a secure shell log in to raspberrypi: 
+- [x] **if not already done so, then setup a secure shell log in to raspberrypi.**
 
     ```ssh pi@raspberrypi.local```  
 
-- [x] change into the ```gcp-iot-pipeline/rpi``` directory.
-    
-    ```cd gcp-iot-pipeline/rpi```      
+- [x] **clone this project's repository  and cd into the ```gcp-iot-pipeline/rpi``` directory.**
 
-- [x] set up and source the  ```gcp-iot-pipeline/rpi``` directory's ```.venv``` virtual environment.
+    ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```  
+    
+    ```cd gcp-iot-pipeline/rpi```    
+
+- [x] **set up and source the  ```gcp-iot-pipeline/rpi``` directory's ```.venv``` virtual environment.**
 
     ```python3 -m venv .venv```  
     
     ```source .venv/bin/activate```  
 
-- [x] install dependencies with python's package manaager, pip.  [make install]
+- [x] **install dependencies for the ```iot-data-pipeline.py``` weather sensor python module.**
 
     - [x] tendo is used in ```iot-data-pipeline.py``` to check if a script is running more than once:
     
         ```pip install tendo``` 
         
-    - [x] these are pubsub and oauth2 packages for python.  
+    - [x] these are pubsub and oauth2 SDK packages for python.  
     
         ```pip install --upgrade google-cloud-pubsub```
         
@@ -438,9 +428,9 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
    
         ```pip3 install adafruit-circuitpython-bmp280```  
     
-### run the weather sensor module to collect data
+### run the ```iot-analytics-depp``` weather sensor module from a laptop terminal connected via ssh to the raspberry pi:
 
-- [x]  if not already executed, then: 
+- [x]  **if not already executed, then:** 
 
     - [x] setup a secure shell connection with the raspberrypi.
 
@@ -458,7 +448,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
         ```export PROJECT=test123depp```
     
-- [x] from the ```iot-analytics-depp``` google storage bucket, copy the ```key.json``` file to the raspberrypi's ```credentials``` directory and set an environment variable ```GOOGLE_APPLICATION_CREDENTIALS``` for the file's path. 
+- [x] **from the ```iot-analytics-depp``` google storage bucket, copy the ```key.json``` file to the raspberrypi's ```credentials``` directory and set an environment variable ```GOOGLE_APPLICATION_CREDENTIALS``` for the file's path.** 
 
     ```mkdir -p ~/credentials```  
     
@@ -467,7 +457,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     ```export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/key.json```  
     
 
-- [x] from the ```gcp-iot-pipeline/rpi``` directory, call the ```iot-data-pipeline.py``` sensor module with ```$PROJECT``` argument.
+- [x] **from the ```gcp-iot-pipeline/rpi``` directory, call the ```iot-data-pipeline.py``` sensor module with ```$PROJECT``` argument.**
     
     ```python3 iot-data-pipeline.py $PROJECT```.
 
