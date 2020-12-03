@@ -1,10 +1,8 @@
 #!/bin/bash
 
-
-
 ssh pi@raspberrypi.local
 
-
+mkdir frank
 
 
 #PROJECT=$1

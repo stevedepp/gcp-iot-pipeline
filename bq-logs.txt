@@ -1,27 +1,27 @@
-I1202 00:47:43.579463 4529298944 bigquery_client.py:1144] Requesting discovery document from https://www.googleapis.com/discovery/v1/apis/bigquery/v2/rest
-I1202 00:47:43.819964 4529298944 model.py:111] --request-start--
-I1202 00:47:43.820096 4529298944 model.py:112] -headers-start-
-I1202 00:47:43.820161 4529298944 model.py:114] accept: */*
-I1202 00:47:43.820218 4529298944 model.py:114] accept-encoding: gzip, deflate
-I1202 00:47:43.820284 4529298944 model.py:114] user-agent: google-api-python-client/1.7.10 (gzip)
-I1202 00:47:43.820335 4529298944 model.py:115] -headers-end-
-I1202 00:47:43.820384 4529298944 model.py:116] -path-parameters-start-
-I1202 00:47:43.820432 4529298944 model.py:118] datasetId: weatherData
-I1202 00:47:43.820482 4529298944 model.py:118] projectId: test123depp
-I1202 00:47:43.820530 4529298944 model.py:119] -path-parameters-end-
-I1202 00:47:43.820579 4529298944 model.py:120] body: None
-I1202 00:47:43.820683 4529298944 model.py:121] query: ?deleteContents=false
-I1202 00:47:43.820734 4529298944 model.py:122] --request-end--
-I1202 00:47:43.820863 4529298944 discovery.py:868] URL being requested: DELETE https://bigquery.googleapis.com/bigquery/v2/projects/test123depp/datasets/weatherData?deleteContents=false
-I1202 00:47:44.360929 4529298944 model.py:182] --response-start--
-I1202 00:47:44.361117 4529298944 model.py:184] content-type: application/json; charset=UTF-8
-I1202 00:47:44.361217 4529298944 model.py:184] vary: Origin, X-Origin, Referer
-I1202 00:47:44.361304 4529298944 model.py:184] date: Wed, 02 Dec 2020 05:47:44 GMT
-I1202 00:47:44.361382 4529298944 model.py:184] server: ESF
-I1202 00:47:44.361459 4529298944 model.py:184] content-length: 0
-I1202 00:47:44.361533 4529298944 model.py:184] x-xss-protection: 0
-I1202 00:47:44.361608 4529298944 model.py:184] x-frame-options: SAMEORIGIN
-I1202 00:47:44.361681 4529298944 model.py:184] x-content-type-options: nosniff
-I1202 00:47:44.361757 4529298944 model.py:184] alt-svc: h3-29=":443"; ma=2592000,h3-T051=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
-I1202 00:47:44.361830 4529298944 model.py:184] status: 204
-I1202 00:47:44.361905 4529298944 model.py:187] --response-end--
+I1203 02:16:20.265763 4567182848 bigquery_client.py:1144] Requesting discovery document from https://www.googleapis.com/discovery/v1/apis/bigquery/v2/rest
+I1203 02:16:20.413016 4567182848 model.py:111] --request-start--
+I1203 02:16:20.413141 4567182848 model.py:112] -headers-start-
+I1203 02:16:20.413203 4567182848 model.py:114] accept: */*
+I1203 02:16:20.413261 4567182848 model.py:114] accept-encoding: gzip, deflate
+I1203 02:16:20.413312 4567182848 model.py:114] user-agent: google-api-python-client/1.7.10 (gzip)
+I1203 02:16:20.413363 4567182848 model.py:115] -headers-end-
+I1203 02:16:20.413414 4567182848 model.py:116] -path-parameters-start-
+I1203 02:16:20.413464 4567182848 model.py:118] datasetId: weatherData
+I1203 02:16:20.413513 4567182848 model.py:118] projectId: test456depp
+I1203 02:16:20.413562 4567182848 model.py:119] -path-parameters-end-
+I1203 02:16:20.413612 4567182848 model.py:120] body: None
+I1203 02:16:20.413711 4567182848 model.py:121] query: ?deleteContents=false
+I1203 02:16:20.413765 4567182848 model.py:122] --request-end--
+I1203 02:16:20.413884 4567182848 discovery.py:868] URL being requested: DELETE https://bigquery.googleapis.com/bigquery/v2/projects/test456depp/datasets/weatherData?deleteContents=false
+I1203 02:16:20.770066 4567182848 model.py:182] --response-start--
+I1203 02:16:20.770344 4567182848 model.py:184] content-type: application/json; charset=UTF-8
+I1203 02:16:20.770443 4567182848 model.py:184] vary: Origin, X-Origin, Referer
+I1203 02:16:20.770532 4567182848 model.py:184] date: Thu, 03 Dec 2020 07:16:20 GMT
+I1203 02:16:20.770616 4567182848 model.py:184] server: ESF
+I1203 02:16:20.770698 4567182848 model.py:184] content-length: 0
+I1203 02:16:20.770778 4567182848 model.py:184] x-xss-protection: 0
+I1203 02:16:20.770859 4567182848 model.py:184] x-frame-options: SAMEORIGIN
+I1203 02:16:20.770939 4567182848 model.py:184] x-content-type-options: nosniff
+I1203 02:16:20.771019 4567182848 model.py:184] alt-svc: h3-29=":443"; ma=2592000,h3-T051=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+I1203 02:16:20.771100 4567182848 model.py:184] status: 204
+I1203 02:16:20.771182 4567182848 model.py:187] --response-end--

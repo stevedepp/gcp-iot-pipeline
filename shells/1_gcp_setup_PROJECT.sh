@@ -4,7 +4,7 @@ PROJECT=$1
 
 gcloud auth login
 
-export PROJECT=test123depp
+export PROJECT=$PROJECT
 
 gcloud config set project $PROJECT
 
@@ -33,6 +33,8 @@ gcloud iam service-accounts keys create ~/$PROJECT/key.json --iam-account iot-we
 gsutil mb gs://iot-analytics-depp
 
 gsutil cp ~/$PROJECT/key.json gs://iot-analytics-depp
+
+gsutil cp ~/test123depp-d4de252b7a56.json gs://iot-analytics-depp
 
 gcloud iam service-accounts list
 
