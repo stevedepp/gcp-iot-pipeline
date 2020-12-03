@@ -226,9 +226,9 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 - [x] **load raspbian OS onto the SD card using the raspberry pi imager**
 
-    - [x] Operating System = latest which here is Raspberry Pi OS (32 bit).
+    - [x] Operating System = latest which here is *Raspberry Pi OS (32 bit)*.
 
-    - [x] SD Card = your card which here is "SANDISK SDDR-409 Media - 127.9 GB" here
+    - [x] SD Card = your card which here is *SANDISK SDDR-409 Media - 127.9 GB*.
     
     - [x] YES
     
@@ -244,7 +244,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
         ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```        
         
-        ```cd gcp-iot-pipeline``` 
+        ```cd gcp-iot-pipeline/rpi``` 
 
     - [x] OSX can only see the SD card's ```boot``` directory found at ```/Volumes/boot``` because the boot is the only available SD card directory that is agnostic / firendly to linux/OSX & windows platforms.  View the ```boot``` directory's conents, but don't change to from the ```gcp-iot-pipeline``` directory.
     
@@ -252,7 +252,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
         
     - [x] create a blank ```ssh``` file so that this raspberrypi's first *headless* boot will enable ssh.  this can be accomplished via ```touch /Volumes/boot/ssh```,  but there's an ```ssh``` file already in the repository's ```rpi``` directory; so take the easy road by copying this ```ssh``` file from the repository 's ```rpi```directory to the raspberry pi's ```/Volumes/boot``` directory.  
     
-        ```cp rpi/ssh /Volumes/boot```  
+        ```cp ./ssh /Volumes/boot```  
         
     - [x] make a ```wpa_supplicant.conf``` file with your routers login/password which can be encrypted.  
     
@@ -260,7 +260,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
                     
     - [x] there's a ```wpa_supplicant.conf``` file already in the repository's ```rpi``` directory; copy it from there to the raspberry pi's ```/Volumes/boot``` directory.
 
-        ```cp rpi/wpa_supplicant.conf /Volumes/boot```  
+        ```cp ./wpa_supplicant.conf /Volumes/boot```  
         
     - [x] open the ```wpa_supplicant.conf``` and enter the passphrase for your wifi network(s).
     
@@ -268,7 +268,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
         
 - [x] **safely eject the SD card.**
 
-- [x] **put SD card into the raspberrypi. then, plug the raspberrypi into the wall. give it a few minutes until the green light stops flashing (the raspberrypi is then fully booted).  MAYBE EXPLAIN HOW FILES ARE COPIED OVER.**  
+- [x] **put SD card into the raspberrypi. then, plug the raspberrypi into the wall. give it a few minutes to boot up during which time it is copying the ```ssh``` and ```wpa_supplicant.conf``` to new locations and expanding files in the non-boot section of the SD card.  When the green light stops flashing, the raspberrypi is then fully booted.  Continue with the next step.
 
 - [x] **check that the raspberrypi is visible on the network.  after the raspberrypi pings you back a few times, simply ```cntrl-c``` to end the ping.**  
 
@@ -340,7 +340,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 ### test sensor:
 
-- [x] setup a secure shell log in to raspberrypi: 
+- [x] if not already connected, then setup a secure shell connection with the raspberrypi. 
 
     ```ssh pi@raspberrypi.local```  
 
@@ -350,7 +350,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 ### install gcloud SDK onto raspberrypi from a laptop terminal ssh into raspberry pi:
 
-- [x] **setup a secure shell log in to raspberrypi.** 
+- [x] **if not already connected, then setup a secure shell connection with the raspberrypi.** 
 
     ```ssh pi@raspberrypi.local```  
     
@@ -412,7 +412,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
     ```cd gcp-iot-pipeline/rpi```      
 
-- [x] set up and source a virtual environment.    MAYBE SKIP THIS
+- [x] set up and source the  ```gcp-iot-pipeline/rpi``` directory's ```.venv``` virtual environment.
 
     ```python3 -m venv .venv```  
     
@@ -420,13 +420,13 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 - [x] install dependencies with python's package manaager, pip.  [make install]
 
-    - [x] tendo is used in ```check_weather.py``` to check if a script is running more than once:
+    - [x] tendo is used in ```iot-data-pipeline.py``` to check if a script is running more than once:
     
         ```pip install tendo``` 
         
     - [x] these are pubsub and oauth2 packages for python.  
     
-        ```pip install --upgrade google-cloud-pubsub```   THIS STALLED POSSIBLY BECAUSE OF VENV
+        ```pip install --upgrade google-cloud-pubsub```
         
         ```pip3 install --upgrade oauth2client```  
         
@@ -439,18 +439,24 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
         ```pip3 install adafruit-circuitpython-bmp280```  
     
 ### run the weather sensor module to collect data
-        
-- [x] within a secure shell session with raspberrypi, change to the ```gcp-iot-pipeline/rpi``` directory. 
 
-    ```ssh pi@raspberrypi.local```  
+- [x]  if not already executed, then: 
+
+    - [x] setup a secure shell connection with the raspberrypi.
+
+        ```ssh pi@raspberrypi.local```  
+
+    - [x] change to the ```gcp-iot-pipeline/rpi``` directory.
     
-    ```cd gcp-iot-pipeline/rpi```  
+        ```cd gcp-iot-pipeline/rpi```  
     
-- [x] [source its virtual environment], and export an environment variable for this project, remembering that envionment variables do not carry over from one terminal session (i.e. window) to another.
+    - [x] source the  ```gcp-iot-pipeline/rpi``` directory's ```.venv``` virtual environment.
+
+        ```source .venv/bin/activate```  
+
+    - [x] export a ```PROJECT``` environment variable for the current project. to test whether the project environment variable is still available ```echo $PROJECT```.  if blank, set it again.
     
-    ```[source .venv/bin/activate]```  
-    
-    ```export PROJECT=test123depp```
+        ```export PROJECT=test123depp```
     
 - [x] from the ```iot-analytics-depp``` google storage bucket, copy the ```key.json``` file to the raspberrypi's ```credentials``` directory and set an environment variable ```GOOGLE_APPLICATION_CREDENTIALS``` for the file's path. 
 
@@ -462,8 +468,6 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
 
 - [x] from the ```gcp-iot-pipeline/rpi``` directory, call the ```iot-data-pipeline.py``` sensor module with ```$PROJECT``` argument.
-
-    ```cd ~/gcp-iot-pipeline/rpi```
     
     ```python3 iot-data-pipeline.py $PROJECT```.
 
