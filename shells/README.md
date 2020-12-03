@@ -27,7 +27,7 @@ PROJECT=$1
 
 gcloud auth login
 
-export PROJECT=test123depp
+export PROJECT=$PROJECT
 
 gcloud config set project $PROJECT
 
@@ -212,6 +212,9 @@ gsutil cp gs://iot-analytics-depp/key.json ~/credentials/
 export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/key.json
 
 python3 iot-data-pipeline.py $PROJECT
+
+
+## whole project
 
 ### 7_teardown_PROJECT.sh
 
