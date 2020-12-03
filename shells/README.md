@@ -177,13 +177,13 @@ gcloud projects list
 
 gcloud config get-value core/project
 
-### manual_4
-
 git clone https://github.com/stevedepp/gcp-iot-pipeline.git
 
 cd gcp-iot-pipeline/rpi
 
 python3 -m venv .venv
+
+### manual_4
 
 source .venv/bin/activate
 

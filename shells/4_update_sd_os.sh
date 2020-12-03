@@ -1,8 +1,6 @@
 #!/bin/bash
 
 ssh pi@raspberrypi.local
-    yes
-    raspberry
 
 sudo apt-get install i2c-tools libi2c-dev python-smbus
 
