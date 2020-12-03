@@ -10,13 +10,13 @@ cd project
 
 git clone https://github.com/stevedepp/gcp-iot-pipeline.git
 
-cd gcp-iot-pipeline/shells
+cd gcp-iot-pipeline
 
 python3 -m venv .venv
 
 source .venv/bin/activate
 
-### 1_gcp_setup_PROJECT.sh
+### ./shells/1_gcp_setup_PROJECT.sh
 
 #!/bin/bash
 
@@ -93,7 +93,7 @@ erase SD card
     diskutil eraseDisk FAT32 NAME MBRFormat /dev/disk2
 load raspian
     
-### 3_sd_card_wifi.sh
+### ./shells/3_sd_card_wifi.sh
 
 #!/bin/bash
 
@@ -113,7 +113,7 @@ first ssh
     ssh pi@raspberrypi.local
     ssh-keygen -R raspberrypi.local
 
-### 4_update_sd_os.sh
+### ./shells/4_update_sd_os.sh
 
 #!/bin/bash
 
@@ -131,7 +131,7 @@ sudo cp /usr/share/zoneinfo/US/Eastern /etc/localtime
 
 sudo reboot
 
-### 5_test_sensor_gcloud_install_setup_PROJECT.sh
+### ./shells/5_test_sensor_gcloud_install_setup_PROJECT.sh
 
 #!/bin/bash
 
@@ -167,13 +167,13 @@ gcloud projects list
 
 gcloud config get-value core/project
 
+### manual_4
+
 git clone https://github.com/stevedepp/gcp-iot-pipeline.git
 
 cd gcp-iot-pipeline/rpi
 
 python3 -m venv .venv
-
-### manual_4
 
 source .venv/bin/activate
 
