@@ -2,9 +2,11 @@
 
 ## laptop
 
-### 1_laptop_setup.sh PROJECT
+### 1_laptop_setup_PROJECT.sh
 
 #!/bin/bash
+
+PROJECT=$1
 
 gcloud auth login
 
@@ -36,9 +38,11 @@ python3 -m venv .venv
 
 source .venv/bin/activate
 
-### 2_pub_bq_cf.sh
+### 2_pub_bq_cf_PROJECT.sh
 
 #!/bin/bash
+
+PROJECT=$1
 
 python3 -m pip install --upgrade pip
 
@@ -131,9 +135,11 @@ sudo cp /usr/share/zoneinfo/US/Eastern /etc/localtime
 
 sudo reboot
 
-### 5_test_sensor_gcloud_install_setup.sh PROJECT
+### 5_test_sensor_gcloud_install_setup_PROJECT.sh
 
 #!/bin/bash
+
+PROJECT=$1
 
 ssh pi@raspberrypi.local
 
@@ -175,9 +181,11 @@ python3 -m venv .venv
 
 source .venv/bin/activate
 
-### 6_dependencies_run.sh PROJECT
+### 6_dependencies_run_PROJECT.sh
 
 #!/bin/bash
+
+PROJECT=$1
 
 pip install tendo
 
@@ -199,9 +207,11 @@ export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/key.json
 
 python3 iot-data-pipeline.py $PROJECT
 
-### 7_teardown.sh PROJECT
+### 7_teardown_PROJECT.sh
 
 #!/bin/bash
+
+PROJECT=$1
 
 gcloud config set project $PROJECT
 

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PROJECT=$1
+
 python3 -m pip install --upgrade pip
 
 gcloud pubsub topics create weatherdata

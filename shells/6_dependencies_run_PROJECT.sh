@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PROJECT=$1
+
 pip install tendo
 
 pip install --upgrade google-cloud-pubsub

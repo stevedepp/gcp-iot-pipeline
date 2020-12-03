@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PROJECT=$1
+
 gcloud config set project $PROJECT
 
 bq --location US rm -f --table weatherData.weatherDataTable
