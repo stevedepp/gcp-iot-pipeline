@@ -332,7 +332,9 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
     *[note: this is another point, prior to the next ```ssh pi@raspberrypi.local```, where one could copy the ```key.json``` to the raspberrypi via   ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.]*
 
-- [x] **test the sensor connection. this should return 77.**
+- [x] **reconnect via ```ssh``` to the raspberrypi and test the sensor connection. this should return 77.**
+
+    ```ssh pi@raspberrypi.local```
 
     ```sudo i2cdetect -y 1```
 
