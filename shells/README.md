@@ -4,9 +4,13 @@
 
 ### manual_1
 
+mkdir project
+
+cd project
+
 git clone https://github.com/stevedepp/gcp-iot-pipeline.git
 
-cd gcp-iot-pipeline
+cd gcp-iot-pipeline/shells
 
 python3 -m venv .venv
 
