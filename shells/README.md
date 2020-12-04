@@ -1,4 +1,4 @@
-# 7 shell scripts and 4 manual interventions to assemble the gcloud / raspeberrypi infra
+# 5 shell scripts and 4 manual interventions to assemble the gcloud / raspeberrypi infra
 
 ## laptop
 
@@ -192,7 +192,7 @@
 
     `./shells/6_teardown_PROJECT.sh my_project_id`
  
-### 6_teardown_PROJECT.sh
+### 5_teardown_PROJECT.sh
 
     `#!/bin/bash`
     `PROJECT=$1`
