@@ -107,9 +107,9 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
         ```gcloud auth login```
 
-    - [x] export an environment variable for this ```PROJECT```.  note: this environment variable does not carry over from one terminal window to another.
+    - [x] export a ```PROJECT``` environment variable for the user's project.  note: this environment variable does not carry over from one terminal window to another.
 
-        ```export PROJECT=test123depp```
+        ```export PROJECT=users_project```
     
         ```gcloud config set project $PROJECT```
 
@@ -205,7 +205,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 ### from a laptop terminal, setup SD card with raspberry pi OS and wifi connection settings:
 
-- [x] **from a laptop terminal, using the raspberry pi imager, erase SD card via diskutil and load raspbian OS onto the SD card **
+- [x] **from a laptop terminal, using the raspberry pi imager, erase SD card via diskutil and load raspbian OS onto the SD card (see notes)**
 
     - [x] Operating System = latest which here is *Raspberry Pi OS (32 bit)*.
 
@@ -218,11 +218,6 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     - [x] CONTINUE
     
     - [x] When the SD card loading is complete, pull the SD card from the reader and put it back in to the reader and move to the next step.
-    
-    - [ ] An alternative but not recommended method for erasing the SD card is a bit risky if you select the wrong disk.
-    
-        ```diskutil list``` 
-        ```diskutil eraseDisk FAT32 NAME MBRFormat /dev/disk2```
     
 - [x] **from a laptop terminal, load Wifi preferences onto SD card boot disk**
 
@@ -473,6 +468,12 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
     
 Notes:
+
+- [x]     
+    - [ ] An alternative but not recommended method for erasing the SD card is a bit risky if you select the wrong disk.
+    
+        ```diskutil list``` 
+        ```diskutil eraseDisk FAT32 NAME MBRFormat /dev/disk2```
 
 - [x]     - [x] these settings can be set via a GUI if you prefer to explore.
 
