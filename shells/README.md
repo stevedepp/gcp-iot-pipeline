@@ -133,6 +133,7 @@
     `sudo grep -qxF i2c-dev /etc/modules || echo i2c-dev | sudo tee -a /etc/modules`
     `sudo sed -i "s/#dtparam=i2c_arm=on/dtparam=i2c_arm=on/g" /boot/config.txt`
     `sudo cp /usr/share/zoneinfo/US/Eastern /etc/localtime`
+    `python3 -m venv .venv`  <-- experiment 
     `sudo reboot`
 
 ### manual_4
@@ -144,6 +145,7 @@
 - [x] change to the `gcp-iot-pipeline` directory.
 
     `cd gcp-iot-pipeline`  
+    `source .venv/bin/activate` <-- experiment
 
 - [x] have your project id handy because the remaining shell commands require a project id.  (project ids are often  but not always the same as project name.)
 
@@ -170,13 +172,13 @@
     `gcloud alpha billing accounts list`
     `gcloud projects list`
     `gcloud config get-value core/project`
-    `python3 -m venv .venv`  
+    `# python3 -m venv .venv`  <-- experiment not here this time
     
 ### manual_4
     
 - [x] source a virtual environment that was creatd in the last line of the previous shell command.
 
-    `source .venv/bin/activate`
+    `source .venv/bin/activate` <-- experiment not here this time
     
 - [x] execute the folloing shell command.  this `./shells/5_dependencies_run_PROJECT.sh` shell command **needs a project id** as shown here:
 
