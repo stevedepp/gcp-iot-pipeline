@@ -7,11 +7,11 @@
 
 - [x] execute the following commands in a laptop computer's terminal window.
 
-    `mkdir folder_name`
-    `cd folder_name`
-    `git clone https://github.com/stevedepp/gcp-iot-pipeline.git`
-    `cd gcp-iot-pipeline`
-    `python3 -m venv .venv`
+    `mkdir folder_name`  
+    `cd folder_name`  
+    `git clone https://github.com/stevedepp/gcp-iot-pipeline.git`  
+    `cd gcp-iot-pipeline`  
+    `python3 -m venv .venv`  
     `source .venv/bin/activate`
 
 ### ./shells/1_gcp_setup_PROJECT.sh
