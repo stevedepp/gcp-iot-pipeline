@@ -99,9 +99,9 @@ gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherda
 
 #!/bin/bash
 
-- [x] cp ./rpi/ssh /Volumes/boot
+`cp ./rpi/ssh /Volumes/boot`
 
-- [x] cp ./rpi/wpa_supplicant.conf /Volumes/boot
+`cp ./rpi/wpa_supplicant.conf /Volumes/boot`
 
 
 
