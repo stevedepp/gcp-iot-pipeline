@@ -35,12 +35,4 @@ gcloud projects list
 
 gcloud config get-value core/project
 
-git clone https://github.com/stevedepp/gcp-iot-pipeline.git
-
-cd gcp-iot-pipeline/rpi
-
-python3 -m pip install --upgrade pip
-
-python3 -m venv .venv
-
 echo 'please execute "source .venv/bin/activate"'
