@@ -12,6 +12,8 @@ sudo sed -i "s/#dtparam=i2c_arm=on/dtparam=i2c_arm=on/g" /boot/config.txt
 
 sudo cp /usr/share/zoneinfo/US/Eastern /etc/localtime
 
+python3 -m venv .venv
+
 sudo reboot
 
 echo 'the raspberrypi is rebooting now.  when the green light stops flashing execute the next shell: "4_caller_PROJECT.sh".'
