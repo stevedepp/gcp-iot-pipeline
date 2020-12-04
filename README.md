@@ -341,7 +341,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
     - [x] export an environment variable for this ```PROJECT```.  note: this environment variable does not carry over from one terminal window to another.
 
-        ```export PROJECT=test123depp```
+        ```export PROJECT=users_project```
 
         ```gcloud config set project $PROJECT```
 
