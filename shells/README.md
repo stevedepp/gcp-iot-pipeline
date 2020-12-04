@@ -90,7 +90,9 @@
 
 - [x] safely eject the SD from the card reader.
 
-- [x] insert the SD card into the raspberrypi and wait a few minutes while it boots.
+- [x] insert the SD card into the unpowered raspberrypi
+
+- [x] plug power into the raspberrypi and wait a few minutes while it boots.
 
 - [x] when the green light stops flashing, move to the next step.
 
