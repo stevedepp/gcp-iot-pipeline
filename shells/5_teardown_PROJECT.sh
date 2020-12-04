@@ -6,10 +6,6 @@ gcloud config set project $PROJECT
 
 gcloud projects remove-iam-policy-binding $PROJECT --member="serviceAccount:iot-weather-publisher@$PROJECT.iam.gserviceaccount.com" --role=roles/pubsub.publisher
 
-bq --location US rm -f --dataset weatherData
-
-
-bq --location US rm -f --table weatherData.weatherDataTable
 
 gcloud iam service-accounts delete iot-weather-publisher@$PROJECT.iam.gserviceaccount.com
 
@@ -22,5 +18,11 @@ gcloud functions delete iot_weather
 gsutil rm -r gs://iot-analytics-depp
 
 rm -r ~/$PROJECT
+
+bq --location US rm -f --dataset weatherData
+
+
+bq --location US rm -f --table weatherData.weatherDataTable
+
 
 ssh pi@raspberrypi.local rm -rf /home/pi/credentials /home/pi/gcp-iot-pipeline
