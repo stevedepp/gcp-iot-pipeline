@@ -99,7 +99,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 ## gcloud and raspberrypi infrastructure as code from a laptop:
 
-### set up gcloud infrastructure from a laptop terminal:
+### from a laptop terminal, set up gcloud infrastructure:
 
 - [x] **gcp set up:**
 
@@ -131,26 +131,6 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
         
         ```gcloud config get-value core/project```
 
-- [x] **laptop terminal environment set up:**
-
-    - [x] clone this project's repository and change to the ```gcp-iot-pipeline``` directory inside.  
-    
-        ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```  
-
-        ```cd gcp-iot-pipeline``` 
-
-    - [x] remove previous environment, if any, reset the environment and source it.
-    
-        ```rm -rf .venv```
-
-        ```python3 -m venv .venv```
-
-        ```source .venv/bin/activate```
-        
-    - [x] upgrade python's package installer, pip.
-
-        ```python3 -m pip install --upgrade pip```
-
 - [x] **pubsub set up:**
 
     - [x] enable the pubsub api and create the ```weatherdata``` topic.
@@ -167,19 +147,20 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
         ```gcloud projects add-iam-policy-binding $PROJECT --member="serviceAccount:iot-weather-publisher@$PROJECT.iam.gserviceaccount.com" --role=roles/pubsub.publisher```
 
-    - [x] create a key.json file in a directory named for the project in the users home directory.
+    - [x] create pub-key.json and auth-key.json files in a directory named for the project in the users home directory.
 
-        ```gcloud iam service-accounts keys create ~/$PROJECT/key.json --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com```
+        ```gcloud iam service-accounts keys create ~/$PROJECT/pub-key.json --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com```
 
-    - [x] make a google storage bucket named ```iot-analytics-depp``` and copy the key.json file to this bucket.
+        ```gcloud iam service-accounts keys create ~/$PROJECT/auth-key.json --iam-account $PROJECT@appspot.gserviceaccount.com```
+
+    - [x] make a google storage bucket named ```iot-analytics-depp``` and copy the pub-key.json and auth-key.json files to this bucket (see notes).
 
         ```gsutil mb gs://iot-analytics-depp```
 
-        ```gsutil cp ~/$PROJECT/key.json gs://iot-analytics-depp```
-    
-        *[note: the bucket is not essential but allows for the raspberry pi set up to come AFTER the laptop setup; were the latop set up AFTER then the pubsub key could be transfered to the pi via secure copy:
-    ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi```
-    
+        ```gsutil cp ~/$PROJECT/pub-key.json gs://iot-analytics-depp```
+
+        ```gsutil cp ~/$PROJECT/auth-key.json gs://iot-analytics-depp```
+
     - [x] for information:
     
         ```gcloud iam service-accounts list```
@@ -222,21 +203,9 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
         ```gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherdata --source ./stream2bq/```
 
-### setup SD card with raspberry pi OS and wifi connection settings from a laptop terminal:
+### from a laptop terminal, setup SD card with raspberry pi OS and wifi connection settings:
 
-- [x] **erase SD card via diskutil:**
-
-    - [x] insert the SD card. 
-
-    - [x] find the SD card in a list of attached disks.
-    
-        ```diskutil list``` 
-        
-    - [x] replace```disk 2``` in this command with the disk identifier from previous command.  
-    
-        ```diskutil eraseDisk FAT32 NAME MBRFormat /dev/disk2```
-
-- [x] **load raspbian OS onto the SD card using the raspberry pi imager**
+- [x] **from a laptop terminal, using the raspberry pi imager, erase SD card via diskutil and load raspbian OS onto the SD card **
 
     - [x] Operating System = latest which here is *Raspberry Pi OS (32 bit)*.
 
@@ -250,21 +219,26 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
     - [x] When the SD card loading is complete, pull the SD card from the reader and put it back in to the reader and move to the next step.
     
-- [x] **load Wifi preferences onto SD card boot disk**
+    - [ ] An alternative but not recommended method for erasing the SD card is a bit risky if you select the wrong disk.
+    
+        ```diskutil list``` 
+        ```diskutil eraseDisk FAT32 NAME MBRFormat /dev/disk2```
+    
+- [x] **from a laptop terminal, load Wifi preferences onto SD card boot disk**
 
-    - [x] change to the ```gcp-iot-pipeline/rpi``` directory.  
+    - [x] clone this project's repository and change to the ```gcp-iot-pipeline``` directory inside.  
+    
+        ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```  
 
-        ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```        
+        ```cd gcp-iot-pipeline``` 
         
-        ```cd gcp-iot-pipeline/rpi``` 
-
     - [x] OSX can only see the SD card's ```boot``` directory found at ```/Volumes/boot``` because the boot is the only available SD card directory that is agnostic / firendly to linux/OSX & windows platforms.  View the ```boot``` directory's conents, but don't change to from the ```gcp-iot-pipeline``` directory.
     
         ```ls /Volumes/boot```  
         
     - [x] create a blank ```ssh``` file so that this raspberrypi's first *headless* boot will enable ssh.  this can be accomplished via ```touch /Volumes/boot/ssh```,  but there's an ```ssh``` file already in the repository's ```rpi``` directory; so take the easy road by copying this ```ssh``` file from the repository 's ```rpi```directory to the raspberry pi's ```/Volumes/boot``` directory.  
     
-        ```cp ./ssh /Volumes/boot```  
+        ```cp ./rpi/ssh /Volumes/boot```  
         
     - [x] make a ```wpa_supplicant.conf``` file with your routers login/password which can be encrypted.  
     
@@ -272,7 +246,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
                     
     - [x] there's a ```wpa_supplicant.conf``` file already in the repository's ```rpi``` directory; copy it from there to the raspberry pi's ```/Volumes/boot``` directory.
 
-        ```cp ./wpa_supplicant.conf /Volumes/boot```  
+        ```cp ./rpi/wpa_supplicant.conf /Volumes/boot```  
         
     - [x] open the ```wpa_supplicant.conf``` and enter the passphrase for your wifi network(s).
     
@@ -281,6 +255,8 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 - [x] **safely eject the SD card.**
 
 ### ssh connect to the raspberrypi from a laptop terminal, set up and test connection with the sensor:
+
+**these steps can be done from any directory; so, remain in the same terminal and ```cd gcp-iot-pipeline``` directory**
 
 - [x] **put SD card into the raspberrypi. then, plug the raspberrypi into the wall. give it a few minutes to boot up during which time it is copying the ```ssh``` and ```wpa_supplicant.conf``` to new locations and expanding files in the non-boot section of the SD card.  When the green light stops flashing, the raspberrypi is then fully booted.  Continue with the next step.**
 
@@ -327,24 +303,10 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
         - [x] set the time zone
         
             ```sudo cp /usr/share/zoneinfo/US/Eastern /etc/localtime```
-
-    - [x] or via GUI
-
-        ```sudo raspi config GUI```  
     
-        - [x] Interface Options  
-    
-        - [x] P5 I2C Enable/discable automatic loading of I2C kernel module  
-    
-        - [x] Localisation Options  
-    
-        - [x] Timezone  
-    
-- [x] **reboot the raspberrypi**
+- [x] **reboot the raspberrypi (see notes)**
 
     ```sudo reboot```  
-
-    *[note: this is another point, prior to the next ```ssh pi@raspberrypi.local```, where one could copy the ```key.json``` to the raspberrypi via   ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.]*
 
 - [x] **reconnect via ```ssh``` to the raspberrypi and test the sensor connection. this should return 77.**
 
@@ -416,7 +378,11 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
     ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git```  
     
-    ```cd gcp-iot-pipeline/rpi```    
+    ```cd gcp-iot-pipeline/rpi```
+    
+- [x] upgrade python's package installer, pip.
+
+    ```python3 -m pip install --upgrade pip```
 
 - [x] **set up and source the  ```gcp-iot-pipeline/rpi``` directory's ```.venv``` virtual environment.**
 
@@ -505,3 +471,26 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     ```ssh pi@raspberrypi.local rm -rf /home/pi/credentials /home/pi/gcp-iot-pipeline```
     
     
+    
+Notes:
+
+- [x]     - [x] these settings can be set via a GUI if you prefer to explore.
+
+        ```sudo raspi config GUI```  
+    
+        - [x] Interface Options  
+    
+        - [x] P5 I2C Enable/discable automatic loading of I2C kernel module  
+    
+        - [x] Localisation Options  
+    
+        - [x] Timezone  
+
+
+- [x]     *[note: this is another point, prior to the next ```ssh pi@raspberrypi.local```, where one could copy the ```key.json``` to the raspberrypi via   ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.]*
+
+- [x]         *[note: the bucket is not essential but allows for the raspberry pi set up to come AFTER the laptop setup; were the latop set up AFTER then the pubsub key could be transfered to the pi via secure copy:
+    ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi```*
+
+- [x] 
+        *[note: the auth-key.json is not used in this configuration, but was attempted as a way to avoid window pop ups in the set up of the raspberrypi's gcloud environment].*
