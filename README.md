@@ -429,9 +429,9 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
     ```mkdir -p ~/credentials```  
     
-    ```gsutil cp gs://iot-analytics-depp/key.json ~/credentials/```  
+    ```gsutil cp gs://iot-analytics-depp/pub-key.json ~/credentials/```  
     
-    ```export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/key.json```  
+    ```export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/pub-key.json```  
     
 
 - [x] **from the ```gcp-iot-pipeline/rpi``` directory, call the ```iot-data-pipeline.py``` sensor module with ```$PROJECT``` argument.**
@@ -495,3 +495,31 @@ Notes:
 
 - [x] 
         *[note: the auth-key.json is not used in this configuration, but was attempted as a way to avoid window pop ups in the set up of the raspberrypi's gcloud environment].*
+
+- [x] did not use this code because did not establish auth key usage
+
+
+    ```gcloud iam service-accounts keys create ~/$PROJECT/auth-key.json --iam-account $PROJECT@appspot.gserviceaccount.com```
+    ```gsutil cp ~/$PROJECT/auth-key.json gs://iot-analytics-depp```
+
+
+    ```export A=$(gcloud iam service-accounts keys list --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com | awk 'NR==3{print $1}')```
+    ```until [ -z "$A" ];```
+    ```do```
+    ```export A=$(gcloud iam service-accounts keys list --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com | awk 'NR==2{print $1}')```
+    ```gcloud iam service-accounts keys delete $A --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com;```
+    ```export A=$(gcloud iam service-accounts keys list --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com | awk 'NR==3{print $1}')```
+    ```done```
+
+
+    ```export A=$(gcloud iam service-accounts keys list --iam-account $PROJECT@appspot.gserviceaccount.com | awk 'NR==3{print $1}')```
+    ```until [ -z "$A" ];```
+    ```do```
+    ```export A=$(gcloud iam service-accounts keys list --iam-account $PROJECT@appspot.gserviceaccount.com | awk 'NR==2{print $1}')```
+    ```gcloud iam service-accounts keys delete $A --iam-account $PROJECT@appspot.gserviceaccount.com```
+    ```export A=$(gcloud iam service-accounts keys list --iam-account $PROJECT@appspot.gserviceaccount.com | awk 'NR==3{print $1}')```
+    ```done```
+
+```gcloud iam service-accounts keys list --iam-account $PROJECT@appspot.gserviceaccount.com```
+
+
