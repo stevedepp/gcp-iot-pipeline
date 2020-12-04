@@ -422,7 +422,7 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
     ```python3 -m venv .venv```  
     
-    ```source .venv/bin/activate```  
+    ```source .venv/bin/activate```  <-- This step is essential, and thus remotely executed shell scripts cannot cross from before this point to after this point. 
 
 - [x] **install dependencies for the ```iot-data-pipeline.py``` weather sensor python module.**
 
