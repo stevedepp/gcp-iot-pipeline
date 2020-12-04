@@ -5,21 +5,16 @@
 
 ### manual_1
 
-mkdir folder_name
+- [x] execute the following commands in a laptop computer's terminal window.
 
-cd folder_name
+    `mkdir folder_name`
+    `cd folder_name`
+    `git clone https://github.com/stevedepp/gcp-iot-pipeline.git`
+    `cd gcp-iot-pipeline
+    `python3 -m venv .venv`
+    `source .venv/bin/activate`
 
-git clone https://github.com/stevedepp/gcp-iot-pipeline.git
-
-cd gcp-iot-pipeline
-
-python3 -m venv .venv
-
-source .venv/bin/activate
-
-
-
-### ./shells/1_gcp_setup_PROJECT.sh
+### `./shells/1_gcp_setup_PROJECT.sh`
 
     `#!/bin/bash`
     `PROJECT=$1`
@@ -65,7 +60,9 @@ source .venv/bin/activate
 
 - [x] eject the SD card from the card reader and re-insert the SD card into the card reader.
 
-### ./shells/2_sd_card_wifi.sh
+- [x] execute the following shell command, `./shells/2_sd_card_wifi.sh` from same laptop terminal session in the same terminal in the project_folder directory made in step **manual_1**.
+
+### `./shells/2_sd_card_wifi.sh`
 
     `#!/bin/bash`
     `git clone https://github.com/stevedepp/gcp-iot-pipeline.git`
@@ -79,28 +76,52 @@ source .venv/bin/activate
 ### manual_3
 
 - [x] the last shell command calls nano editor on `wpa_supplicant.conf`.
-- [x] replace the ssid and psk with network name(s) and passcode(s).
+
+- [x] in the nano editor, replace the `ssid` and `psk` with network name and passcode.
+
+- [x] in the nano editor, there are 2 network names. one can be deleted or more copied in.
+
 - [x] `cntrl-o` 
+
 - [x] return
+
 - [x] `cntrl-x`
-- [x] safely eject the SD from the card reader
-- [x] insert the SD card into the raspberrypi and wait a few minutes while it boots
-- [x] when the green light stops flashing, move to the next step
 
-### ./shells/3_sd_card_wifi.sh
+- [x] safely eject the SD from the card reader.
 
-    `#!/bin/bash`
+- [x] insert the SD card into the raspberrypi and wait a few minutes while it boots.
+
+- [x] when the green light stops flashing, move to the next step.
+
+- [x] check the raspberrypi is visible on the network.
+    `ping raspberrypi.local`
+
+- [x] if `ping` is successful, `cntrl-c` to stop it.  if not try again in a minute after raspberrypi's boot is complete.
+    `cntrl-c`
+
+- [x] ssh into the raspberrypi.
     `ssh pi@raspberrypi.local`
-    `ssh-keygen -R raspberrypi.local`
-    `exit`
-    
-    `# not yet`
-    `# ssh pi@raspberrypi.local 'bash -s' < ./shells/4_update_sd_os.sh`
 
-### ./shells/4_update_sd_os.sh
+- [x] the first ssh attempt often yields a DANGER warning. there is a good reason, but don't fret.  it probably doesnt apply here. so, just use this command.
+    `ssh-keygen -R raspberrypi.local`
+
+- [x] then, try connecting again, following the prompts as shown. (`raspberry` is the default password.)
+    `ssh pi@raspberrypi.local`
+    `yes`
+    `raspberry`
+
+- [x] exit the `ssh` session, i.e. disconnect from the raspberrypi.
+
+- [x] execute this command from the same laptop terminal session in the same project_folder directory made in step **manual_1**.  this `./shells/3_caller.sh` shell command executes the `./shells/3_update_sd_os.sh` shell remotely on the raspberrypi.
+
+### `./shells/3_sd_card_wifi.sh`
 
     `#!/bin/bash`
-    `ssh pi@raspberrypi.local` <-- for now
+    `ssh pi@raspberrypi.local 'bash -s' < ./shells/3_update_sd_os.sh`
+
+### `./shells/3_update_sd_os.sh`
+
+    `#!/bin/bash`
     `sudo apt-get update`
     `sudo apt-get upgrade`
     `sudo apt-get install i2c-tools libi2c-dev python-smbus`
@@ -109,7 +130,19 @@ source .venv/bin/activate
     `sudo cp /usr/share/zoneinfo/US/Eastern /etc/localtime`
     `sudo reboot`
 
-### ./shells/ellen_caller_PROJECT.sh
+### manual_4
+
+- [x] easy. just execute the next shell command.  needed a manual step here to wait for the reboot to complete.
+
+- [x] the last shell ended with a reboot of the raspberrypi.  wait until the green light stops flickering, then move to the next step.
+
+- [x] have your project id handy because the remaining shell commands require a project id.  (project ids are often  but not always the same as project name.)
+
+- [x] execute this command from the same laptop terminal session in the same project_folder directory made in step **manual_1**.  this `4_caller_PROJECT.sh` shell command executes the `4_test_sensor_gcloud_install_setup_PROJECT.sh` shell command remotely on the raspberrypi, **and needs a project id**: 
+
+    `./shells/4_caller_PROJECT.sh my_project_id`
+
+### `./shells/4_caller_PROJECT.sh my_project_id`
 
     `PROJECT=$1`
     `scp ~/$PROJECT/{pub-key.json,auth-key.json} pi@raspberrypi.local:/home/pi/`
