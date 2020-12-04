@@ -9,10 +9,7 @@
 
     `mkdir folder_name`  
     `cd folder_name`  
-    `git clone https://github.com/stevedepp/gcp-iot-pipeline.git`  
-    `cd gcp-iot-pipeline`  
-    `python3 -m venv .venv`  
-    `source .venv/bin/activate`
+    `git clone https://github.com/stevedepp/gcp-iot-pipeline.git && cd gcp-iot-pipeline`
     
 - [x] from this laptop terminal session, from the `/my_folder/gcp-iot-pipeline/` directory, execute the folloing shell command:
 
