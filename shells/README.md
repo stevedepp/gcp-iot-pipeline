@@ -118,20 +118,19 @@
     `ssh pi@raspberrypi.local`
     `yes`
     `raspberry`
+    
+- [x] clone the repository, change to the `gcp-iot-pipeline` directory and create, but do not source an environment.
 
-- [x] exit the `ssh` session, i.e. disconnect from the raspberrypi.
+    `git clone https://github.com/stevedepp/gcp-iot-pipeline.git`  
+    `cd gcp-iot-pipeline`  
+    `python3 -m venv .venv`  
+    `source .venv/bin/activate` <-- wait on this.
+    
+- [x] execute the next shell command.  
 
-    `exit`
-
-- [x] from same laptop terminal session, from the `/my_folder/gcp-iot-pipeline/` directory, execute the folloing shell command.  this `./shells/3_caller.sh` shell command executes the `./shells/3_update_sd_os.sh` shell remotely on the raspberrypi.
-
-### ./shells/3_sd_card_wifi.sh
-
-    `#!/bin/bash`
-    `ssh pi@raspberrypi.local 'bash -s' < ./shells/3_update_sd_os.sh`
+    `./shells/3_update_sd_os.sh`
 
 ### ./shells/3_update_sd_os.sh
-DO NOT EXECUTE THIS.  IT IS CALLED BY `./shells/3_sd_card_wifi.sh`
 
     `#!/bin/bash`
     `sudo apt-get update`
