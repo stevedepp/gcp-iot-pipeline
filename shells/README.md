@@ -112,9 +112,9 @@
 
 - [x] then, try connecting again, following the prompts as shown. (`raspberry` is the default password.)
 
-    `ssh pi@raspberrypi.local`
-    `yes`
-    `raspberry`
+    `ssh pi@raspberrypi.local`  
+    `yes`  
+    `raspberry`  
     
 - [x] clone the repository and change to the `gcp-iot-pipeline` directory.
 
