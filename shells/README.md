@@ -79,43 +79,7 @@
 
 ### manual_3
 
-<<<<<<< HEAD
-- [x] update wifi passkey
-
-    - [x] nano /Volumes/boot/wpa_supplicant.conf
-
-- [x] properly eject card from laptop / replace card into raspberrypi
-
-- [x] ping network
-
-    ```ping raspberrypi.local```
-
-
-### ./shells/4_update_sd_os.sh
-
-#!/bin/bash
-
-ssh pi@raspberrypi.local
-
-ssh-keygen -R raspberrypi.local
-
-ssh pi@raspberrypi.local
-
-sudo apt-get install i2c-tools libi2c-dev python-smbus
-
-sudo grep -qxF i2c-dev /etc/modules || echo i2c-dev | sudo tee -a /etc/modules
-
-sudo sed -i "s/#dtparam=i2c_arm=on/dtparam=i2c_arm=on/g" /boot/config.txt
-
-sudo cp /usr/share/zoneinfo/US/Eastern /etc/localtime
-
-sudo reboot
-
-
-### ./shells/5_test_sensor_gcloud_install_setup_PROJECT.sh
-=======
 - [x] the last shell command calls nano editor on `wpa_supplicant.conf`.
->>>>>>> c34d556604c2d904ff41674fe061a64fb924f997
 
 - [x] in the nano editor, replace the `ssid` and `psk` with network name and passcode.
 
@@ -134,23 +98,30 @@ sudo reboot
 - [x] when the green light stops flashing, move to the next step.
 
 - [x] check the raspberrypi is visible on the network.
+
     `ping raspberrypi.local`
 
 - [x] if `ping` is successful, `cntrl-c` to stop it.  if not try again in a minute after raspberrypi's boot is complete.
+
     `cntrl-c`
 
 - [x] ssh into the raspberrypi.
+
     `ssh pi@raspberrypi.local`
 
 - [x] the first ssh attempt often yields a DANGER warning. there is a good reason, but don't fret.  it probably doesnt apply here. so, just use this command.
+
     `ssh-keygen -R raspberrypi.local`
 
 - [x] then, try connecting again, following the prompts as shown. (`raspberry` is the default password.)
+
     `ssh pi@raspberrypi.local`
     `yes`
     `raspberry`
 
 - [x] exit the `ssh` session, i.e. disconnect from the raspberrypi.
+
+    `exit`
 
 - [x] from same laptop terminal session, from the `/my_folder/gcp-iot-pipeline/` directory, execute the folloing shell command.  this `./shells/3_caller.sh` shell command executes the `./shells/3_update_sd_os.sh` shell remotely on the raspberrypi.
 
