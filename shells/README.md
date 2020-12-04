@@ -13,6 +13,10 @@
     `cd gcp-iot-pipeline`  
     `python3 -m venv .venv`  
     `source .venv/bin/activate`
+    
+- [x] from this laptop terminal session, from the `/my_folder/gcp-iot-pipeline/` directory, execute the folloing shell command:
+
+    `./shells/1_gcp_setup_PROJECT.sh`
 
 ### ./shells/1_gcp_setup_PROJECT.sh
 
@@ -60,7 +64,9 @@
 
 - [x] eject the SD card from the card reader and re-insert the SD card into the card reader.
 
-- [x] execute the following shell command, `./shells/2_sd_card_wifi.sh` from same laptop terminal session in the same terminal in the project_folder directory made in step **manual_1**.
+- [x] from same laptop terminal session, from the `/my_folder/gcp-iot-pipeline/` directory, execute the folloing shell command:
+
+    `./shells/2_sd_card_wifi.sh`
 
 ### ./shells/2_sd_card_wifi.sh
 
@@ -112,7 +118,7 @@
 
 - [x] exit the `ssh` session, i.e. disconnect from the raspberrypi.
 
-- [x] execute this command from the same laptop terminal session in the same project_folder directory made in step **manual_1**.  this `./shells/3_caller.sh` shell command executes the `./shells/3_update_sd_os.sh` shell remotely on the raspberrypi.
+- [x] from same laptop terminal session, from the `/my_folder/gcp-iot-pipeline/` directory, execute the folloing shell command.  this `./shells/3_caller.sh` shell command executes the `./shells/3_update_sd_os.sh` shell remotely on the raspberrypi.
 
 ### ./shells/3_sd_card_wifi.sh
 
@@ -139,7 +145,7 @@ DO NOT EXECUTE THIS.  IT IS CALLED BY `./shells/3_sd_card_wifi.sh`
 
 - [x] have your project id handy because the remaining shell commands require a project id.  (project ids are often  but not always the same as project name.)
 
-- [x] execute this command from the same laptop terminal session in the same project_folder directory made in step **manual_1**.  this `4_caller_PROJECT.sh` shell command executes the `4_test_sensor_gcloud_install_setup_PROJECT.sh` shell command remotely on the raspberrypi, **and needs a project id**: 
+- [x] from same laptop terminal session, from the `/my_folder/gcp-iot-pipeline/` directory, execute the folloing shell command.  this `4_caller_PROJECT.sh` shell command executes the `4_test_sensor_gcloud_install_setup_PROJECT.sh` shell remotely on the raspberrypi.   **This shell command needs a project id as shown here**:
 
     `./shells/4_caller_PROJECT.sh my_project_id`
 
@@ -187,58 +193,53 @@ DO NOT EXECUTE THIS.  IT IS CALLED BY `4_caller_PROJECT.sh`
 - [x] execute this `source .venv/bin/activate` command to source the virtual environment created in the last line of the last shell command executed.  needed a manual step until sourcing remotely is possible.
 
     `source .venv/bin/activate`
+    
+- [x] from same laptop terminal session, from the `/my_folder/gcp-iot-pipeline/` directory, execute the folloing shell command.  this `5_caller_PROJECT copy.sh` shell command executes the `5_dependencies_run_PROJECT.sh` shell remotely on the raspberrypi.   **This shell command needs a project id as shown here**:
 
-### 6_dependencies_run_PROJECT.sh
+    `./shells/5_caller_PROJECT.sh my_project_id`
 
-#!/bin/bash
+### 5_caller_PROJECT.sh
 
-PROJECT=$1
+    `#!/bin/bash`
+    `PROJECT = $1`
+    `ssh pi@raspberrypi.local 'bash -s' < ./shells/5_dependencies_run_PROJECT.sh $PROJECT`
 
-pip install tendo
+### 5_dependencies_run_PROJECT.sh
 
-pip install --upgrade google-cloud-pubsub
-
-pip3 install --upgrade oauth2client
-
-pip3 install datetime
-
-pip3 install adafruit-circuitpython-bmp280
-
-export PROJECT=test123depp
-
-mkdir -p ~/credentials
-
-gsutil cp gs://iot-analytics-depp/key.json ~/credentials/
-
-export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/key.json
-
-python3 iot-data-pipeline.py $PROJECT
+    `#!/bin/bash`
+    `PROJECT=$1`
+    `pip install tendo`
+    `pip install --upgrade google-cloud-pubsub`
+    `pip3 install --upgrade oauth2client`
+    `pip3 install datetime`
+    `pip3 install adafruit-circuitpython-bmp280`
+    `mkdir -p ~/credentials`
+    `gsutil cp gs://iot-analytics-depp/pub-key.json ~/credentials/`
+    `export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/pub-key.json`
+    `python3 iot-data-pipeline.py $PROJECT`
 
 
 ## whole project
 
-### 7_teardown_PROJECT.sh
+- [x] To unwind all the actions taken so far and remove resource usage on Google Cloud Platform exeute the following shell command.
 
-#!/bin/bash
+- [x] from same laptop terminal session, from the `/my_folder/gcp-iot-pipeline/` directory, execute the folloing shell command.  **This shell command needs a project id as shown here**:
 
-PROJECT=$1
+    `6_teardown_PROJECT.sh my_project_id`
+ 
+### 6_teardown_PROJECT.sh
 
-gcloud config set project $PROJECT
-
-bq --location US rm -f --table weatherData.weatherDataTable
-
-gcloud projects remove-iam-policy-binding $PROJECT --member="serviceAccount:iot-weather-publisher@$PROJECT.iam.gserviceaccount.com" --role=roles/pubsub.publisher
-
-gcloud iam service-accounts delete iot-weather-publisher@$PROJECT.iam.gserviceaccount.com
-
-gcloud pubsub topics delete weatherdata
-
-bq --location US rm -f --dataset weatherData
-
-gcloud functions delete iot_weather
-
-gsutil rm -r gs://iot-analytics-depp
-
-rm -r ~/$PROJECT
-
-ssh pi@raspberrypi.local rm -rf /home/pi/credentials /home/pi/gcp-iot-pipeline
+    `#!/bin/bash`
+    `PROJECT=$1`
+    `gcloud config set project $PROJECT`
+    `bq --location US rm -f --table weatherData.weatherDataTable`
+    `#gcloud projects remove-iam-policy-binding $PROJECT --member="serviceAccount:iot-weather`
+    `publisher@$PROJECT.iam.gserviceaccount.com" --role=roles/pubsub.publisher`
+    `#gcloud iam service-accounts delete iot-weather-publisher@$PROJECT.iam.gserviceaccount.com`
+    `#gcloud iam service-accounts keys list --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com`
+    `gcloud pubsub topics delete weatherdata`
+    `bq --location US rm -f --dataset weatherData`
+    `gcloud functions delete iot_weather`
+    `gsutil rm -r gs://iot-analytics-depp`
+    `rm -r ~/$PROJECT`
+    `ssh pi@raspberrypi.local rm -rf /home/pi/credentials /home/pi/gcp-iot-pipeline`
