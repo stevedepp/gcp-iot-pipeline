@@ -96,48 +96,50 @@ gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherda
 
 - [x] eject the SD card from the card reader and re-insert the SD card into the card reader.
 
+### ./shells/2_sd_card_wifi.sh
 
-### ./shells/3_sd_card_wifi.sh
-
-    '#!/bin/bash'  
-    'cp ./rpi/ssh /Volumes/boot`  
+    `#!/bin/bash`
+    `cp ./rpi/ssh /Volumes/boot`
     `cp ./rpi/wpa_supplicant.conf /Volumes/boot`
-
-
+    `ls /Volumes/boot`
+    `nano /Volumes/boot/wpa_supplicant.conf`
 
 ### manual_3
 
-- [x] update wifi passkey
+- [x] the last shell command calls nano editor on `wpa_supplicant.conf`.
+- [x] replace the ssid and psk with network name(s) and passcode(s).
+- [x] `cntrl-o` 
+- [x] return
+- [x] `cntrl-x`
+- [x] safely eject the SD from the card reader
+- [x] insert the SD card into the raspberrypi and wait a few minutes while it boots
+- [x] when the green light stops flashing, move to the next step
 
-    - [x] nano /Volumes/boot/wpa_supplicant.conf
+### ./shells/3_sd_card_wifi.sh
 
-- [x] properly eject card / replace card
-
-- [x] ping network
-
-    ```ping raspberrypi.local```
-
+    `#!/bin/bash`
+    `ssh pi@raspberrypi.local`
+    `ssh-keygen -R raspberrypi.local`
+    `exit`
+    
+    `# not yet`
+    `# ssh pi@raspberrypi.local 'bash -s' < ./shells/4_update_sd_os.sh`
 
 ### ./shells/4_update_sd_os.sh
 
-#!/bin/bash
+    `ssh pi@raspberrypi.local` <-- for now
+    `#!/bin/bash`
+    `sudo apt-get install i2c-tools libi2c-dev python-smbus`
+    `sudo grep -qxF i2c-dev /etc/modules || echo i2c-dev | sudo tee -a /etc/modules`
+    `sudo sed -i "s/#dtparam=i2c_arm=on/dtparam=i2c_arm=on/g" /boot/config.txt`
+    `sudo cp /usr/share/zoneinfo/US/Eastern /etc/localtime`
+    `sudo reboot`
 
-ssh pi@raspberrypi.local
+### ./shells/ellen_caller_PROJECT.sh
 
-ssh-keygen -R raspberrypi.local
-
-ssh pi@raspberrypi.local
-
-sudo apt-get install i2c-tools libi2c-dev python-smbus
-
-sudo grep -qxF i2c-dev /etc/modules || echo i2c-dev | sudo tee -a /etc/modules
-
-sudo sed -i "s/#dtparam=i2c_arm=on/dtparam=i2c_arm=on/g" /boot/config.txt
-
-sudo cp /usr/share/zoneinfo/US/Eastern /etc/localtime
-
-sudo reboot
-
+    `PROJECT=$1`
+    `scp ~/$PROJECT/{pub-key.json,auth-key.json} pi@raspberrypi.local:/home/pi/`
+    `ssh pi@raspberrypi.local 'bash -s' < ./shells/ellens.sh $PROJECT`
 
 ### ./shells/5_test_sensor_gcloud_install_setup_PROJECT.sh
 
