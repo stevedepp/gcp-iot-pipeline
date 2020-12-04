@@ -172,7 +172,7 @@
     `gcloud alpha billing accounts list`
     `gcloud projects list`
     `gcloud config get-value core/project`
-    `# python3 -m venv .venv`  <-- experiment not here this time
+    `# python3 -m venv .venv`  <-- experiment if above venv doesnt work put here next time
     
 ### manual_4
     
