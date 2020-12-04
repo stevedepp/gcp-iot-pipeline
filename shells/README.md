@@ -68,6 +68,9 @@ source .venv/bin/activate
 ### ./shells/2_sd_card_wifi.sh
 
     `#!/bin/bash`
+    `git clone https://github.com/stevedepp/gcp-iot-pipeline.git`
+    `cd gcp-iot-pipeline`
+    `ls /Volumes/boot`
     `cp ./rpi/ssh /Volumes/boot`
     `cp ./rpi/wpa_supplicant.conf /Volumes/boot`
     `ls /Volumes/boot`
