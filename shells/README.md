@@ -170,16 +170,12 @@
     `gcloud alpha billing accounts list`
     `gcloud projects list`
     `gcloud config get-value core/project`
+    `python3 -m venv .venv`  
     
 ### manual_4
-
-- [x] change into the rpi directory.
-
-    `cd ~/gcp-iot-pipeline`
     
-- [x] create and source a virtual environmentexecute.
+- [x] source a virtual environment that was creatd in the last line of the previous shell command `4_test_sensor_gcloud_install_setup_PROJECT.sh`.
 
-    `python3 -m venv .venv`  
     `source .venv/bin/activate`
     
 - [x] execute the folloing shell command.  this `./shells/5_dependencies_run_PROJECT.sh` shell command **needs a project id** as shown here:
