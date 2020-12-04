@@ -146,7 +146,7 @@
 
 - [x] change to the `gcp-iot-pipeline` directory.
 
-    `cd gcp-iot-pipeline`  <-- removed
+    `cd gcp-iot-pipeline`  <-- removed  
     `cd gcp-iot-pipeline && source .venv/bin/activate` <-- experiment
 
 - [x] have your project id handy because the remaining shell commands require a project id.  (project ids are often  but not always the same as project name.)
