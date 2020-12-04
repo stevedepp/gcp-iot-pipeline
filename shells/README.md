@@ -181,17 +181,12 @@
 
 - [x] change into the rpi directory.
 
-    `cd ~/gcp-iot-pipeline/rpi`
+    `cd ~/gcp-iot-pipeline`
     
 - [x] create and source a virtual environmentexecute.
 
-    `python3 -m venv .venv`
     `source .venv/bin/activate`
     
-- [x] return to the `gcp-iot-pipeline` directory.
-
-    `cd ~/gcp-iot-pipeline`
-
 - [x] execute the folloing shell command.  this `./shells/5_dependencies_run_PROJECT.sh` shell command **needs a project id** as shown here:
 
     `./shells/5_dependencies_run_PROJECT.sh my_project_id`
