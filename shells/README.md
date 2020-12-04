@@ -14,7 +14,7 @@
     `python3 -m venv .venv`
     `source .venv/bin/activate`
 
-### `./shells/1_gcp_setup_PROJECT.sh`
+### ./shells/1_gcp_setup_PROJECT.sh
 
     `#!/bin/bash`
     `PROJECT=$1`
