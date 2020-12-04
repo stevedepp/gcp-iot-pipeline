@@ -183,7 +183,7 @@
 
     `source .venv/bin/activate`
     
-- [x] execute the folloing shell command.  this `4_test_sensor_gcloud_install_setup_PROJECT.sh` shell command **needs a project id** as shown here:
+- [x] execute the folloing shell command.  this `./shells/5_dependencies_run_PROJECT.sh` shell command **needs a project id** as shown here:
 
     `./shells/5_dependencies_run_PROJECT.sh my_project_id`
 
