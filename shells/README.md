@@ -144,16 +144,43 @@
 
 - [x] change to the `gcp-iot-pipeline` directory.
 
-    `cd gcp-iot-pipeline`  
+    `cd gcp-iot-pipeline`  <-- removed
     `cd gcp-iot-pipeline && source .venv/bin/activate` <-- experiment
 
 - [x] have your project id handy because the remaining shell commands require a project id.  (project ids are often  but not always the same as project name.)
 
 - [x] execute the folloing shell command.  this `4_test_sensor_gcloud_install_setup_PROJECT.sh` shell command **needs a project id** as shown here:
 
-    `./shells/4_test_sensor_gcloud_install_setup_PROJECT.sh my_project_id`
+### ./shells/4_test_sensor_gcloud_install_setup_2_PROJECT.sh
 
-### ./shells/4_test_sensor_gcloud_install_setup_PROJECT.sh  
+    `#!/bin/bash`
+    `PROJECT=$1`
+    `echo '77 means the detector is seen by the raspberrypi'`
+    `sudo i2cdetect -y 1`
+    `echo 'working on project: '$PROJECT`
+    `export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"`
+    `echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" |  sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list`
+    `curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -`
+    `sudo apt-get update && sudo apt-get install google-cloud-sdk`
+    `gcloud auth login`
+    `gcloud config set project $PROJECT`
+    `export ACCOUNT=$(gcloud alpha billing accounts list | awk 'NR==2{print $1}')`
+    `gcloud beta billing projects link $PROJECT --billing-account $ACCOUNT`
+    `gcloud config configurations describe default`
+    `gcloud alpha billing accounts list`
+    `gcloud projects list`
+    `gcloud config get-value core/project`
+    `pip install tendo`
+    `pip install --upgrade google-cloud-pubsub`
+    `pip3 install --upgrade oauth2client`
+    `pip3 install datetime`
+    `pip3 install adafruit-circuitpython-bmp280`
+    `mkdir -p ~/credentials`
+    `gsutil cp gs://iot-analytics-depp/pub-key.json ~/credentials/`
+    `export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/pub-key.json`
+    `python3 iot-data-pipeline.py $PROJECT`
+
+### ./shells/4_test_sensor_gcloud_install_setup_PROJECT.sh   <-- removed
 
     `#!/bin/bash`
     `PROJECT=$1`
@@ -174,7 +201,7 @@
     `gcloud config get-value core/project`
     `# python3 -m venv .venv`  <-- experiment if above venv doesnt work put here next time
     
-### manual_4
+### manual_4 <-- removed
     
 - [x] source a virtual environment that was creatd in the last line of the previous shell command.
 
@@ -184,7 +211,7 @@
 
     `./shells/5_dependencies_run_PROJECT.sh my_project_id`
 
-### 5_dependencies_run_PROJECT.sh
+### 5_dependencies_run_PROJECT.sh <-- removed
 
     `#!/bin/bash`
     `PROJECT=$1`
