@@ -174,7 +174,7 @@
     
 ### manual_4
     
-- [x] source a virtual environment that was creatd in the last line of the previous shell command `4_test_sensor_gcloud_install_setup_PROJECT.sh`.
+- [x] source a virtual environment that was creatd in the last line of the previous shell command.
 
     `source .venv/bin/activate`
     
