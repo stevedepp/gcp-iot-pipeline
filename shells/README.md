@@ -190,7 +190,7 @@
 
 - [x] from same laptop terminal session, from the `/my_folder/gcp-iot-pipeline/` directory, execute the folloing shell command.  **This shell command needs a project id as shown here**:
 
-    `./shells/6_teardown_PROJECT.sh my_project_id`
+    `./shells/5_teardown_PROJECT.sh my_project_id`
  
 ### 5_teardown_PROJECT.sh
 
