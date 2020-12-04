@@ -147,19 +147,15 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
         ```gcloud projects add-iam-policy-binding $PROJECT --member="serviceAccount:iot-weather-publisher@$PROJECT.iam.gserviceaccount.com" --role=roles/pubsub.publisher```
 
-    - [x] create pub-key.json and auth-key.json files in a directory named for the project in the users home directory.
+    - [x] create pub-key.json file in a directory named for the project in the users home directory.
 
         ```gcloud iam service-accounts keys create ~/$PROJECT/pub-key.json --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com```
 
-        ```gcloud iam service-accounts keys create ~/$PROJECT/auth-key.json --iam-account $PROJECT@appspot.gserviceaccount.com```
-
-    - [x] make a google storage bucket named ```iot-analytics-depp``` and copy the pub-key.json and auth-key.json files to this bucket (see notes).
+    - [x] make a google storage bucket named ```iot-analytics-depp``` and copy the pub-key.json file to this bucket (see notes).
 
         ```gsutil mb gs://iot-analytics-depp```
 
         ```gsutil cp ~/$PROJECT/pub-key.json gs://iot-analytics-depp```
-
-        ```gsutil cp ~/$PROJECT/auth-key.json gs://iot-analytics-depp```
 
     - [x] for information:
     
@@ -169,9 +165,9 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
         
         ```gcloud iam service-accounts keys list --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com```
         
-        ```ls ~/$PROJECT/key.json```
+        ```ls ~/$PROJECT/pub-key.json```
         
-        ```cat ~/$PROJECT/key.json```
+        ```cat ~/$PROJECT/pub-key.json```
         
         ```gsutil ls gs://iot-analytics-depp```
 
@@ -432,12 +428,10 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     ```gsutil cp gs://iot-analytics-depp/pub-key.json ~/credentials/```  
     
     ```export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/pub-key.json```  
-    
 
 - [x] **from the ```gcp-iot-pipeline/rpi``` directory, call the ```iot-data-pipeline.py``` sensor module with ```$PROJECT``` argument.**
     
     ```python3 iot-data-pipeline.py $PROJECT```.
-
 
 ## teardown the gcloud infrastructure as code from laptop terminal
 
@@ -499,8 +493,10 @@ Notes:
 - [x] did not use this code because did not establish auth key usage
 
 
+
     ```gcloud iam service-accounts keys create ~/$PROJECT/auth-key.json --iam-account $PROJECT@appspot.gserviceaccount.com```
     ```gsutil cp ~/$PROJECT/auth-key.json gs://iot-analytics-depp```
+    ```gcloud iam service-accounts keys list --iam-account $PROJECT@appspot.gserviceaccount.com```
 
 
     ```export A=$(gcloud iam service-accounts keys list --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com | awk 'NR==3{print $1}')```
