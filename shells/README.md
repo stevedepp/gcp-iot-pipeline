@@ -90,9 +90,11 @@ gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherda
 
 ### manual_2
 
-- [x] put SD card into reader
+- [x] put SD card into reader.
 
-- [x] load raspian via Raspberry Pi imager
+- [x] load raspian via Raspberry Pi imager.
+
+- [x] eject and insert the SD card.
 
 
 ### ./shells/3_sd_card_wifi.sh
