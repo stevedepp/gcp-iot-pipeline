@@ -10,7 +10,7 @@
     `mkdir folder_name`
     `cd folder_name`
     `git clone https://github.com/stevedepp/gcp-iot-pipeline.git`
-    `cd gcp-iot-pipeline
+    `cd gcp-iot-pipeline`
     `python3 -m venv .venv`
     `source .venv/bin/activate`
 
