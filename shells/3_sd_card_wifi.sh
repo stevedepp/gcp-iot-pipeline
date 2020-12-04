@@ -1,7 +1,6 @@
 #!/bin/bash
 
-cd gcp-iot-pipeline/rpi
 ls /Volumes/boot
-cp ./ssh /Volumes/boot
-cp ./wpa_supplicant.conf /Volumes/boot
+cp ./rpi/ssh /Volumes/boot
+cp ./rpi/wpa_supplicant.conf /Volumes/boot
 

@@ -1,7 +1,13 @@
 #!/bin/bash
 
 PROJECT=$1
-echo $PROJECT
+
+mkdir -p ~/credentials
+
+mv ~/{pub-key.json,auth-key.json} ~/credentials
+
+echo 'working on project: '$PROJECT
+
 sudo i2cdetect -y 1
 
 export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
@@ -12,9 +18,7 @@ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 
 sudo apt-get update && sudo apt-get install google-cloud-sdk
 
-gcloud auth activate-service-account test123depp@appspot.gserviceaccount.com --key-file=test123depp-d4de252b7a56.json
-
-#gcloud auth login
+gcloud auth activate-service-account $PROJECT@appspot.gserviceaccount.com --key-file=credentials/auth-key.json
 
 gcloud config set project $PROJECT
 
@@ -40,11 +44,13 @@ pip3 install datetime
 
 pip3 install adafruit-circuitpython-bmp280
 
-mkdir -p ~/credentials
+# done above in
 
-gsutil cp gs://iot-analytics-depp/key.json ~/credentials/
+#gsutil cp gs://iot-analytics-depp/key.json ~/credentials/
 
-export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/key.json
+export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/pub-key.json
+
+# do we need this?
 
 git clone https://github.com/stevedepp/gcp-iot-pipeline.git
 

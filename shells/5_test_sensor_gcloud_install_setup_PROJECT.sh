@@ -2,7 +2,11 @@
 
 PROJECT=$1
 
+scp ~/$PROJECT/{pub-key.json,auth-key.json} pi@raspberrypi.local:/home/pi
+
 ssh pi@raspberrypi.local
+
+echo 'working on project: '$PROJECT
 
 sudo i2cdetect -y 1
 
@@ -14,9 +18,7 @@ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 
 sudo apt-get update && sudo apt-get install google-cloud-sdk
 
-gcloud auth login
-
-export PROJECT=test123depp
+gcloud auth activate-service-account $PROJECT@appspot.gserviceaccount.com --key-file=auth-key.json
 
 gcloud config set project $PROJECT
 

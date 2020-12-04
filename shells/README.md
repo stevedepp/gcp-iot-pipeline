@@ -90,31 +90,32 @@ gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherda
 
 ### manual_2
 
-put SD card into reader
-erase SD card
-    diskutil list
-    diskutil eraseDisk FAT32 NAME MBRFormat /dev/disk2
-load raspian
-    
+- [x] put SD card into reader
+
+- [x] load raspian via Raspberry Pi imager
+
 
 ### ./shells/3_sd_card_wifi.sh
 
 #!/bin/bash
 
-ls /Volumes/boot
-cp ./rpi/ssh /Volumes/boot
-cp ./rpi/wpa_supplicant.conf /Volumes/boot
+- [x] cp ./rpi/ssh /Volumes/boot
+
+- [x] cp ./rpi/wpa_supplicant.conf /Volumes/boot
 
 
 
 ### manual_3
 
-update wifi passkey
-    nano /Volumes/boot/wpa_supplicant.conf
-eject card / replace card
-ping network
-    ping raspberrypi.local
+- [x] update wifi passkey
 
+    - [x] nano /Volumes/boot/wpa_supplicant.conf
+
+- [x] properly eject card / replace card
+
+- [x] ping network
+
+    ```ping raspberrypi.local```
 
 
 ### ./shells/4_update_sd_os.sh
@@ -126,8 +127,6 @@ ssh pi@raspberrypi.local
 ssh-keygen -R raspberrypi.local
 
 ssh pi@raspberrypi.local
-    yes
-    raspberry
 
 sudo apt-get install i2c-tools libi2c-dev python-smbus
 
@@ -138,7 +137,6 @@ sudo sed -i "s/#dtparam=i2c_arm=on/dtparam=i2c_arm=on/g" /boot/config.txt
 sudo cp /usr/share/zoneinfo/US/Eastern /etc/localtime
 
 sudo reboot
-
 
 
 ### ./shells/5_test_sensor_gcloud_install_setup_PROJECT.sh

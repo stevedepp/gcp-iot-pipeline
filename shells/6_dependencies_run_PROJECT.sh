@@ -18,6 +18,6 @@ mkdir -p ~/credentials
 
 gsutil cp gs://iot-analytics-depp/key.json ~/credentials/
 
-export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/key.json
+export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/pub-key.json
 
 python3 iot-data-pipeline.py $PROJECT
