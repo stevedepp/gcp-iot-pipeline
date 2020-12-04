@@ -119,7 +119,7 @@
     `yes`
     `raspberry`
     
-- [x] clone the repository, change to the `gcp-iot-pipeline` directory and create, but do not source an environment.
+- [x] clone the repository, change to the `gcp-iot-pipeline` directory.
 
     `git clone https://github.com/stevedepp/gcp-iot-pipeline.git`  
     `cd gcp-iot-pipeline`  
@@ -179,10 +179,19 @@
     
 ### manual_4
 
-- [x] execute this `source .venv/bin/activate` command to source the virtual environment created earlier.  a manual step is needed to do this.
+- [x] change into the rpi directory.
 
+    `cd ~/gcp-iot-pipeline/rpi`
+    
+- [x] create and source a virtual environmentexecute.
+
+    `python3 -m venv .venv`
     `source .venv/bin/activate`
     
+- [x] return to the `gcp-iot-pipeline` directory.
+
+    `cd ~/gcp-iot-pipeline`
+
 - [x] execute the folloing shell command.  this `./shells/5_dependencies_run_PROJECT.sh` shell command **needs a project id** as shown here:
 
     `./shells/5_dependencies_run_PROJECT.sh my_project_id`
@@ -208,7 +217,7 @@
 
 - [x] from same laptop terminal session, from the `/my_folder/gcp-iot-pipeline/` directory, execute the folloing shell command.  **This shell command needs a project id as shown here**:
 
-    `6_teardown_PROJECT.sh my_project_id`
+    `./shells/6_teardown_PROJECT.sh my_project_id`
  
 ### 6_teardown_PROJECT.sh
 
