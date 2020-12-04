@@ -116,12 +116,9 @@
     `yes`
     `raspberry`
     
-- [x] clone the repository, change to the `gcp-iot-pipeline` directory.
+- [x] clone the repository and change to the `gcp-iot-pipeline` directory.
 
-    `git clone https://github.com/stevedepp/gcp-iot-pipeline.git`  
-    `cd gcp-iot-pipeline`  
-    `python3 -m venv .venv`  
-    `source .venv/bin/activate` <-- do this to see if stays sourced after reboot.
+    `git clone https://github.com/stevedepp/gcp-iot-pipeline.git && cd gcp-iot-pipeline`  
     
 - [x] execute the next shell command.  
 
@@ -182,6 +179,7 @@
     
 - [x] create and source a virtual environmentexecute.
 
+    `python3 -m venv .venv`  
     `source .venv/bin/activate`
     
 - [x] execute the folloing shell command.  this `./shells/5_dependencies_run_PROJECT.sh` shell command **needs a project id** as shown here:
