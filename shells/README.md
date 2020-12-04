@@ -176,7 +176,17 @@ DO NOT EXECUTE THIS.  IT IS CALLED BY `4_caller_PROJECT.sh`
     
 ### manual_4
 
-source .venv/bin/activate
+- [x] again easy. `ssh` into the raspberrypi.
+
+    `ssh pi@raspberrypi.local`
+
+- [x] change directory to `gcp-iot-pipeline/rpi`.
+
+    `cd gcp-iot-pipeline/rpi`
+    
+- [x] execute this `source .venv/bin/activate` command to source the virtual environment created in the last line of the last shell command executed.  needed a manual step until sourcing remotely is possible.
+
+    `source .venv/bin/activate`
 
 ### 6_dependencies_run_PROJECT.sh
 
