@@ -1,7 +1,0 @@
-datetime
-tendo
-adafruit-circuitpython-bmp280
-google-cloud-pubsub
-oauth2client
-google-api-python-client
-
