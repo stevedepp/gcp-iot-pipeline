@@ -127,8 +127,10 @@ gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherda
 
 ### ./shells/4_update_sd_os.sh
 
-    `ssh pi@raspberrypi.local` <-- for now
     `#!/bin/bash`
+    `ssh pi@raspberrypi.local` <-- for now
+    `sudo apt-get update`
+    `sudo apt-get upgrade`
     `sudo apt-get install i2c-tools libi2c-dev python-smbus`
     `sudo grep -qxF i2c-dev /etc/modules || echo i2c-dev | sudo tee -a /etc/modules`
     `sudo sed -i "s/#dtparam=i2c_arm=on/dtparam=i2c_arm=on/g" /boot/config.txt`
