@@ -143,13 +143,13 @@
 
 ### manual_4
 
-- [x] easy. just execute the next shell command.  needed a manual step here to wait for the reboot to complete.
+- [x] the last shell ended with a reboot of the raspberrypi.  wait until the green light stops flickering, then reconnect via ssh.
 
-- [x] the last shell ended with a reboot of the raspberrypi.  wait until the green light stops flickering, then move to the next step.
+    `ssh pi@raspberrypi.local`
 
 - [x] have your project id handy because the remaining shell commands require a project id.  (project ids are often  but not always the same as project name.)
 
-- [x] from same laptop terminal session, from the `/my_folder/gcp-iot-pipeline/` directory, execute the folloing shell command.  this `4_caller_PROJECT.sh` shell command executes the `4_test_sensor_gcloud_install_setup_PROJECT.sh` shell remotely on the raspberrypi.   **This shell command needs a project id as shown here**:
+- [x] execute the folloing shell command.  this `4_test_sensor_gcloud_install_setup_PROJECT.sh` shell command **needs a project id** as shown here:
 
     `./shells/4_caller_PROJECT.sh my_project_id`
 
