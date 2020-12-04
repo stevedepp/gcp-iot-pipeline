@@ -151,16 +151,9 @@
 
 - [x] execute the folloing shell command.  this `4_test_sensor_gcloud_install_setup_PROJECT.sh` shell command **needs a project id** as shown here:
 
-    `./shells/4_caller_PROJECT.sh my_project_id`
-
-### ./shells/4_caller_PROJECT.sh my_project_id
-
-    `#!/bin/bash`
-    `PROJECT = $1`
-    `ssh pi@raspberrypi.local 'bash -s' < ./shells/4_test_sensor_gcloud_install_setup_PROJECT.sh $PROJECT
+    `./shells/4_test_sensor_gcloud_install_setup_PROJECT.s my_project_id`
 
 ### ./shells/4_test_sensor_gcloud_install_setup_PROJECT.sh  
-DO NOT EXECUTE THIS.  IT IS CALLED BY `4_caller_PROJECT.sh`
 
     `#!/bin/bash`
     `PROJECT=$1`
@@ -179,34 +172,16 @@ DO NOT EXECUTE THIS.  IT IS CALLED BY `4_caller_PROJECT.sh`
     `gcloud alpha billing accounts list`
     `gcloud projects list`
     `gcloud config get-value core/project`
-    `git clone https://github.com/stevedepp/gcp-iot-pipeline.git`
-    `cd gcp-iot-pipeline/rpi`
-    `python3 -m pip install --upgrade pip`
-    `python3 -m venv .venv`
     
 ### manual_4
 
-- [x] again easy. `ssh` into the raspberrypi.
-
-    `ssh pi@raspberrypi.local`
-
-- [x] change directory to `gcp-iot-pipeline/rpi`.
-
-    `cd gcp-iot-pipeline/rpi`
-    
-- [x] execute this `source .venv/bin/activate` command to source the virtual environment created in the last line of the last shell command executed.  needed a manual step until sourcing remotely is possible.
+- [x] execute this `source .venv/bin/activate` command to source the virtual environment created earlier.  a manual step is needed to do this.
 
     `source .venv/bin/activate`
     
-- [x] from same laptop terminal session, from the `/my_folder/gcp-iot-pipeline/` directory, execute the folloing shell command.  this `5_caller_PROJECT copy.sh` shell command executes the `5_dependencies_run_PROJECT.sh` shell remotely on the raspberrypi.   **This shell command needs a project id as shown here**:
+- [x] execute the folloing shell command.  this `4_test_sensor_gcloud_install_setup_PROJECT.sh` shell command **needs a project id** as shown here:
 
-    `./shells/5_caller_PROJECT.sh my_project_id`
-
-### 5_caller_PROJECT.sh
-
-    `#!/bin/bash`
-    `PROJECT = $1`
-    `ssh pi@raspberrypi.local 'bash -s' < ./shells/5_dependencies_run_PROJECT.sh $PROJECT`
+    `./shells/5_dependencies_run_PROJECT.sh my_project_id`
 
 ### 5_dependencies_run_PROJECT.sh
 
