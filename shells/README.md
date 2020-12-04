@@ -147,11 +147,15 @@
 
     `ssh pi@raspberrypi.local`
 
+- [x] change to the `gcp-iot-pipeline` directory.
+
+    `cd gcp-iot-pipeline`  
+
 - [x] have your project id handy because the remaining shell commands require a project id.  (project ids are often  but not always the same as project name.)
 
 - [x] execute the folloing shell command.  this `4_test_sensor_gcloud_install_setup_PROJECT.sh` shell command **needs a project id** as shown here:
 
-    `./shells/4_test_sensor_gcloud_install_setup_PROJECT.s my_project_id`
+    `./shells/4_test_sensor_gcloud_install_setup_PROJECT.sh my_project_id`
 
 ### ./shells/4_test_sensor_gcloud_install_setup_PROJECT.sh  
 
