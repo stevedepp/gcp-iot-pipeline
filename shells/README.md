@@ -124,7 +124,7 @@
     `git clone https://github.com/stevedepp/gcp-iot-pipeline.git`  
     `cd gcp-iot-pipeline`  
     `python3 -m venv .venv`  
-    `source .venv/bin/activate` <-- wait on this.
+    `source .venv/bin/activate` <-- do this to see if stays sourced after reboot.
     
 - [x] execute the next shell command.  
 
