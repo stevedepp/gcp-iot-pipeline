@@ -4,8 +4,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 ## 5 shell scripts and 4 manual steps to assemble the gcloud / raspeberrypi infra
 (shell scripts shown do not show the lines of logging found in the actual files)
 
-### laptop
-
+### from the laptop terminal:
 
 #### manual 1: clone the repository
 
@@ -58,7 +57,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 #
 
-### raspberrypi
+### from the laptop terminal via ssh connection to raspberrypi:
 
 #### manual 2: initialize the SD card
 
@@ -195,7 +194,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 #
 
-### whole project
+### from laptop terminal:
 
 - [x] To unwind all the actions taken so far and remove resource usage on Google Cloud Platform exeute the following shell command.
 
