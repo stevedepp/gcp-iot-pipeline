@@ -1,3 +1,6 @@
+# gcp-iot-pipeline
+Building a Serverless Data Pipeline : IoT to BigQuery
+
 ## developer notes:
 
 ### enhancements: any enhancement checked here should go into delivery statement as feature
