@@ -198,7 +198,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 #
 
-### from the laptop terminal:
+### from the laptop terminal[:](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/stream2bq/main.py)
 
 - [x] To unwind all the actions taken so far and remove resource usage on Google Cloud Platform execute the following shell command.
 
