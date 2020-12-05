@@ -7,7 +7,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 - [x] [clone the repository](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#manual-1-clone-the-repository)
 - [x] [`./shells/1_gcp_setup_PROJECT.sh`](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#shell-script-1-shells1_gcp_setup_projectsh)
 - [x] [initialize the SD card](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#manual-2-initialize-the-sd-card)
-- [x] [`./shells/2_sd_card_wifi.sh`](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#shells2_sd_card_wifish)
+- [x] [`./shells/2_sd_card_wifi.sh`](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#shell-script-2-shells2_sd_card_wifish)
 - [x] [setup communications with the raspberrypi](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#manual-3-setup-communications-with-the-raspberrypi)
 - [x] [`./shells/3_update_sd_os.sh`](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#shells3_update_sd_ossh)
 - [x] [source the raspberrypi's virtual environment](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#manual-4-source-the-raspberrypis-virtual-environment)
