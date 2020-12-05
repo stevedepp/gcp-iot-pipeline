@@ -9,6 +9,8 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 #### 1.1 purchase raspberrypi et al
 
+$14.95 [Adafruit BME280 I2C or SPI Temperature Humidity Pressure Sensor - STEMMA QT](https://www.adafruit.com/product/2652)
+
 #
 
 #### 1.2 solder sensor 
