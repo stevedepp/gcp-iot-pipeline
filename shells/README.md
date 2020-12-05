@@ -4,7 +4,7 @@
 ## laptop
 
 
-### manual_1
+### manual 1: clone the repository
 
 - [x] execute the following commands in a laptop computer's terminal window.
 
@@ -54,7 +54,7 @@
 
 ## raspberrypi
 
-### manual_2
+### manual 2: initialize the SD card
 
 - [x] put SD card into the card reader.
 
@@ -75,7 +75,7 @@
     `ls /Volumes/boot`
     `nano /Volumes/boot/wpa_supplicant.conf`
 
-### manual_3
+### manual 3: setup communications with the raspberrypi
 
 - [x] the last shell command calls nano editor on `wpa_supplicant.conf`:  
     - [x] in the nano editor, replace the `ssid` and `psk` with network name and passcode.  
@@ -134,7 +134,7 @@
     `python3 -m venv .venv`  <-- experiment 
     `sudo reboot`
 
-### manual_4
+### manual 4: source the raspberrypi's virtual environment.
 
 - [x] the last shell ended with a reboot of the raspberrypi.  wait until the green light stops flickering, then reconnect via ssh.
 
