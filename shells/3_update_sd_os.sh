@@ -16,4 +16,4 @@ python3 -m venv .venv
 
 sudo reboot
 
-echo 'the raspberrypi is rebooting now.  when the green light stops flashing execute the next shell: "4_caller_PROJECT.sh".'
+echo 'the raspberrypi is rebooting now.  when the green light stops flashing, follow the manual step to source the virtual environment, then execute the next shell script  "4_test_sensor_gcloud_install_setup_dependencies_run_PROJECT.sh".'

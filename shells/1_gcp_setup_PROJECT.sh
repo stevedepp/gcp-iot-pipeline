@@ -19,11 +19,19 @@ gcloud beta billing projects link $PROJECT --billing-account $ACCOUNT
 
 echo 'some useful information:'
 
+echo 'current defaults in the configuration:'
+
 gcloud config configurations describe default
+
+echo 'current account numbers'
 
 gcloud alpha billing accounts list
 
+echo 'current projects in this account'
+
 gcloud projects list
+
+echo 'current default project; may seem redundant but it isnt'
 
 gcloud config get-value core/project
 
