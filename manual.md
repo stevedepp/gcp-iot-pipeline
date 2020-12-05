@@ -421,7 +421,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 - [x] v.   the auth-key.json is not used in this configuration, but was attempted as a way to avoid window pop ups in the set up of the raspberrypi's gcloud environment].*
 
-- [x] vi.  did not use this code because did not establish auth key usage
+- [x] vi.  did not use this code because did not establish auth key usage [[see note (vi)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#notes)]
 
         ```gcloud iam service-accounts keys create ~/$PROJECT/auth-key.json --iam-account $PROJECT@appspot.gserviceaccount.com```
         ```gsutil cp ~/$PROJECT/auth-key.json gs://iot-analytics-depp```
