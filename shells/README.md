@@ -1,4 +1,4 @@
-# 5 shell scripts and 4 manual interventions to assemble the gcloud / raspeberrypi infra
+# 5 shell scripts and 4 manual steps to assemble the gcloud / raspeberrypi infra
 #### (shell scripts shown do not show the lines of logging found in the actual files)
 
 ## laptop
