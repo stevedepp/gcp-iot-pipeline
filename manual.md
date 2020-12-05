@@ -377,12 +377,12 @@ Building a Serverless Data Pipeline : IoT to BigQuery
     
 ### Notes:
 
-- [x] An alternative but not recommended method for erasing the SD card is a bit risky if you select the wrong disk.
+- [x] i.   an alternative but not recommended method for erasing the SD card is a bit risky if you select the wrong disk.
     
         ```diskutil list``` 
         ```diskutil eraseDisk FAT32 NAME MBRFormat /dev/disk2```
 
-- [x] these settings can be set via a GUI if you prefer to explore.
+- [x] ii.  these settings can be set via a GUI if you prefer to explore.
 
         ```sudo raspi config GUI```  
     
@@ -395,14 +395,14 @@ Building a Serverless Data Pipeline : IoT to BigQuery
         - [x] Timezone  
 
 
-- [x] note: this is another point, prior to the next ```ssh pi@raspberrypi.local```, where one could copy the ```key.json``` to the raspberrypi via ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.
+- [x] iii. this is another point, prior to the next ```ssh pi@raspberrypi.local```, where one could copy the ```key.json``` to the raspberrypi via ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.
 
-- [x] note: the bucket is not essential but allows for the raspberry pi set up to come AFTER the laptop setup; were the latop set up AFTER then the pubsub key could be transfered to the pi via secure copy:
+- [x] iv.  the bucket is not essential but allows for the raspberry pi set up to come AFTER the laptop setup; were the latop set up AFTER then the pubsub key could be transfered to the pi via secure copy:
     ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi```
 
-- [x] note: the auth-key.json is not used in this configuration, but was attempted as a way to avoid window pop ups in the set up of the raspberrypi's gcloud environment].*
+- [x] v.   the auth-key.json is not used in this configuration, but was attempted as a way to avoid window pop ups in the set up of the raspberrypi's gcloud environment].*
 
-- [x] did not use this code because did not establish auth key usage
+- [x] vi.  did not use this code because did not establish auth key usage
 
         ```gcloud iam service-accounts keys create ~/$PROJECT/auth-key.json --iam-account $PROJECT@appspot.gserviceaccount.com```
         ```gsutil cp ~/$PROJECT/auth-key.json gs://iot-analytics-depp```
