@@ -81,7 +81,7 @@
     - [x] in the nano editor, replace the `ssid` and `psk` with network name and passcode.  
     - [x] in the nano editor, there are 2 network names. one can be deleted or more copied in.  
     - [x] `cntrl-o`   
-    - [x] return  
+    - [x] `return`  
     - [x] `cntrl-x`  
 
 - [x] safely eject the SD from the card reader.
