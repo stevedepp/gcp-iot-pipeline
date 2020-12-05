@@ -489,13 +489,12 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
     
 Notes:
 
-- [x]     
-    - [ ] An alternative but not recommended method for erasing the SD card is a bit risky if you select the wrong disk.
+- [x] An alternative but not recommended method for erasing the SD card is a bit risky if you select the wrong disk.
     
         ```diskutil list``` 
         ```diskutil eraseDisk FAT32 NAME MBRFormat /dev/disk2```
 
-- [x]     - [x] these settings can be set via a GUI if you prefer to explore.
+- [x] these settings can be set via a GUI if you prefer to explore.
 
         ```sudo raspi config GUI```  
     
