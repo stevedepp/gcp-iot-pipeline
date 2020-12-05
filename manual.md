@@ -64,15 +64,7 @@ from left to right: presoldered by Adafruit.com, my second try which works, and 
 
 the pins have labels and technical terms but here you go: it depends on how you solder the headers (spikes). if you solder with long spikes one way, i would number the bmp280 or bme280 holes one way or another.  so you need to LOOK at the labels.  the raspberry pi labels the pins in the first column 1 3 5 7 9 11 etc and the second column 2 4 6 8 10.  Only connecting to odd pins on the raspberry pi:
 
-BMP280  Raspberry  
-BME280  Pi  
-VIN --> 1st pin  
-3vo  
-GND --> 9th pin  
-SCK --> 5th pin  
-SOO  
-SDI --> 3rd pin  
-CS  
+![image](https://user-images.githubusercontent.com/38410965/101259788-0dba4580-36f9-11eb-91ba-2033146c69ae.png)
 
 ![](https://codelabs.developers.google.com/codelabs/iot-data-pipeline/img/392c2a9c85187094.png)
 
