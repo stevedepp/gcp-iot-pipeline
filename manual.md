@@ -44,6 +44,8 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 - [x] raspberry pi zero does not have a usb port.  need this.
 
     $4.95 [USB Mini Hub with Power Switch - OTG Micro-USB](https://www.adafruit.com/product/2991)
+    
+- [x] need some way to read an sd card on your laptop.
 
 #
 
