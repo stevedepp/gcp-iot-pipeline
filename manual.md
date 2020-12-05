@@ -398,7 +398,8 @@ Building a Serverless Data Pipeline : IoT to BigQuery
     
 ### Notes:
 
-- [x] i. this is another point, prior to the next ```ssh pi@raspberrypi.local```, where one could copy the ```key.json``` to the raspberrypi via ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.
+- [x] i.  the bucket is not essential but allows for the raspberry pi set up to come AFTER the laptop setup; were the latop set up AFTER then the pubsub key could be transfered to the pi via secure copy:
+    ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi```
 
 - [x] ii.   an alternative but not recommended method for erasing the SD card is a bit risky if you select the wrong disk.
     
@@ -417,8 +418,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
     
     - [x] Timezone  
 
-- [x] iv.  the bucket is not essential but allows for the raspberry pi set up to come AFTER the laptop setup; were the latop set up AFTER then the pubsub key could be transfered to the pi via secure copy:
-    ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi```
+- [x] iv. this is another point, prior to the next ```ssh pi@raspberrypi.local```, where one could copy the ```key.json``` to the raspberrypi via ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.
 
 - [x] v.   the auth-key.json is not used in this configuration, but was attempted as a way to avoid window pop ups in the set up of the raspberrypi's gcloud environment].*
 
