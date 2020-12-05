@@ -6,33 +6,35 @@ import board
 import busio
 import adafruit_bmp280
 
-# from iot
 import datetime
 import json
 from google.cloud import pubsub_v1
 from oauth2client.client import GoogleCredentials
 from tendo import singleton
 
-# from iot
-me = singleton.SingleInstance() # will sys.exit(-1) if other instance is running
-SEND_INTERVAL = 60 #seconds
+# sys.exit(-1) if other instance is running
+me = singleton.SingleInstance()
+
 credentials = GoogleCredentials.get_application_default()
-# change project to your Project ID
-#project="msds434deppfp"
-# change topic to your PubSub topic name
+
+# PubSub topic name
 topic = "weatherdata"
-# set the following four constants to be indicative of where you are placing your weather sensor
+
+# location constants for weather sensor
 sensorID = "NewHope"
 sensorZipCode = 18938
 sensorLat = 40.364342
 sensorLong = -74.951492
 
-# Create library object using our Bus I2C port
+# location's pressure (hPa) at sea level as baseline for altitude sensors
+sensor.sea_level_pressure = 1013.25
+
+# interval for weather sensor reading
+SEND_INTERVAL = 60 #seconds
+
+# create library object using Bus I2C port
 i2c = busio.I2C(board.SCL, board.SDA)
 sensor = adafruit_bmp280.Adafruit_BMP280_I2C(i2c)
-
-# change this to match the location's pressure (hPa) at sea level
-sensor.sea_level_pressure = 1013.25
 
 def read_sensor(weathersensor):
     tempF = weathersensor.temperature
