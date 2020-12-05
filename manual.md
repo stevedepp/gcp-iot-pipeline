@@ -11,6 +11,8 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 #### 1.3 connect raspberrypi to sensor
 
+# 
+
 ### 2. gcloud and raspberrypi infrastructure as code from a laptop:
 
 #### 2.1 from a laptop terminal, set up gcloud infrastructure:
