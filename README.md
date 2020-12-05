@@ -40,6 +40,10 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 - [ ] CLT adafruit sensor argument
 - [ ] CLT logic for schema for adafruit bme and bmp sensors
 - [ ] CLT asks for account then project name and if project doesnt exist asks if wants to create project
+- [ ] CLT to turn data collection on / off
+- [ ] CLT to test if 
+    - [ ] gcloud infra built
+    - [ ] raspberrypi infra built
 - [ ] CLT enables datadownload from bigquery 
     - [x] by date 
     - [x] by temp range
