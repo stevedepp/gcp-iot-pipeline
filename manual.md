@@ -203,7 +203,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
     
     ```sudo apt-get upgrade``` 
     
-- [x] **configure the OS to see our sensor and know our timezone via command-line or GUI** [[see note (iv)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#notes)]
+- [x] **configure the OS to see our sensor and know our timezone via command-line or GUI** [[see note (iii)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#notes)]
 
     - [x] via command line
     
@@ -221,8 +221,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
         
             ```sudo cp /usr/share/zoneinfo/US/Eastern /etc/localtime```
     
-- [x] **reboot the raspberrypi** [[see note (iii)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#notes)]
-
+- [x] **reboot the raspberrypi** [[see note (iv)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#notes)]
 
     ```sudo reboot```  
 
@@ -260,7 +259,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
         
 - [x] **gcloud setup for the raspberrypi terminal is similar to the laptop terminal, but ```gcloud auth login``` in mandatory.**
 
-    - [x] log into gcloud as an authorized user.  follow instructions by copying the link provided into a browser, selecting login email from the popup, and copying the code back into the terminal window as shown. 
+    - [x] log into gcloud as an authorized user.  follow instructions by copying the link provided into a browser, selecting login email from the popup, and copying the code back into the terminal window as shown.  [[see note (v)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#notes)]
 
         ```gcloud auth login```
 
