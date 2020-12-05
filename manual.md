@@ -73,7 +73,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
         ```gcloud iam service-accounts keys create ~/$PROJECT/pub-key.json --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com```
 
-    - [x] make a google storage bucket named ```iot-analytics-depp``` and copy the pub-key.json file to this bucket (see notes).
+    - [x] make a google storage bucket named ```iot-analytics-depp``` and copy the pub-key.json file to this bucket. [[see note (i)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#notes)]
 
         ```gsutil mb gs://iot-analytics-depp```
 
@@ -125,7 +125,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 #### 2.2 from a laptop terminal, setup SD card with raspberry pi OS and wifi connection settings:
 
-- [x] **from a laptop terminal, using the raspberry pi imager, erase SD card via diskutil and load raspbian OS onto the SD card** [[see note (i)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#notes)]
+- [x] **from a laptop terminal, using the raspberry pi imager, erase SD card via diskutil and load raspbian OS onto the SD card** [[see note (ii)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#notes)]
 
     - [x] Operating System = latest which here is *Raspberry Pi OS (32 bit)*.
 
@@ -203,7 +203,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
     
     ```sudo apt-get upgrade``` 
     
-- [x] **configure the OS to see our sensor and know our timezone via command-line or GUI** [[see note (ii)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#notes)]
+- [x] **configure the OS to see our sensor and know our timezone via command-line or GUI** [[see note (iii)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#notes)]
 
     - [x] via command line
     
@@ -398,12 +398,14 @@ Building a Serverless Data Pipeline : IoT to BigQuery
     
 ### Notes:
 
-- [x] i.   an alternative but not recommended method for erasing the SD card is a bit risky if you select the wrong disk.
+- [x] i. this is another point, prior to the next ```ssh pi@raspberrypi.local```, where one could copy the ```key.json``` to the raspberrypi via ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.
+
+- [x] ii.   an alternative but not recommended method for erasing the SD card is a bit risky if you select the wrong disk.
     
         ```diskutil list``` 
         ```diskutil eraseDisk FAT32 NAME MBRFormat /dev/disk2```
 
-- [x] ii.  these settings can be set via a GUI if you prefer to explore.
+- [x] iii.  these settings can be set via a GUI if you prefer to explore.
 
     ```sudo raspi config GUI```  
     
@@ -414,9 +416,6 @@ Building a Serverless Data Pipeline : IoT to BigQuery
     - [x] Localisation Options  
     
     - [x] Timezone  
-
-
-- [x] iii. this is another point, prior to the next ```ssh pi@raspberrypi.local```, where one could copy the ```key.json``` to the raspberrypi via ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.
 
 - [x] iv.  the bucket is not essential but allows for the raspberry pi set up to come AFTER the laptop setup; were the latop set up AFTER then the pubsub key could be transfered to the pi via secure copy:
     ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi```
