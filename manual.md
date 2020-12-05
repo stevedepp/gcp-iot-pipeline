@@ -404,15 +404,15 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 - [x] ii.  these settings can be set via a GUI if you prefer to explore.
 
-        ```sudo raspi config GUI```  
+    ```sudo raspi config GUI```  
     
-        - [x] Interface Options  
+    - [x] Interface Options  
     
-        - [x] P5 I2C Enable/discable automatic loading of I2C kernel module  
+    - [x] P5 I2C Enable/discable automatic loading of I2C kernel module  
     
-        - [x] Localisation Options  
+    - [x] Localisation Options  
     
-        - [x] Timezone  
+    - [x] Timezone  
 
 
 - [x] iii. this is another point, prior to the next ```ssh pi@raspberrypi.local```, where one could copy the ```key.json``` to the raspberrypi via ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.
