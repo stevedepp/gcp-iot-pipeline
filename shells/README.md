@@ -1,10 +1,13 @@
-# 5 shell scripts and 4 manual steps to assemble the gcloud / raspeberrypi infra
-#### (shell scripts shown do not show the lines of logging found in the actual files)
+# gcp-iot-pipeline
+Building a Serverless Data Pipeline : IoT to BigQuery
 
-## laptop
+## 5 shell scripts and 4 manual steps to assemble the gcloud / raspeberrypi infra
+(shell scripts shown do not show the lines of logging found in the actual files)
+
+### laptop
 
 
-### manual 1: clone the repository
+#### manual 1: clone the repository
 
 - [x] execute the following commands in a laptop computer's terminal window.
 
@@ -16,7 +19,9 @@
 
     `./shells/1_gcp_setup_PROJECT.sh`
 
-### ./shells/1_gcp_setup_PROJECT.sh
+#
+
+#### ./shells/1_gcp_setup_PROJECT.sh
 
     `#!/bin/bash`
     `PROJECT=$1`
@@ -51,10 +56,11 @@
     `gcloud services enable cloudfunctions.googleapis.com`
     `gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherdata --source ./stream2bq/`
 
+#
 
-## raspberrypi
+### raspberrypi
 
-### manual 2: initialize the SD card
+#### manual 2: initialize the SD card
 
 - [x] put SD card into the card reader.
 
@@ -66,7 +72,9 @@
 
     `./shells/2_sd_card_wifi.sh`
 
-### ./shells/2_sd_card_wifi.sh
+#
+
+#### ./shells/2_sd_card_wifi.sh
 
     `#!/bin/bash`
     `ls /Volumes/boot`
@@ -75,7 +83,9 @@
     `ls /Volumes/boot`
     `nano /Volumes/boot/wpa_supplicant.conf`
 
-### manual 3: setup communications with the raspberrypi
+#
+
+#### manual 3: setup communications with the raspberrypi
 
 - [x] the last shell command calls nano editor on `wpa_supplicant.conf`:  
     - [x] in the nano editor, replace the `ssid` and `psk` with network name and passcode.  
@@ -122,7 +132,9 @@
 
     `./shells/3_update_sd_os.sh`
 
-### ./shells/3_update_sd_os.sh
+#
+
+#### ./shells/3_update_sd_os.sh
 
     `#!/bin/bash`
     `sudo apt-get update`
@@ -134,7 +146,9 @@
     `python3 -m venv .venv`  <-- experiment 
     `sudo reboot`
 
-### manual 4: source the raspberrypi's virtual environment.
+#
+
+#### manual 4: source the raspberrypi's virtual environment.
 
 - [x] the last shell ended with a reboot of the raspberrypi.  wait until the green light stops flickering, then reconnect via ssh.
 
@@ -150,7 +164,9 @@
 
     `./shells/4_test_sensor_gcloud_install_setup_dependencies_run_PROJECT.sh project_id`
 
-### ./shells/4_test_sensor_gcloud_install_setup_dependencies_run_PROJECT.sh
+#
+
+#### ./shells/4_test_sensor_gcloud_install_setup_dependencies_run_PROJECT.sh
 
     `#!/bin/bash`
     `PROJECT=$1`
@@ -177,8 +193,9 @@
     `export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/pub-key.json`
     `python3 iot-data-pipeline.py $PROJECT`
 
+#
 
-## whole project
+### whole project
 
 - [x] To unwind all the actions taken so far and remove resource usage on Google Cloud Platform exeute the following shell command.
 
@@ -186,7 +203,7 @@
 
     `./shells/5_teardown_PROJECT.sh my_project_id`
  
-### ./shells/5_teardown_PROJECT.sh
+#### ./shells/5_teardown_PROJECT.sh
 
     `#!/bin/bash`
     `PROJECT=$1`
