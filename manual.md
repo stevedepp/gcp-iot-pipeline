@@ -73,7 +73,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
         ```gcloud iam service-accounts keys create ~/$PROJECT/pub-key.json --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com```
 
-    - [x] make a google storage bucket named ```iot-analytics-depp``` and copy the pub-key.json file to this bucket. [[see note (i)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#notes)]
+    - [x] make a google storage bucket named ```iot-analytics-depp``` and copy the pub-key.json file to this bucket. [[see note (ii)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#notes)]
 
         ```gsutil mb gs://iot-analytics-depp```
 
@@ -125,7 +125,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 #### 2.2 from a laptop terminal, setup SD card with raspberry pi OS and wifi connection settings:
 
-- [x] **from a laptop terminal, using the raspberry pi imager, erase SD card via diskutil and load raspbian OS onto the SD card** [[see note (ii)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#notes)]
+- [x] **from a laptop terminal, using the raspberry pi imager, erase SD card via diskutil and load raspbian OS onto the SD card** [[see note (iii)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#notes)]
 
     - [x] Operating System = latest which here is *Raspberry Pi OS (32 bit)*.
 
@@ -203,7 +203,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
     
     ```sudo apt-get upgrade``` 
     
-- [x] **configure the OS to see our sensor and know our timezone via command-line or GUI** [[see note (iii)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#notes)]
+- [x] **configure the OS to see our sensor and know our timezone via command-line or GUI** [[see note (iv)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#notes)]
 
     - [x] via command line
     
