@@ -12,7 +12,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 - [x] ```./shells/ellen.sh```
 - [x] view output in BQ
 - [x] ```./shells/7_teardown_PROJECT.sh```
-
+[Duck Duck Go](https://duckduckgo.com).
 (full detail on quickstart is here.)
 
 ## todo:
