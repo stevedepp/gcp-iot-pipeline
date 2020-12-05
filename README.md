@@ -19,6 +19,9 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 <img width="452" alt="Google Cloud Platform" src="https://user-images.githubusercontent.com/38410965/101238537-eccd0280-36ae-11eb-8ff9-478f6fa6b809.png">
 
+
+![image](https://user-images.githubusercontent.com/38410965/101238673-b80d7b00-36af-11eb-9917-05abd428979d.png)
+
 #### project:
 sa key —> bucket
 outside —> rpi sensor —> rpi —> python —> sa w key —> pubsub <— cloudfunction —> bq dataset.table
