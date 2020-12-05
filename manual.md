@@ -367,7 +367,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 #
 
-### 2.7 from laptop terminal connected via ssh to the raspberry pi, teardown the gcloud infrastructure as code:
+#### 2.7 from laptop terminal connected via ssh to the raspberry pi, teardown the gcloud infrastructure as code:
 
 - [x] **exports the current project id to an environment variable PROJECT.**
 
