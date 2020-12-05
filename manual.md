@@ -53,6 +53,10 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 #### 1.2 solder sensor 
 
+    il buono, il cattivo e il brutto
+    <img width="876" alt="Pasted Graphic 3" src="https://user-images.githubusercontent.com/38410965/101258971-0a708b00-36f4-11eb-96b9-eaa439345b2a.png">
+    from left to right: presoldered by Adafruit.com, my second try which works, and my first try which doesn't.
+
 #
 
 #### 1.3 connect raspberrypi to sensor
