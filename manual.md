@@ -19,6 +19,24 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
     $14.00 [Raspberry Pi Zero WH (Zero W with Headers)](https://www.adafruit.com/product/3708)
 
+- [x[ if you get stuck in establishing a headless connection (you won't!), you need to connect to a monitor with an adapter.
+
+    $2.95 [Mini HDMI Plug to Standard HDMI Jack Adapter](https://www.adafruit.com/product/2819)
+    
+- [x] Raspberry Pi Zero does not have an SD card reader like it's higher priced cousins.  Need this.  The strap falls off easily.
+
+    $5.95 [USB MicroSD Card Reader/Writer - microSD / microSDHC / microSDXC](https://www.adafruit.com/product/939)
+    
+- [x] Cases for the Raspberry Pi are handy since the board can get hot and can be delicate.  Any one of these will do, but some dont fit the new Raspberry Pi Zero W.
+
+    $5.95 [Pibow Zero W Case for Raspberry Pi Zero W](https://www.adafruit.com/product/3471?gclid=CjwKCAiA_Kz-BRAJEiwAhJNY74r1Y4GEjLHUdvaw3BaQ3OW8YWY2tfsHXVrQ17Lj1hZrxjtxgHGCKhoCFM0QAvD_BwE)
+    
+    $5.95 [Pi Foundation Raspberry Pi Zero Case + Mini Camera Cable](https://www.adafruit.com/product/3446?gclid=CjwKCAiA_Kz-BRAJEiwAhJNY7wwu7bqhY7Ek1x1vKwvhk7JyL9rKqq5eVCQOzIbdP0CLXrfB9klpzRoCnwUQAvD_BwE)
+
+- Power needs to be exactly what is specified for specific Raspberry Pi models.
+
+    $7.50 [5V 2.5A Switching Power Supply with 20AWG MicroUSB Cable](https://www.adafruit.com/product/1995)
+
 #
 
 #### 1.2 solder sensor 
