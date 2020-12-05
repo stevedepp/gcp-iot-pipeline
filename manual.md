@@ -33,15 +33,15 @@ Building a Serverless Data Pipeline : IoT to BigQuery
     
     $5.95 [Pi Foundation Raspberry Pi Zero Case + Mini Camera Cable](https://www.adafruit.com/product/3446?gclid=CjwKCAiA_Kz-BRAJEiwAhJNY7wwu7bqhY7Ek1x1vKwvhk7JyL9rKqq5eVCQOzIbdP0CLXrfB9klpzRoCnwUQAvD_BwE)
 
-- power needs to be exactly what is specified for specific Raspberry Pi models.
+- [x] power needs to be exactly what is specified for specific Raspberry Pi models.
 
     $7.50 [5V 2.5A Switching Power Supply with 20AWG MicroUSB Cable](https://www.adafruit.com/product/1995)
     
-- connect raspberry pi to sensors. you need only 4 but comes in pack of 40.
+- [x] connect raspberry pi to sensors. you need only 4 but comes in pack of 40.
 
     $3.95 [Premium Female/Female Jumper Wires - 40 x 6"](https://www.adafruit.com/product/266)
     
-- raspberry pi zero does not have a usb port.  need this.
+- [x] raspberry pi zero does not have a usb port.  need this.
 
     $4.95 [USB Mini Hub with Power Switch - OTG Micro-USB](https://www.adafruit.com/product/2991)
 
