@@ -15,6 +15,10 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
     $9.95 [Adafruit BMP280 I2C or SPI Barometric Pressure & Altitude Sensor - STEMMA QT](https://www.adafruit.com/product/2651)
 
+- [x] Raspberry Pi Zero is the no frills version of the Raspberry Pi.  This one has the headers (spikes) already soldered on for you. [$10 without pre-soldered headers here.](https://www.adafruit.com/product/3400)
+
+    $14.00 [Raspberry Pi Zero WH (Zero W with Headers)](https://www.adafruit.com/product/3708)
+
 #
 
 #### 1.2 solder sensor 
