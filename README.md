@@ -9,7 +9,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 - [x] [initialize the SD card](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#manual-2-initialize-the-sd-card)
 - [x] [`./shells/2_sd_card_wifi.sh`](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#shell-script-2-shells2_sd_card_wifish)
 - [x] [setup communications with the raspberrypi](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#manual-3-setup-communications-with-the-raspberrypi)
-- [x] [`./shells/3_update_sd_os.sh`](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#shell script 3: ./shells/3_update_sd_os.sh)
+- [x] [`./shells/3_update_sd_os.sh`](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#shell-script-3-shells3_update_sd_ossh)
 - [x] [source the raspberrypi's virtual environment](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#manual-4-source-the-raspberrypis-virtual-environment)
 - [x] [`./shells/4_test_sensor_gcloud_install_setup_dependencies_run_PROJECT.sh project_id`](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#shells4_test_sensor_gcloud_install_setup_dependencies_run_projectsh)
 - [x] [`./shells/5_teardown_PROJECT.sh my_project_id`](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#shells5_teardown_projectsh)
