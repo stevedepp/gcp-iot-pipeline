@@ -103,7 +103,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 - [x] plug power into the raspberrypi and wait a few minutes while it boots.
 
-- [x] when the green light stops flashing, move to the next step.  (the poor raspberry pi zero has no lights which is the reason for the next step; give it 2-3 minutes to boot for the first time, and then ping it.)
+- [x] when the green light stops flashing, move to the next step.  (the poor raspberry pi zero has no lights which is the reason for the next step; you can actually hear it processing though.  give it 2-3 minutes to boot for the first time, and then ping it until it responds.)
 
 - [x] check the raspberrypi is visible on the network.
 
