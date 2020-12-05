@@ -200,9 +200,9 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 ### from the laptop terminal:
 
-- [x] To unwind all the actions taken so far and remove resource usage on Google Cloud Platform exeute the following shell command.
+- [x] To unwind all the actions taken so far and remove resource usage on Google Cloud Platform execute the following shell command.
 
-- [x] from same laptop terminal session, from the `/my_folder/gcp-iot-pipeline/` directory, execute the folloing shell command.  **This shell command needs a project id as shown here**:
+- [x] from same laptop terminal session, from the `/my_folder/gcp-iot-pipeline/` directory, execute the following shell command.  **This shell command needs a project id as shown here**:
 
     `./shells/5_teardown_PROJECT.sh my_project_id`
  
