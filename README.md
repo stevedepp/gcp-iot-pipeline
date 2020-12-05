@@ -2,17 +2,18 @@
 Building a Serverless Data Pipeline : IoT to BigQuery
 
 
-## quickstart: assumes available raspberrypi + SD card + sensor 
+## quickstart [(details)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#5-shell-scripts-and-4-manual-interventions-to-assemble-the-gcloud--raspeberrypi-infra): assumes available raspberrypi + SD card + sensor 
 
-- [x] ```mkdir folder_name```
-- [x] ```cd folder_name```
-- [x] ```git clone https://github.com/stevedepp/gcp-iot-pipeline.git && cd gcp-iot-pipeline```
-- [x] ```./shells/1_gcp_setup_PROJECT.sh```
-- [x] ```./shells/1_gcp_setup_PROJECT.sh```
-- [x] ```./shells/ellen.sh```
-- [x] view output in BQ
-- [x] ```./shells/7_teardown_PROJECT.sh```
-[(quickstart details here.)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#5-shell-scripts-and-4-manual-interventions-to-assemble-the-gcloud--raspeberrypi-infra)
+- [x] [(details)](bob)
+- [x] [(details)](bob)
+- [x] [(details)](bob)
+- [x] [(details)](bob)
+- [x] [(details)](bob)
+- [x] [(details)](bob)
+- [x] [(details)](bob)
+- [x] [(details)](bob)
+- [x] [(details)](bob)
+
 
 
 ## todo:
