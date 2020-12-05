@@ -516,24 +516,24 @@ Notes:
 
 - [x] did not use this code because did not establish auth key usage
 
-    ```gcloud iam service-accounts keys create ~/$PROJECT/auth-key.json --iam-account $PROJECT@appspot.gserviceaccount.com```
-    ```gsutil cp ~/$PROJECT/auth-key.json gs://iot-analytics-depp```
-    ```gcloud iam service-accounts keys list --iam-account $PROJECT@appspot.gserviceaccount.com```
+        ```gcloud iam service-accounts keys create ~/$PROJECT/auth-key.json --iam-account $PROJECT@appspot.gserviceaccount.com```
+        ```gsutil cp ~/$PROJECT/auth-key.json gs://iot-analytics-depp```
+        ```gcloud iam service-accounts keys list --iam-account $PROJECT@appspot.gserviceaccount.com```
 
-    ```export A=$(gcloud iam service-accounts keys list --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com | awk 'NR==3{print $1}')```
-    ```until [ -z "$A" ];```
-    ```do```
-    ```export A=$(gcloud iam service-accounts keys list --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com | awk 'NR==2{print $1}')```
-    ```gcloud iam service-accounts keys delete $A --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com;```
-    ```export A=$(gcloud iam service-accounts keys list --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com | awk 'NR==3{print $1}')```
-    ```done```
+        ```export A=$(gcloud iam service-accounts keys list --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com | awk 'NR==3{print $1}')```
+        ```until [ -z "$A" ];```
+        ```do```
+        ```export A=$(gcloud iam service-accounts keys list --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com | awk 'NR==2{print $1}')```
+        ```gcloud iam service-accounts keys delete $A --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com;```
+        ```export A=$(gcloud iam service-accounts keys list --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com | awk 'NR==3{print $1}')```
+        ```done```
 
-    ```export A=$(gcloud iam service-accounts keys list --iam-account $PROJECT@appspot.gserviceaccount.com | awk 'NR==3{print $1}')```
-    ```until [ -z "$A" ];```
-    ```do```
-    ```export A=$(gcloud iam service-accounts keys list --iam-account $PROJECT@appspot.gserviceaccount.com | awk 'NR==2{print $1}')```
-    ```gcloud iam service-accounts keys delete $A --iam-account $PROJECT@appspot.gserviceaccount.com```
-    ```export A=$(gcloud iam service-accounts keys list --iam-account $PROJECT@appspot.gserviceaccount.com | awk 'NR==3{print $1}')```
-    ```done```
+        ```export A=$(gcloud iam service-accounts keys list --iam-account $PROJECT@appspot.gserviceaccount.com | awk 'NR==3{print $1}')```
+        ```until [ -z "$A" ];```
+        ```do```
+        ```export A=$(gcloud iam service-accounts keys list --iam-account $PROJECT@appspot.gserviceaccount.com | awk 'NR==2{print $1}')```
+        ```gcloud iam service-accounts keys delete $A --iam-account $PROJECT@appspot.gserviceaccount.com```
+        ```export A=$(gcloud iam service-accounts keys list --iam-account $PROJECT@appspot.gserviceaccount.com | awk 'NR==3{print $1}')```
+        ```done```
 
-    ```gcloud iam service-accounts keys list --iam-account $PROJECT@appspot.gserviceaccount.com```
+        ```gcloud iam service-accounts keys list --iam-account $PROJECT@appspot.gserviceaccount.com```
