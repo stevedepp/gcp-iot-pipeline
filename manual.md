@@ -203,7 +203,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
     
     ```sudo apt-get upgrade``` 
     
-- [x] **configure the OS to see our sensor and know our timezone via command-line or GUI** 
+- [x] **configure the OS to see our sensor and know our timezone via command-line or GUI** [[see note (ii)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#notes)]
 
     - [x] via command line
     
