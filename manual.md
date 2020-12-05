@@ -347,7 +347,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
     
     ```python3 iot-data-pipeline.py $PROJECT```.
 
-### teardown the gcloud infrastructure as code from laptop terminal
+### 2.7 from laptop terminal connected via ssh to the raspberry pi, teardown the gcloud infrastructure as code:
 
 - [x] **exports the current project id to an environment variable PROJECT.**
 
