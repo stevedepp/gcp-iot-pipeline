@@ -74,6 +74,8 @@ ok let's go!
 
 ![IMG_1014](https://user-images.githubusercontent.com/38410965/101260684-6260bf00-36ff-11eb-96c0-d0b78de487cd.jpg)
 
+(shown here with 2 sd cards but you only need 1; the other is just showing how the sd card fits into the [usb micro sd card reader/writer](https://www.adafruit.com/product/939) which fits inside the [usb mini hub](https://www.adafruit.com/product/2991).
+
 #
 
 ### 2. gcloud and raspberrypi infrastructure as code from a laptop:
