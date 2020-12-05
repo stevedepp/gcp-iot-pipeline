@@ -36,6 +36,8 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 - Power needs to be exactly what is specified for specific Raspberry Pi models.
 
     $7.50 [5V 2.5A Switching Power Supply with 20AWG MicroUSB Cable](https://www.adafruit.com/product/1995)
+    
+  
 
 #
 
