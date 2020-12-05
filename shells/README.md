@@ -61,8 +61,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 #
 
-### from the laptop terminal via ssh connection to raspberrypi[:](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/iot-data-pipeline.py)
-
+### from the laptop terminal via ssh connection to raspberrypi:
 
 #### manual 2: initialize the SD card
 
