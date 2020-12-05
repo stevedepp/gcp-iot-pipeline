@@ -505,4 +505,4 @@ ok let's go!
         ```gcloud iam service-accounts keys list --iam-account $PROJECT@appspot.gserviceaccount.com```
 
 
-        [(more developer notes here.)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/developer.md#gcp-iot-pipeline)
+[more developer notes here.](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/developer.md#gcp-iot-pipeline)
