@@ -30,6 +30,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
     - [ ] iot sensor service account name 
     - [ ] preferred key.json name and path
     - [ ] preferred cloud function name
+    - [ ] timezone for the sensor
 - [x] test placement of venv and source to reduce clicks in raspberrypi setup
 - [ ] take inventory of which api are enabled on creation and teardown and difference
     - [x] as created
