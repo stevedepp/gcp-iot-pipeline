@@ -1,20 +1,19 @@
 # gcp-iot-pipeline
-
-#### Building a Serverless Data Pipeline : IoT to BigQuery
+Building a Serverless Data Pipeline : IoT to BigQuery
 
 ## step by step manual construction
 
-## hardware:
+### hardware:
 
-### purchase raspberrypi et al
+#### purchase raspberrypi et al
 
-### solder sensor 
+#### solder sensor 
 
-### connect raspberrypi to sensor
+#### connect raspberrypi to sensor
 
-## gcloud and raspberrypi infrastructure as code from a laptop:
+### gcloud and raspberrypi infrastructure as code from a laptop:
 
-### from a laptop terminal, set up gcloud infrastructure:
+#### from a laptop terminal, set up gcloud infrastructure:
 
 - [x] **gcp set up:**
 
@@ -114,7 +113,7 @@
 
         ```gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherdata --source ./stream2bq/```
 
-### from a laptop terminal, setup SD card with raspberry pi OS and wifi connection settings:
+#### from a laptop terminal, setup SD card with raspberry pi OS and wifi connection settings:
 
 - [x] **from a laptop terminal, using the raspberry pi imager, erase SD card via diskutil and load raspbian OS onto the SD card (see notes)**
 
@@ -160,7 +159,7 @@
         
 - [x] **safely eject the SD card.**
 
-### ssh connect to the raspberrypi from a laptop terminal, set up and test connection with the sensor:
+#### ssh connect to the raspberrypi from a laptop terminal, set up and test connection with the sensor:
 
 **these steps can be done from any directory; so, remain in the same terminal and ```cd gcp-iot-pipeline``` directory**
 
@@ -220,7 +219,7 @@
 
     ```sudo i2cdetect -y 1```
 
-### install and set up gcloud SDK onto raspberrypi from a laptop terminal connected via ssh to the raspberrypi:
+#### install and set up gcloud SDK onto raspberrypi from a laptop terminal connected via ssh to the raspberrypi:
 
 - [x] **if not already connected, then setup a secure shell connection with the raspberrypi.** 
 
@@ -274,7 +273,7 @@
     
         ```gcloud config get-value core/project```
 
-### install sensor's python module and its dependencies on to the rapsberrypi from a laptop terminal connected via ssh to the raspberry pi:
+#### install sensor's python module and its dependencies on to the rapsberrypi from a laptop terminal connected via ssh to the raspberry pi:
 
 - [x] **if not already done so, then setup a secure shell log in to raspberrypi.**
 
@@ -316,7 +315,7 @@
    
         ```pip3 install adafruit-circuitpython-bmp280```  
     
-### run the ```iot-analytics-depp``` weather sensor module from a laptop terminal connected via ssh to the raspberry pi:
+#### run the ```iot-analytics-depp``` weather sensor module from a laptop terminal connected via ssh to the raspberry pi:
 
 - [x]  **if not already executed, then:** 
 
@@ -348,7 +347,7 @@
     
     ```python3 iot-data-pipeline.py $PROJECT```.
 
-## teardown the gcloud infrastructure as code from laptop terminal
+### teardown the gcloud infrastructure as code from laptop terminal
 
 - [x] **exports the current project id to an environment variable PROJECT.**
 
@@ -376,7 +375,7 @@
     
     
     
-Notes:
+### Notes:
 
 - [x] An alternative but not recommended method for erasing the SD card is a bit risky if you select the wrong disk.
     
