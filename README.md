@@ -12,8 +12,8 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 - [x] ```./shells/ellen.sh```
 - [x] view output in BQ
 - [x] ```./shells/7_teardown_PROJECT.sh```
-[Duck Duck Go](https://duckduckgo.com).
-(full detail on quickstart is here.)
+[(quickstart details here.)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#5-shell-scripts-and-4-manual-interventions-to-assemble-the-gcloud--raspeberrypi-infra)
+
 
 ## todo:
 
