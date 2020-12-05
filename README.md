@@ -71,6 +71,8 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 - [x] ```gcloud functions logs read --limit 50```?  <-- No. Is too slow.
 - [x] shell script to encrypt wifi password in wpa_supplicant.conf <-- No. is not encryption and feature soon deprecated
 - [x] laptop terminal remotely calls/executes raspberrypi shell scripts <-- Done, and worthy feature, but too fast so that some operations that are skipped or written over.
+- [x] raspberrypi setup works with key and auth service account without gcloud auth login popups etc <-- NOT YET needs work: 
+    `gcloud auth activate-service-account $PROJECT@appspot.gserviceaccount.com --key-file=auth-key.json`
 
 ### q and a
 - [x] q: can aliasing source .venv/bin/activate be scripted and removed at teardown?
