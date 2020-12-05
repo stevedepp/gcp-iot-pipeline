@@ -22,15 +22,15 @@ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 
 echo 'repeating apt-get update which may not be needed and installing the gcloud sdk'
 
-echo 'highlight the provided link and go to the URL, selecting email, athorizing, copy code and paste back into this terminal window'
-
 sudo apt-get update && sudo apt-get install google-cloud-sdk
 
 echo 'first login is a bit cumbersome; follow the prompts.  resistance is futile.'
 
+echo 'highlight the provided link and go to the URL, selecting email, athorizing, copy code and paste back into this terminal window'
+
 gcloud auth login
 
-echo 'configure the default project '$PROJECT
+echo 'configuring the default project '$PROJECT
 
 gcloud config set project $PROJECT
 
@@ -64,25 +64,25 @@ echo 'installing tendo which is imported by the python based sensor controller i
 
 pip install tendo
 
-echo 'install the python packages for pubsub and oath2 and upgrade both packages'
+echo 'installing the python packages for pubsub and oath2 and upgrade both packages'
 
 pip install --upgrade google-cloud-pubsub
 
 pip3 install --upgrade oauth2client
 
-echo 'install the datetime package for python'
+echo 'installing the datetime package for python'
 
 pip3 install datetime
 
-echo 'install the adafruit libary for bmp280 which is circuitpython based'
+echo 'installing the adafruit libary for bmp280 which is circuitpython based'
 
 pip3 install adafruit-circuitpython-bmp280
 
-echo 'make a raspberrypi home directory "~/credentials" to hold the pub-key.json'
+echo 'making a raspberrypi directory "~/credentials" to hold the pub-key.json'
 
 mkdir -p ~/credentials
 
-echo 'copy the pub-key.json from google cloud storage gs://iot-analytics-depp to ~/credentials/'
+echo 'copying the pub-key.json from google cloud storage gs://iot-analytics-depp to ~/credentials/'
 
 gsutil cp gs://iot-analytics-depp/pub-key.json ~/credentials/
 
