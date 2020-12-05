@@ -7,7 +7,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 #
 
-#### 1.1 purchase raspberrypi et al
+#### 1.1 purchase raspberrypi et al for $54.25 + tax + shipping.
 
 - [x] any one of these 3 sensors will do; code is written for the [BMP 280 (info page here)](https://learn.adafruit.com/adafruit-bmp280-barometric-pressure-plus-temperature-sensor-breakout/overview), but makes space for the [BME 280 (info page here)](https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout).  In theory, you could make the code work for the [HTU21D-F for $15.95 with pre-soldered headers)](https://www.adafruit.com/product/3515).
 
@@ -15,7 +15,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
     $9.95 [Adafruit BMP280 I2C or SPI Temperature Barometric Pressure & Altitude Sensor - STEMMA QT](https://www.adafruit.com/product/2651)
 
-- [x] Raspberry Pi Zero is the no frills version of the Raspberry Pi.  This one has the headers (spikes) already soldered on for you. [$10 without pre-soldered headers here.](https://www.adafruit.com/product/3400)
+- [x] raspberry pi zero is the no frills version of the raspberry pi.  this one has the headers (spikes) already soldered on for you. [$10 without pre-soldered headers here.](https://www.adafruit.com/product/3400)
 
     $14.00 [Raspberry Pi Zero WH (Zero W with Headers)](https://www.adafruit.com/product/3708)
 
@@ -23,21 +23,27 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
     $2.95 [Mini HDMI Plug to Standard HDMI Jack Adapter](https://www.adafruit.com/product/2819)
     
-- [x] Raspberry Pi Zero does not have an SD card reader like it's higher priced cousins.  Need this.  The strap falls off easily.
+- [x] raspberry pi zero does not have an SD card reader like it's higher priced cousins.  need this.  the strap falls off easily.
 
     $5.95 [USB MicroSD Card Reader/Writer - microSD / microSDHC / microSDXC](https://www.adafruit.com/product/939)
     
-- [x] Cases for the Raspberry Pi are handy since the board can get hot and can be delicate.  Any one of these will do, but some dont fit the new Raspberry Pi Zero W.
+- [x] cases for the raspberry pi are handy since the board can get hot and can be delicate.  any one of these will do, but some dont fit the **new raspberry pi zero w**.
 
     $5.95 [Pibow Zero W Case for Raspberry Pi Zero W](https://www.adafruit.com/product/3471?gclid=CjwKCAiA_Kz-BRAJEiwAhJNY74r1Y4GEjLHUdvaw3BaQ3OW8YWY2tfsHXVrQ17Lj1hZrxjtxgHGCKhoCFM0QAvD_BwE)
     
     $5.95 [Pi Foundation Raspberry Pi Zero Case + Mini Camera Cable](https://www.adafruit.com/product/3446?gclid=CjwKCAiA_Kz-BRAJEiwAhJNY7wwu7bqhY7Ek1x1vKwvhk7JyL9rKqq5eVCQOzIbdP0CLXrfB9klpzRoCnwUQAvD_BwE)
 
-- Power needs to be exactly what is specified for specific Raspberry Pi models.
+- power needs to be exactly what is specified for specific Raspberry Pi models.
 
     $7.50 [5V 2.5A Switching Power Supply with 20AWG MicroUSB Cable](https://www.adafruit.com/product/1995)
     
-  
+- connect raspberry pi to sensors. you need only 4 but comes in pack of 40.
+
+    $3.95 [Premium Female/Female Jumper Wires - 40 x 6"](https://www.adafruit.com/product/266)
+    
+- raspberry pi zero does not have a usb port.  need this.
+
+    $4.95 [USB Mini Hub with Power Switch - OTG Micro-USB](https://www.adafruit.com/product/2991)
 
 #
 
