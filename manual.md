@@ -125,7 +125,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 #### 2.2 from a laptop terminal, setup SD card with raspberry pi OS and wifi connection settings:
 
-- [x] **from a laptop terminal, using the raspberry pi imager, erase SD card via diskutil and load raspbian OS onto the SD card (see note [i](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#notes))**
+- [x] **from a laptop terminal, using the raspberry pi imager, erase SD card via diskutil and load raspbian OS onto the SD card ([see note i](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#notes))**
 
     - [x] Operating System = latest which here is *Raspberry Pi OS (32 bit)*.
 
