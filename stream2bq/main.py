@@ -12,7 +12,10 @@ def iot_weather(event, context):
 
     print("""This Function was triggered by messageId {} published at {}
     """.format(context.event_id, context.timestamp))
-    
+
+    msg = f'Function triggered by messageId {context.event_id} published at {context.timestamp}'
+    print(msg)
+
     table = BQ.dataset(BQ_DATASET).table(BQ_TABLE)
 
     row = base64.b64decode(event['data']).decode('utf-8')
