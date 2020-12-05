@@ -70,6 +70,12 @@ the pins have labels and technical terms but here you go: it depends on how you 
 
 # 
 
+ok let's go!
+
+![IMG_1008](https://user-images.githubusercontent.com/38410965/101260086-3cd1b680-36fb-11eb-8248-f1279282a30f.jpg)
+
+#
+
 ### 2. gcloud and raspberrypi infrastructure as code from a laptop:
 
 #### 2.1 from a laptop terminal, set up gcloud infrastructure:
