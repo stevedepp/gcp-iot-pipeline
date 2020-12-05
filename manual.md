@@ -19,7 +19,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
     $14.00 [Raspberry Pi Zero WH (Zero W with Headers)](https://www.adafruit.com/product/3708)
 
-- [x[ if you get stuck in establishing a headless connection (you won't!), you need to connect to a monitor with an adapter.
+- [x] if you get stuck in establishing a headless connection (you won't!), you need to connect to a monitor with an adapter.
 
     $2.95 [Mini HDMI Plug to Standard HDMI Jack Adapter](https://www.adafruit.com/product/2819)
     
