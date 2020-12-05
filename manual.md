@@ -97,9 +97,9 @@ Building a Serverless Data Pipeline : IoT to BigQuery
         
     - [x] show the constructed schema
     
-    ```bq show --schema --format=prettyjson weatherData.weatherDataTable```
+      ```bq show --schema --format=prettyjson weatherData.weatherDataTable```
 
-    ```bq version```
+      ```bq version```
     
 - [x] **cloud function set up:**
 
