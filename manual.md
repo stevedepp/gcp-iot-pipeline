@@ -3,17 +3,17 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 ## step by step manual construction
 
-### hardware:
+### 1. hardware:
 
-#### purchase raspberrypi et al
+#### 1.1 purchase raspberrypi et al
 
-#### solder sensor 
+#### 1.2 solder sensor 
 
-#### connect raspberrypi to sensor
+#### 1.3 connect raspberrypi to sensor
 
-### gcloud and raspberrypi infrastructure as code from a laptop:
+### 2. gcloud and raspberrypi infrastructure as code from a laptop:
 
-#### from a laptop terminal, set up gcloud infrastructure:
+#### 2.1 from a laptop terminal, set up gcloud infrastructure:
 
 - [x] **gcp set up:**
 
@@ -113,7 +113,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
         ```gcloud functions deploy iot_weather --runtime python38 --trigger-topic weatherdata --source ./stream2bq/```
 
-#### from a laptop terminal, setup SD card with raspberry pi OS and wifi connection settings:
+#### 2.2 from a laptop terminal, setup SD card with raspberry pi OS and wifi connection settings:
 
 - [x] **from a laptop terminal, using the raspberry pi imager, erase SD card via diskutil and load raspbian OS onto the SD card (see notes)**
 
@@ -159,7 +159,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
         
 - [x] **safely eject the SD card.**
 
-#### ssh connect to the raspberrypi from a laptop terminal, set up and test connection with the sensor:
+#### 2.3 from a laptop terminal, ssh connect to the raspberrypi, and set up and test connection with the sensor:
 
 **these steps can be done from any directory; so, remain in the same terminal and ```cd gcp-iot-pipeline``` directory**
 
@@ -219,7 +219,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
     ```sudo i2cdetect -y 1```
 
-#### install and set up gcloud SDK onto raspberrypi from a laptop terminal connected via ssh to the raspberrypi:
+#### 2.4 from a laptop terminal with ssh connecton to raspberrypi, install and set up gcloud SDK onto raspberrypi:
 
 - [x] **if not already connected, then setup a secure shell connection with the raspberrypi.** 
 
@@ -273,7 +273,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
     
         ```gcloud config get-value core/project```
 
-#### install sensor's python module and its dependencies on to the rapsberrypi from a laptop terminal connected via ssh to the raspberry pi:
+#### 2.5 from a laptop terminal connected via ssh to the raspberry pi, install sensor's python module and its dependencies on to the rapsberrypi:
 
 - [x] **if not already done so, then setup a secure shell log in to raspberrypi.**
 
@@ -315,7 +315,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
    
         ```pip3 install adafruit-circuitpython-bmp280```  
     
-#### run the ```iot-analytics-depp``` weather sensor module from a laptop terminal connected via ssh to the raspberry pi:
+#### 2.6 from a laptop terminal connected via ssh to the raspberry pi, run the ```iot-analytics-depp``` weather sensor module:
 
 - [x]  **if not already executed, then:** 
 
