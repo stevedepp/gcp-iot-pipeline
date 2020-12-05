@@ -221,7 +221,8 @@ Building a Serverless Data Pipeline : IoT to BigQuery
         
             ```sudo cp /usr/share/zoneinfo/US/Eastern /etc/localtime```
     
-- [x] **reboot the raspberrypi (see notes)**
+- [x] **reboot the raspberrypi** [[see note (iii)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#notes)]
+
 
     ```sudo reboot```  
 
