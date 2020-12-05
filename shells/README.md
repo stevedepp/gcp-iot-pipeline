@@ -20,7 +20,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 #
 
-#### ./shells/1_gcp_setup_PROJECT.sh
+#### shell script 1: ./shells/1_gcp_setup_PROJECT.sh
 
     `#!/bin/bash`
     `PROJECT=$1`
@@ -73,7 +73,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 #
 
-#### ./shells/2_sd_card_wifi.sh
+#### shell script 2: ./shells/2_sd_card_wifi.sh
 
     `#!/bin/bash`
     `ls /Volumes/boot`
@@ -133,7 +133,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 #
 
-#### ./shells/3_update_sd_os.sh
+#### shell script 3: ./shells/3_update_sd_os.sh
 
     `#!/bin/bash`
     `sudo apt-get update`
@@ -165,7 +165,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 #
 
-#### ./shells/4_test_sensor_gcloud_install_setup_dependencies_run_PROJECT.sh
+#### shell script 4: ./shells/4_test_sensor_gcloud_install_setup_dependencies_run_PROJECT.sh
 
     `#!/bin/bash`
     `PROJECT=$1`
@@ -194,7 +194,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 #
 
-### from laptop terminal:
+### from the laptop terminal:
 
 - [x] To unwind all the actions taken so far and remove resource usage on Google Cloud Platform exeute the following shell command.
 
@@ -202,7 +202,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
     `./shells/5_teardown_PROJECT.sh my_project_id`
  
-#### ./shells/5_teardown_PROJECT.sh
+#### shell script 5: ./shells/5_teardown_PROJECT.sh
 
     `#!/bin/bash`
     `PROJECT=$1`
