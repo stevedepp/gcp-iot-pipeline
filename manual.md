@@ -72,7 +72,7 @@ the pins have labels and technical terms but here you go: it depends on how you 
 
 ok let's go!
 
-![IMG_1008](https://user-images.githubusercontent.com/38410965/101260086-3cd1b680-36fb-11eb-8248-f1279282a30f.jpg)
+![IMG_1014](https://user-images.githubusercontent.com/38410965/101260684-6260bf00-36ff-11eb-96c0-d0b78de487cd.jpg)
 
 #
 
