@@ -7,7 +7,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 #
 
-#### 1.1 purchase raspberrypi et al for $60.20 + tax + shipping.  a shopping list is [here.](http://www.adafruit.com/wishlists/514573) if sold out google part number. [arrow](https://www.arrow.com/) is another good supplier.
+#### 1.1 purchase raspberrypi et al for $60.20 + tax + shipping.  a shopping list is [here](http://www.adafruit.com/wishlists/514573).  if sold out, then google part number. [arrow](https://www.arrow.com/) is another good supplier.
 
 - [x] any one of these 3 sensors will do; code is written for the [BMP 280 (info page here)](https://learn.adafruit.com/adafruit-bmp280-barometric-pressure-plus-temperature-sensor-breakout/overview), but makes space for the [BME 280 (info page here)](https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout).  In theory, you could make the code work for the [HTU21D-F for $15.95 with pre-soldered headers)](https://www.adafruit.com/product/3515).
 
