@@ -12,7 +12,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 - [x] [`./shells/3_update_sd_os.sh`](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#shell-script-3-shells3_update_sd_ossh)
 - [x] [source the raspberrypi's virtual environment](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#manual-4-source-the-raspberrypis-virtual-environment)
 - [x] [`./shells/4_test_sensor_gcloud_install_setup_dependencies_run_PROJECT.sh project_id`](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#shell-script-4-shells4_test_sensor_gcloud_install_setup_dependencies_run_projectsh)
-- [x] [`./shells/5_teardown_PROJECT.sh my_project_id`](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#shells5_teardown_projectsh)
+- [x] [`./shells/5_teardown_PROJECT.sh my_project_id`](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#shell-script-5-shells5_teardown_projectsh)
 
 
 ## architecture diagram:
