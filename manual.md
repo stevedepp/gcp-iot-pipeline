@@ -53,7 +53,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 #### 1.2 solder sensor - "il buono, il cattivo e il brutto"
 
-from left to right: presoldered by Adafruit.com, my second try which works, and my first try which doesn't.
+from left to right: presoldered by Adafruit.com, my second try which works, and my first try which doesn't.  intentially creepy, [this video](https://learn.adafruit.com/adafruit-guide-excellent-soldering/tools?gclid=CjwKCAiA_Kz-BRAJEiwAhJNY7zFcsxT_4s2VQRSbGrM2Du-dBkpU3QADsDU3OV7TiHUFkUIMYD3QtxoC-VMQAvD_BwE) from Adafruit helped alot.  touch iron to metal to heat and then touch solder to metal which is then hot enough to melt solder.  (don't touch iron to plastic board or circuits.)
 
 
 <img width="876" alt="Pasted Graphic 3" src="https://user-images.githubusercontent.com/38410965/101258971-0a708b00-36f4-11eb-96b9-eaa439345b2a.png">
