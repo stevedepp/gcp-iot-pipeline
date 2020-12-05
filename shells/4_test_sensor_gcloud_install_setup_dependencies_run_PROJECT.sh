@@ -18,9 +18,6 @@ sudo apt-get update && sudo apt-get install google-cloud-sdk
 
 gcloud auth login
 
-# this couldnt work
-# gcloud auth activate-service-account $PROJECT@appspot.gserviceaccount.com --key-file=auth-key.json
-
 gcloud config set project $PROJECT
 
 export ACCOUNT=$(gcloud alpha billing accounts list | awk 'NR==2{print $1}')
