@@ -186,7 +186,7 @@
 
     `./shells/5_teardown_PROJECT.sh my_project_id`
  
-### 5_teardown_PROJECT.sh
+### ./shells/5_teardown_PROJECT.sh
 
     `#!/bin/bash`
     `PROJECT=$1`
