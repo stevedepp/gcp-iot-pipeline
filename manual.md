@@ -62,6 +62,9 @@ from left to right: presoldered by Adafruit.com, my second try which works, and 
 
 #### 1.3 connect raspberrypi to sensor
 
+
+![](https://codelabs.developers.google.com/codelabs/iot-data-pipeline/img/392c2a9c85187094.png)
+
 # 
 
 ### 2. gcloud and raspberrypi infrastructure as code from a laptop:
