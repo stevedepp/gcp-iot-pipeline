@@ -47,6 +47,8 @@ Building a Serverless Data Pipeline : IoT to BigQuery
     
 - [x] need some way to read an sd card on your laptop.
 
+- [x] soldering iron + solder (yes you can).
+
 #
 
 #### 1.2 solder sensor 
