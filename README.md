@@ -32,4 +32,4 @@ weather —> bmp280 —> pi —> iot-data-pipeline-depp.py --> iot-weather-publi
 
 ### full command-line construction of infra is found [here](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#5-shell-scripts-and-4-manual-interventions-to-assemble-the-gcloud--raspeberrypi-infra)
 
-### developer notes are found [here](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#5-shell-scripts-and-4-manual-interventions-to-assemble-the-gcloud--raspeberrypi-infra)
+### developer notes are found [here](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/developer.md#developer-notes)
