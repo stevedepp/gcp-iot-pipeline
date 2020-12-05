@@ -508,22 +508,18 @@ Notes:
         - [x] Timezone  
 
 
-- [x]     *[note: this is another point, prior to the next ```ssh pi@raspberrypi.local```, where one could copy the ```key.json``` to the raspberrypi via   ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.]*
+- [x] note: this is another point, prior to the next ```ssh pi@raspberrypi.local```, where one could copy the ```key.json``` to the raspberrypi via ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi``` and avoid use of the ```gs://iot-analytics-depp``` bucket.
 
-- [x]         *[note: the bucket is not essential but allows for the raspberry pi set up to come AFTER the laptop setup; were the latop set up AFTER then the pubsub key could be transfered to the pi via secure copy:
-    ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi```*
+- [x] note: the bucket is not essential but allows for the raspberry pi set up to come AFTER the laptop setup; were the latop set up AFTER then the pubsub key could be transfered to the pi via secure copy:
+    ```scp ~/$PROJECT/key.json pi@raspberrypi.local:/home/pi```
 
-- [x] 
-        *[note: the auth-key.json is not used in this configuration, but was attempted as a way to avoid window pop ups in the set up of the raspberrypi's gcloud environment].*
+- [x] note: the auth-key.json is not used in this configuration, but was attempted as a way to avoid window pop ups in the set up of the raspberrypi's gcloud environment].*
 
 - [x] did not use this code because did not establish auth key usage
-
-
 
     ```gcloud iam service-accounts keys create ~/$PROJECT/auth-key.json --iam-account $PROJECT@appspot.gserviceaccount.com```
     ```gsutil cp ~/$PROJECT/auth-key.json gs://iot-analytics-depp```
     ```gcloud iam service-accounts keys list --iam-account $PROJECT@appspot.gserviceaccount.com```
-
 
     ```export A=$(gcloud iam service-accounts keys list --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com | awk 'NR==3{print $1}')```
     ```until [ -z "$A" ];```
@@ -533,7 +529,6 @@ Notes:
     ```export A=$(gcloud iam service-accounts keys list --iam-account iot-weather-publisher@$PROJECT.iam.gserviceaccount.com | awk 'NR==3{print $1}')```
     ```done```
 
-
     ```export A=$(gcloud iam service-accounts keys list --iam-account $PROJECT@appspot.gserviceaccount.com | awk 'NR==3{print $1}')```
     ```until [ -z "$A" ];```
     ```do```
@@ -542,6 +537,4 @@ Notes:
     ```export A=$(gcloud iam service-accounts keys list --iam-account $PROJECT@appspot.gserviceaccount.com | awk 'NR==3{print $1}')```
     ```done```
 
-```gcloud iam service-accounts keys list --iam-account $PROJECT@appspot.gserviceaccount.com```
-
-
+    ```gcloud iam service-accounts keys list --iam-account $PROJECT@appspot.gserviceaccount.com```
