@@ -17,7 +17,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 ## architecture diagram:
 
-todo item
+<img width="452" alt="Google Cloud Platform" src="https://user-images.githubusercontent.com/38410965/101238537-eccd0280-36ae-11eb-8ff9-478f6fa6b809.png">
 
 #### project:
 sa key —> bucket
