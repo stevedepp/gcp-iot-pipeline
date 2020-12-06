@@ -25,15 +25,17 @@ assumes available raspberrypi + SD card + sensor et al [(listed in the full manu
 
 #### project:
 
-	svc account key —> bucket 
-					--> python @ raspberry —> pubsub —> cloudfunction —> bq dataset.table
-	temp & humidity —> sensor 
+	service account key —> bucket 
+					-> python @ raspberry —> pubsub —> cloudfunction —> bq dataset.table
+	temp press humidity —> sensor 
 
-#### msds434deppfp:
+#### test434depp:
 
-	iot-weather-publisher key.json —> iot-analytics-depp
-			 --> iot-data-pipeline-depp.py
-	weather —> bmp280 —> --> iot-weather-publisher w key.json —> weatherdata —> main.py —> weatherData.weatherDataTable —> weatherDataTable-schema
+	pub-key.json —> iot-analytics-depp
+				 		--> iot-data-pipeline-depp.py --> iot-weather-publisher ...
+	bmp280 —> rpi —> weatherdata 
+	
+	... iot-weather-publisher —> main.py —> weatherData.weatherDataTable —> weatherDataTable-schema
 
 ### full manual construction of infrastructure is found [here](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#step-by-step-manual-construction) 
 
