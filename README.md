@@ -25,9 +25,9 @@ assumes available raspberrypi + SD card + sensor et al [(listed in the full manu
 
 #### project:
 
-	sa w key —> bucket —> 
-											-->	python @ rpi 
-	weather —> sensor —> rpi —> pubsub —> cloudfunction —> bq dataset.table
+	svc a/c —> bucket 
+				--> python @ rpi —> pubsub —> cloudfunction —> bq dataset.table
+	weather —> sensor 
 
 #### msds434deppfp:
 iot-weather-publisher key.json —> iot-analytics-depp
