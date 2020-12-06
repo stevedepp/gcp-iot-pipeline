@@ -17,6 +17,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
     `mkdir folder_name`  
     `cd folder_name`  
     `git clone https://github.com/stevedepp/gcp-iot-pipeline.git && cd gcp-iot-pipeline`
+    `export PROJECT_ID=your_project_id`
     
 - [x] from this laptop terminal session, from the `/my_folder/gcp-iot-pipeline/` directory, execute the folloing shell command **and be sure to include a project_name as argument**:
 
