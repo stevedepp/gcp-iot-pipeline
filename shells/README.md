@@ -20,7 +20,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
     
 - [x] from this laptop terminal session, from the `/my_folder/gcp-iot-pipeline/` directory, execute the folloing shell command **and be sure to include a project_name as argument**:
 
-    `./shells/1_gcp_setup_PROJECT.sh *project_name*`
+    `./shells/1_gcp_setup_PROJECT.sh $PROJECT_ID`
 
 #
 
@@ -166,7 +166,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 - [x] execute the folloing shell command.  this `4_test_sensor_gcloud_install_setup_dependencies_run_PROJECT.sh` shell command **needs a project id** as shown here:
 
-    `./shells/4_test_sensor_gcloud_install_setup_dependencies_run_PROJECT.sh project_id`
+    `./shells/4_test_sensor_gcloud_install_setup_dependencies_run_PROJECT.sh $PROJECT_ID`
 
 #
 
@@ -203,7 +203,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 - [x] to unwind all the actions taken so far and remove resource usage on google cloud platform, execute the following shell command from same laptop terminal session: from the `/my_folder/gcp-iot-pipeline/` directory, run this command **replacing `my_project` with your project id**.  
 
-    `./shells/5_teardown_PROJECT.sh my_project_id`
+    `./shells/5_teardown_PROJECT.sh $PROJECT_ID`
  
 #### shell script 5: ./shells/5_teardown_PROJECT.sh
 
