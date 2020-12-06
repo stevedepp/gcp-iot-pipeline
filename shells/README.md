@@ -194,7 +194,6 @@ Building a Serverless Data Pipeline : IoT to BigQuery
     pip3 install adafruit-circuitpython-bmp280
     mkdir -p ~/credentials
     gsutil cp gs://iot-analytics-depp/pub-key.json ~/credentials/
-    echo 'exporting an environment variable representing path to pub-key.json which is referenced in execution of "credentials = GoogleCredentials.get_application_default()" found in "iot-data-pipeline.py"'
     export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/credentials/pub-key.json
     python3 iot-data-pipeline.py $PROJECT
 
