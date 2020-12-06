@@ -31,12 +31,10 @@ assumes available raspberrypi + SD card + sensor et al [(listed in the full manu
 
 #### test434depp:
 
-	pub-key.json —> iot-analytics-depp
-				 		--> iot-data-pipeline-depp.py --> iot-weather-publisher ...
-	bmp280 —> rpi —> weatherdata  
+	pub-key —> iot-analytics
+				 -> iot-data-pipeline —> weatherdata —> main.py —> weatherData.weatherDataTable
+	bmp280 —> rpi    
 	
-	... iot-weather-publisher —> main.py —> weatherData.weatherDataTable —> weatherDataTable-schema
-
 ### full manual construction of infrastructure is found [here](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#step-by-step-manual-construction) 
 
 ### full command-line construction of infra is found [here](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#5-shell-scripts-and-4-manual-interventions-to-assemble-the-gcloud--raspeberrypi-infra)
