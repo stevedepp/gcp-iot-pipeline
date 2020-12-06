@@ -80,12 +80,12 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 #### shell script 2: ./shells/2_sd_card_wifi.sh
 
-    `#!/bin/bash`
-    `ls /Volumes/boot`
-    `cp ./rpi/ssh /Volumes/boot`
-    `cp ./rpi/wpa_supplicant.conf /Volumes/boot`
-    `ls /Volumes/boot`
-    `nano /Volumes/boot/wpa_supplicant.conf`
+    #!/bin/bash
+    ls /Volumes/boot
+    cp ./rpi/ssh /Volumes/boot
+    cp ./rpi/wpa_supplicant.conf /Volumes/boot
+    ls /Volumes/boot
+    nano /Volumes/boot/wpa_supplicant.conf
 
 #
 
@@ -140,15 +140,15 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 #### shell script 3: ./shells/3_update_sd_os.sh
 
-    `#!/bin/bash`
-    `sudo apt-get update`
-    `sudo apt-get upgrade`
-    `sudo apt-get install i2c-tools libi2c-dev python-smbus`
-    `sudo grep -qxF i2c-dev /etc/modules || echo i2c-dev | sudo tee -a /etc/modules`
-    `sudo sed -i "s/#dtparam=i2c_arm=on/dtparam=i2c_arm=on/g" /boot/config.txt`
-    `sudo cp /usr/share/zoneinfo/US/Eastern /etc/localtime`
-    `python3 -m venv .venv`  <-- experiment 
-    `sudo reboot`
+    #!/bin/bash
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get install i2c-tools libi2c-dev python-smbus
+    sudo grep -qxF i2c-dev /etc/modules || echo i2c-dev | sudo tee -a /etc/modules
+    sudo sed -i "s/#dtparam=i2c_arm=on/dtparam=i2c_arm=on/g" /boot/config.txt
+    sudo cp /usr/share/zoneinfo/US/Eastern /etc/localtime
+    python3 -m venv .venv
+    sudo reboot
 
 #
 
