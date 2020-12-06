@@ -225,3 +225,5 @@ Building a Serverless Data Pipeline : IoT to BigQuery
     bq ls -a
     gcloud functions list
     gcloud services list
+
+[developer](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/developer.md#developer-notes)
