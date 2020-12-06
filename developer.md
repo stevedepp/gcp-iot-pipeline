@@ -93,4 +93,4 @@ Building a Serverless Data Pipeline : IoT to BigQuery
  
 
 
-[quickstart](https://github.com/stevedepp/gcp-iot-pipeline#quickstart)
+[quickstart](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/README.md#quickstart)
