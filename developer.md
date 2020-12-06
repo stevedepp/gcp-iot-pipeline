@@ -39,6 +39,8 @@ Building a Serverless Data Pipeline : IoT to BigQuery
     ```bq ls --format=pretty mydataset```
 - [x] CLT logging via echo
 - [ ] CLT display data in flask page
+- [ ] linting of the above CLT elements if executed in python
+- [ ] CICD via github actions / circleci
 - [x] teardown PROJECT
 - [x] teardown doesnt yet remove bucket from cloud function
 - [ ] CICD tool  
