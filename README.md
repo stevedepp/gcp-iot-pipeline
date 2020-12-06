@@ -33,7 +33,7 @@ assumes available raspberrypi + SD card + sensor et al [(listed in the full manu
 
 	pub-key.json —> iot-analytics-depp
 				 		--> iot-data-pipeline-depp.py --> iot-weather-publisher ...
-	bmp280 —> rpi —> weatherdata 
+	bmp280 —> rpi —> weatherdata  
 	
 	... iot-weather-publisher —> main.py —> weatherData.weatherDataTable —> weatherDataTable-schema
 
