@@ -20,7 +20,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
     
 - [x] from this laptop terminal session, from the `/my_folder/gcp-iot-pipeline/` directory, execute the folloing shell command **and be sure to include a project_name as argument**:
 
-    `./shells/1_gcp_setup_PROJECT.sh project_name`
+    `./shells/1_gcp_setup_PROJECT.sh *project_name*`
 
 #
 
