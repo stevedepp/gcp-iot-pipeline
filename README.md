@@ -29,7 +29,7 @@ assumes available raspberrypi + SD card + sensor et al [(listed in the full manu
 					-> python @ raspberry —> pubsub —> cloudfunction —> bq dataset.table
 	temp press humidity —> sensor 
 
-#### test434depp:
+#### test456depp:
 
 	pub-key —> iot-analytics
 				 -> iot-data-pipeline.py —> weatherdata —> main.py —> weatherData.weatherDataTable
