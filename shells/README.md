@@ -163,11 +163,9 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
     `cd gcp-iot-pipeline && source .venv/bin/activate`
     
-- [x] export an environment variable carrying your project_id so you don't forget in the next step
+- [x] export an environment variable carrying your project_id so you don't forget in the next step. (project ids are often  but not always the same as project name.)
 
     `export PROJECT_ID=your_project_id`
-
-- [x] have your project id handy because the remaining shell commands require a project id.  (project ids are often  but not always the same as project name.)
 
 - [x] execute the folloing shell command.  this `4_test_sensor_gcloud_install_setup_dependencies_run_PROJECT.sh` shell command **needs a project id** as shown here:
 
