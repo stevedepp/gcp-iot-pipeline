@@ -32,8 +32,8 @@ assumes available raspberrypi + SD card + sensor et al [(listed in the full manu
 #### test434depp:
 
 	pub-key —> iot-analytics
-				 -> iot-data-pipeline —> weatherdata —> main.py —> weatherData.weatherDataTable
-	bmp280 —> rpi    
+				 -> iot-data-pipeline.py —> weatherdata —> main.py —> weatherData.weatherDataTable
+	bmp280 —> raspberry pi    
 	
 ### full manual construction of infrastructure is found [here](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#step-by-step-manual-construction) 
 
