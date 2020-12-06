@@ -26,7 +26,7 @@ assumes available raspberrypi + SD card + sensor et al [(listed in the full manu
 #### project:
 
 	svc a/c —> bucket 
-				--> python @ rpi —> pubsub —> cloudfunction —> bq dataset.table
+			--> python @ rpi —> pubsub —> cloudfunction —> bq dataset.table
 	weather —> sensor 
 
 #### msds434deppfp:
