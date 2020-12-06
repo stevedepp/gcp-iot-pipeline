@@ -17,6 +17,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
     `mkdir folder_name`  
     `cd folder_name`  
     `git clone https://github.com/stevedepp/gcp-iot-pipeline.git && cd gcp-iot-pipeline`
+    `export PROJECT_ID=your_project_id`
     
 - [x] from this laptop terminal session, from the `/my_folder/gcp-iot-pipeline/` directory, execute the folloing shell command **and be sure to include a project_name as argument**:
 
@@ -161,6 +162,10 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 - [x] change to the `gcp-iot-pipeline` directory and source the virtual environment created in the last line of the last shell script.
 
     `cd gcp-iot-pipeline && source .venv/bin/activate`
+    
+- [x] export an environment variable carrying your project_id so you don't forget in the next step
+
+    `export PROJECT_ID=your_project_id`
 
 - [x] have your project id handy because the remaining shell commands require a project id.  (project ids are often  but not always the same as project name.)
 
