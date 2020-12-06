@@ -37,6 +37,6 @@ assumes available raspberrypi + SD card + sensor et al [(listed in the full manu
 	
 ### full manual construction of infrastructure is found [here](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#step-by-step-manual-construction) 
 
-### full command-line construction of infra is found [here](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#5-shell-scripts-and-4-manual-interventions-to-assemble-the-gcloud--raspeberrypi-infra)
+### full command-line construction of infra is found [here](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#5-shell-scripts-and-4-manual-steps-to-assemble-the-gcloud--raspeberrypi-infra)
 
 ### developer notes are found [here](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/developer.md#developer-notes)
