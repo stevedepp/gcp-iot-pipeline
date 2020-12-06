@@ -26,15 +26,15 @@ sensorZipCode = 18938
 sensorLat = 40.364342
 sensorLong = -74.951492
 
-# location's pressure (hPa) at sea level as baseline for altitude sensors
-sensor.sea_level_pressure = 1013.25
-
 # interval for weather sensor reading
 SEND_INTERVAL = 60 #seconds
 
 # create library object using Bus I2C port
 i2c = busio.I2C(board.SCL, board.SDA)
 sensor = adafruit_bmp280.Adafruit_BMP280_I2C(i2c)
+
+# location's pressure (hPa) at sea level as baseline for altitude sensors
+sensor.sea_level_pressure = 1013.25
 
 def read_sensor(weathersensor):
     tempF = weathersensor.temperature

@@ -1,32 +1,34 @@
-I1205 00:17:17.430567 4587212288 bigquery_client.py:1144] Requesting discovery document from https://www.googleapis.com/discovery/v1/apis/bigquery/v2/rest
-I1205 00:17:17.583390 4587212288 model.py:111] --request-start--
-I1205 00:17:17.583515 4587212288 model.py:112] -headers-start-
-I1205 00:17:17.583578 4587212288 model.py:114] accept: application/json
-I1205 00:17:17.583633 4587212288 model.py:114] accept-encoding: gzip, deflate
-I1205 00:17:17.583685 4587212288 model.py:114] user-agent: google-api-python-client/1.7.10 (gzip)
-I1205 00:17:17.583736 4587212288 model.py:115] -headers-end-
-I1205 00:17:17.583786 4587212288 model.py:116] -path-parameters-start-
-I1205 00:17:17.583835 4587212288 model.py:118] projectId: test456depp
-I1205 00:17:17.583886 4587212288 model.py:119] -path-parameters-end-
-I1205 00:17:17.583935 4587212288 model.py:120] body: None
-I1205 00:17:17.584035 4587212288 model.py:121] query: ?all=true&alt=json
-I1205 00:17:17.584088 4587212288 model.py:122] --request-end--
-I1205 00:17:17.584191 4587212288 discovery.py:868] URL being requested: GET https://bigquery.googleapis.com/bigquery/v2/projects/test456depp/datasets?all=true&alt=json
-I1205 00:17:17.867900 4587212288 model.py:182] --response-start--
-I1205 00:17:17.868101 4587212288 model.py:184] etag: 1B2M2Y8AsgTpgAmY7PhCfg==
-I1205 00:17:17.868208 4587212288 model.py:184] content-type: application/json; charset=UTF-8
-I1205 00:17:17.868301 4587212288 model.py:184] vary: Origin, X-Origin, Referer
-I1205 00:17:17.868386 4587212288 model.py:184] date: Sat, 05 Dec 2020 05:17:17 GMT
-I1205 00:17:17.868471 4587212288 model.py:184] server: ESF
-I1205 00:17:17.868552 4587212288 model.py:184] cache-control: private
-I1205 00:17:17.868634 4587212288 model.py:184] x-xss-protection: 0
-I1205 00:17:17.868716 4587212288 model.py:184] x-frame-options: SAMEORIGIN
-I1205 00:17:17.868798 4587212288 model.py:184] x-content-type-options: nosniff
-I1205 00:17:17.868879 4587212288 model.py:184] alt-svc: h3-29=":443"; ma=2592000,h3-T051=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
-I1205 00:17:17.868972 4587212288 model.py:184] transfer-encoding: chunked
-I1205 00:17:17.869056 4587212288 model.py:184] status: 200
-I1205 00:17:17.869148 4587212288 model.py:184] content-length: 75
-I1205 00:17:17.869212 4587212288 model.py:184] -content-encoding: gzip
-I1205 00:17:17.869277 4587212288 model.py:184] content-location: https://bigquery.googleapis.com/bigquery/v2/projects/test456depp/datasets?all=true&alt=json
-I1205 00:17:17.869343 4587212288 model.py:186] b'{\n  "kind": "bigquery#datasetList",\n  "etag": "1B2M2Y8AsgTpgAmY7PhCfg=="\n}\n'
-I1205 00:17:17.869410 4587212288 model.py:187] --response-end--
+I1206 12:43:08.275124 4661534208 bigquery_client.py:1144] Requesting discovery document from https://www.googleapis.com/discovery/v1/apis/bigquery/v2/rest
+I1206 12:43:08.433745 4661534208 model.py:111] --request-start--
+I1206 12:43:08.433863 4661534208 model.py:112] -headers-start-
+I1206 12:43:08.433918 4661534208 model.py:114] accept: application/json
+I1206 12:43:08.433966 4661534208 model.py:114] accept-encoding: gzip, deflate
+I1206 12:43:08.434010 4661534208 model.py:114] user-agent: google-api-python-client/1.7.10 (gzip)
+I1206 12:43:08.434051 4661534208 model.py:115] -headers-end-
+I1206 12:43:08.434092 4661534208 model.py:116] -path-parameters-start-
+I1206 12:43:08.434134 4661534208 model.py:118] projectId: test456depp
+I1206 12:43:08.434175 4661534208 model.py:118] datasetId: weatherData
+I1206 12:43:08.434216 4661534208 model.py:118] tableId: weatherDataTable
+I1206 12:43:08.434257 4661534208 model.py:119] -path-parameters-end-
+I1206 12:43:08.434298 4661534208 model.py:120] body: None
+I1206 12:43:08.434386 4661534208 model.py:121] query: ?alt=json
+I1206 12:43:08.434429 4661534208 model.py:122] --request-end--
+I1206 12:43:08.434550 4661534208 discovery.py:868] URL being requested: GET https://bigquery.googleapis.com/bigquery/v2/projects/test456depp/datasets/weatherData/tables/weatherDataTable?alt=json
+I1206 12:43:08.748077 4661534208 model.py:182] --response-start--
+I1206 12:43:08.748259 4661534208 model.py:184] etag: kni8E4BF3VCJH74hQfZ95g==
+I1206 12:43:08.748355 4661534208 model.py:184] content-type: application/json; charset=UTF-8
+I1206 12:43:08.748439 4661534208 model.py:184] vary: Origin, X-Origin, Referer
+I1206 12:43:08.748517 4661534208 model.py:184] date: Sun, 06 Dec 2020 17:43:08 GMT
+I1206 12:43:08.748601 4661534208 model.py:184] server: ESF
+I1206 12:43:08.748677 4661534208 model.py:184] cache-control: private
+I1206 12:43:08.748751 4661534208 model.py:184] x-xss-protection: 0
+I1206 12:43:08.748826 4661534208 model.py:184] x-frame-options: SAMEORIGIN
+I1206 12:43:08.748900 4661534208 model.py:184] x-content-type-options: nosniff
+I1206 12:43:08.748973 4661534208 model.py:184] alt-svc: h3-29=":443"; ma=2592000,h3-T051=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+I1206 12:43:08.749081 4661534208 model.py:184] transfer-encoding: chunked
+I1206 12:43:08.749141 4661534208 model.py:184] status: 200
+I1206 12:43:08.749200 4661534208 model.py:184] content-length: 1968
+I1206 12:43:08.749258 4661534208 model.py:184] -content-encoding: gzip
+I1206 12:43:08.749317 4661534208 model.py:184] content-location: https://bigquery.googleapis.com/bigquery/v2/projects/test456depp/datasets/weatherData/tables/weatherDataTable?alt=json
+I1206 12:43:08.749377 4661534208 model.py:186] b'{\n  "kind": "bigquery#table",\n  "etag": "kni8E4BF3VCJH74hQfZ95g==",\n  "id": "test456depp:weatherData.weatherDataTable",\n  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/test456depp/datasets/weatherData/tables/weatherDataTable",\n  "tableReference": {\n    "projectId": "test456depp",\n    "datasetId": "weatherData",\n    "tableId": "weatherDataTable"\n  },\n  "description": "contains received IoT weather data",\n  "schema": {\n    "fields": [\n      {\n        "name": "sensorID",\n        "type": "STRING",\n        "mode": "NULLABLE",\n        "description": "IoT sensor id"\n      },\n      {\n        "name": "timecollected",\n        "type": "TIMESTAMP",\n        "mode": "NULLABLE",\n        "description": "unsure which zone used"\n      },\n      {\n        "name": "zipcode",\n        "type": "INTEGER",\n        "mode": "NULLABLE",\n        "description": "location of assigned US Post Office"\n      },\n      {\n        "name": "latitude",\n        "type": "FLOAT",\n        "mode": "NULLABLE",\n        "description": "location NS"\n      },\n      {\n        "name": "longitude",\n        "type": "FLOAT",\n        "mode": "NULLABLE",\n        "description": "location EW"\n      },\n      {\n        "name": "temperature",\n        "type": "FLOAT",\n        "mode": "NULLABLE",\n        "description": "degrees C"\n      },\n      {\n        "name": "humidity",\n        "type": "FLOAT",\n        "mode": "NULLABLE",\n        "description": ""\n      },\n      {\n        "name": "dewpoint",\n        "type": "FLOAT",\n        "mode": "NULLABLE",\n        "description": "temperature at which airborne water vapor condenses to form liquid water"\n      },\n      {\n        "name": "pressure",\n        "type": "FLOAT",\n        "mode": "NULLABLE",\n        "description": "barometric pressure"\n      }\n    ]\n  },\n  "numBytes": "0",\n  "numLongTermBytes": "0",\n  "numRows": "0",\n  "creationTime": "1607276586331",\n  "lastModifiedTime": "1607276586446",\n  "type": "TABLE",\n  "location": "US"\n}\n'
+I1206 12:43:08.749485 4661534208 model.py:187] --response-end--

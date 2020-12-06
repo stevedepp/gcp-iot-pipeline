@@ -8,7 +8,7 @@ sudo i2cdetect -y 1
 
 echo 'working on project: '$PROJECT
 
-echo 'exporting an environment variable to match the gcloud sdk version with raspberrypi os.
+echo 'exporting an environment variable to match the gcloud sdk version with raspberrypi os.'
 
 export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
 
