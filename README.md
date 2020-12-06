@@ -23,7 +23,7 @@ assumes available raspberrypi + SD card + sensor et al [(listed in the full manu
 
 ![image](https://user-images.githubusercontent.com/38410965/101238673-b80d7b00-36af-11eb-9917-05abd428979d.png)
 
-#### project:
+#### $PROJECT:
 
 	service account key —> bucket 
 					-> python @ raspberry —> pubsub —> cloudfunction —> bq dataset.table
