@@ -19,7 +19,7 @@ assumes available raspberrypi + SD card + sensor et al [(listed in the full manu
 - [x] [`./shells/5_teardown_PROJECT.sh my_project_id`](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/shells/README.md#shell-script-5-shells5_teardown_projectsh)
 
 
-## architecture diagram:
+### architecture diagram:
 
 ![image](https://user-images.githubusercontent.com/38410965/101238673-b80d7b00-36af-11eb-9917-05abd428979d.png)
 
