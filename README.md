@@ -11,6 +11,8 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 (please click on the video below to hear sound)
 ![demo](https://user-images.githubusercontent.com/38410965/111925052-9d53ec00-8a7d-11eb-86d4-567082491bd4.mp4)
 
+#
+
 ### quickstart:  
 assumes available raspberrypi + SD card + sensor et al [(listed in the full manual infrastructure construction instructions)](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/manual.md#1-hardware) 
 
