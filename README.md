@@ -7,7 +7,7 @@ Building a Serverless Data Pipeline : IoT to BigQuery
 
 #
 
-### demo video  
+### demo video:  
 (please click on the video below to hear sound)
 ![demo](https://user-images.githubusercontent.com/38410965/111924908-17d03c00-8a7d-11eb-9e60-a04cc1120e28.mp4)
 
