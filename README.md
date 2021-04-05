@@ -1,5 +1,4 @@
-# gcp-iot-pipeline
-Building a Serverless Data Pipeline : IoT to BigQuery
+## Building a Serverless Data Pipeline : IoT to BigQuery
 
 ![IMG_1014](https://user-images.githubusercontent.com/38410965/101260684-6260bf00-36ff-11eb-96c0-d0b78de487cd.jpg)
 
