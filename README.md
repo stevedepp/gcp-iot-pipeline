@@ -8,14 +8,10 @@
 
 ### demo video:  
 
-Please click on the video below to hear sound or read the transcript [here](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/demo_transcript.md).  
-
+Please click on the video below to unmute the sound or read the transcript [here](https://github.com/stevedepp/gcp-iot-pipeline/blob/main/demo_transcript.md).  
 
 <video src="https://user-images.githubusercontent.com/38410965/111925052-9d53ec00-8a7d-11eb-86d4-567082491bd4.mp4" autoplay controls loop muted style="max-width;">
 </video>
-
-
-![demo](https://user-images.githubusercontent.com/38410965/111925052-9d53ec00-8a7d-11eb-86d4-567082491bd4.mp4)
 
 #
 
